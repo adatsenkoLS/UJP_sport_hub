@@ -18,7 +18,7 @@
 
 ## 2. Create database user
 
-  - `sudo -u postgres psql`
+  - `sudo -u postgres psql` for Linux or `psql postgres` for Mac
   - `create role sporthub with password 'password' LOGIN CREATEDB;`
   - `\q`
 
