@@ -31,6 +31,12 @@ services:
     ports:
       - 3035:3035
 
+  maildev:
+    image: djfarrelly/maildev
+    command: bash -c maildev -w 1080 -s 1025 -v
+    ports:
+      - 1080:1080
+
   db: &db_base
     image: postgres:13
     volumes:
