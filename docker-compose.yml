@@ -23,7 +23,6 @@ services:
     tty: true
 
   webpacker:
-    build: .
     image: sporthub_ujp_app:latest
     command: bash -c "rm -rf public/packs && ./bin/webpack-dev-server"
     volumes:
