@@ -16,10 +16,8 @@ ActiveRecord::Schema.define(version: 2021_09_14_170725) do
   enable_extension "plpgsql"
 
   create_table "news", force: :cascade do |t|
-    t.text "first_column", default: "val", null: false
+    t.text "first_column"
     t.integer "second_column"
-    t.bigint "table_2_id"
-    t.index ["table_2_id"], name: "index_news_on_table_2_id"
   end
 
   create_table "users", force: :cascade do |t|
