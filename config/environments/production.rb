@@ -5,6 +5,12 @@ Rails.application.configure do
 
   # Code is not reloaded between requests.
 
+  # That is what I added. Delete if doesn't work (line 8-12)
+  config.assets.precompile += %w['.svg']
+
+  # Must include to get inline SVGs to work in deploy
+  config.assets.css_compressor = :sass
+
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
   # and those relying on copy on write to perform better.

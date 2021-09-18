@@ -1,24 +1,40 @@
 <%# Admin Side navbar %>
   <nav class="nav">
     <div class="nav-item-1">
-      <h1 class="logo">Sports Hub</h1>
+      <h1 class="logo"> <%= link_to "Sport hub", root_path, :style => "color:white; text-decoration:none", :class=>"link-text" %></h1>
     </div>
     <div class="nav-item-2">
-      <input type="text" class="input-search" />
+      <input type="text" class="input-search" placeholder = "Search by"/>
     </div>
     <div class="nav-item-3">
       <ul class="nav-item-list">
         <li class="share">Share</li>
-        <li class="facebook"></li>
-        <li class="twitter"></li>
-        <li class="google-plus"></li>
+        <li class="facebook">
+          <%= show_svg("/share-icons/facebook.svg") %>
+        </li>
+        <li class="twitter">
+          <%= show_svg("/share-icons/twitter.svg") %>
+        </li>
+        <li class="google-plus">
+          <%= show_svg("/share-icons/google-plus.svg") %>
+        </li>
       </ul>
     </div>
     <div class="nav-item-4">
       <ul class="nav-item-list">
-        <li class="btn">Sign up</li>
-        <li class="btn">Log in</li>
-        <li class="lang-drop">EN</li>
+        <li class="btn btn-outline "><%= link_to "Sign up", "/users/sign_up", :style=>"color:red; text-decoration:none", :class=>"link-text" %></li>
+        <li class="btn"><%= link_to "Log in", "/users/sign_in", :style=>"color:red; text-decoration:none", :class=>"link-text" %></li>
+        <li>
+          <div class="lang-dropdown">
+            <button class = "drop-btn">EN
+            </button>
+              <div class="dropdown-content">
+                <div>UKR</div>
+                <div>GER</div>
+                <div>RUS</div>
+              </div>
+          </div>
+        </li>
       </ul>
     </div>
   </nav>
