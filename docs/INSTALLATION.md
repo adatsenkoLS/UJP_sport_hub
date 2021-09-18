@@ -38,3 +38,10 @@
 ## 6. Startup rails
   
   - `rails server`
+
+
+# Run with Docker
+
+- `docker-compose build --no-cache`
+- `docker-compose run web yarn install`
+- `docker-compose run web rake db:create db:migrate`
