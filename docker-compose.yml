@@ -1,0 +1,46 @@
+version: "3.9"
+services:
+  web: &web_base
+    build: .
+    image: sporthub_ujp_app:latests
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    environment:
+      POSTGRES_USERNAME: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_HOST: db
+      POSTGRES_PORT: 5432
+      WEBPACKER_DEV_SERVER_HOST: webpacker
+      WEBPACKER_DEV_SERVER_PORT: 3037
+      WEBPACKER_DEV_SERVER_PUBLIC: webpacker:3037
+    volumes:
+      - .:/home/sporthub/app:default
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+      - webpacker
+    stdin_open: true
+    tty: true
+
+  webpacker:
+    image: sporthub_ujp_app:latest
+    command: bash -c "rm -rf public/packs && ./bin/webpack-dev-server"
+    volumes:
+      - .:/home/sporthub/app:default
+    ports:
+      - 3035:3035
+
+  maildev:
+    image: djfarrelly/maildev
+    command: bash -c maildev -w 1080 -s 1025 -v
+    ports:
+      - 1080:1080
+
+  db: &db_base
+    image: postgres:13
+    volumes:
+      - ./.docker/postgres:/var/lib/postgresql/data:delegated
+    environment:
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5433:5432"
