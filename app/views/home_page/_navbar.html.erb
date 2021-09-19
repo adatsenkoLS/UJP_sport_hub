@@ -24,16 +24,17 @@
       <ul class="nav-item-list">
         <li class="btn btn-outline "><%= link_to "Sign up", "/users/sign_up", :style=>"color:red; text-decoration:none", :class=>"link-text" %></li>
         <li class="btn"><%= link_to "Log in", "/users/sign_in", :style=>"color:red; text-decoration:none", :class=>"link-text" %></li>
-        <li>
-          <div class="lang-dropdown">
+        <li class="lang-dropdown">
+          
             <button class = "drop-btn">EN
+              <i><%= show_svg("/share-icons/dropdown-icon.svg")%></i>
             </button>
               <div class="dropdown-content">
                 <div>UKR</div>
                 <div>GER</div>
                 <div>RUS</div>
               </div>
-          </div>
+         
         </li>
       </ul>
     </div>
