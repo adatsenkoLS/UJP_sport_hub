@@ -44,4 +44,4 @@
 
 - `docker-compose build --no-cache`
 - `docker-compose run web yarn install`
-- `docker-compose run web rake db:create db:migrate`
+- `docker-compose run web rake db:create db:migrate db:seed`

@@ -1,3 +1,5 @@
+
+
 FROM ruby:3.0.0
 
 RUN apt-get update -qq && apt-get install -y build-essential postgresql-client
@@ -8,12 +10,12 @@ RUN curl -sL https://deb.nodesource.com/setup_14.x | bash - && \
 
 RUN groupadd -g 1001 sporthub
 RUN useradd  -g 1001 -l -m -s /bin/bash -u 1001 sporthub
-USER sporthub
+USER root
 ENV APP_HOME /home/sporthub/app
 RUN mkdir $APP_HOME
 WORKDIR $APP_HOME
 
-COPY --chown=sporthub:sporthub . $APP_HOME
+COPY . $APP_HOME
 
 RUN gem install bundler
 RUN bundle install
