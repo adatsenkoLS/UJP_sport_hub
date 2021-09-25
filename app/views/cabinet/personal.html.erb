@@ -1,0 +1,14 @@
+ <form>
+  <img src="<% @avatar %>" alt="NotSpecified"><br>
+
+  <label for="fname">FIRST NAME</label><br>
+  <input type="text" id="fname" name="fname" value=<%= @first_name ? @first_name : "NotSpecified"%>><br>
+
+  <label for="lname">LAST NAME</label><br>
+  <input type="text" id="lname" name="lname" value=<%= @last_name ? @last_name : "NotSpecified"%>><br>
+
+  <label for="email">EMAIL:</label><br>
+  <input type="text" id="email" name="email" value=<%= @email ? @email : "NotSpecified"%>><br>
+
+  <button type="button" id="update_button">UPDATE PROFILE</button>
+</form> 
