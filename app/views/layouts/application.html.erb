@@ -10,7 +10,11 @@
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
   </head>
   <body>
-    <%= render 'shared/navbar' %>
+   <%= render 'home_page/navbar' %>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+   
+
     <%= yield %>
   </body>
 </html>

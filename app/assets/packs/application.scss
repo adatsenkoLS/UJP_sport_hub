@@ -2,6 +2,13 @@
 
 @import "../stylesheets/colors";
 
+@import "../stylesheets/navbar";
+
 // Components
 
-@import "../stylesheets/components/navbar";
+// @import "../stylesheets/components/navbar";
+
+
+body {
+  font-family: 'Open Sans';
+}

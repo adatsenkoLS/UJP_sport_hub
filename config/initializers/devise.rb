@@ -14,6 +14,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
+
   # config.secret_key = 'c1964f836800967627cad39c2323ba342769acfc56a712eb2e908f9be3b40a6db289bf8d5675b6a9295b4499436288f6606c91ab028fdb15bc35532ebc61a94d'
 
   # ==> Controller configuration
@@ -126,7 +127,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 12
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = 'bc9b51a04d9b3a61d55da336aeb0bae8d461c48e33c4b88bc16916e45e8551729dc5c9902bf6e4de65259d7b0eaab691daa7db123da676b81c7d8be27821cbee'
+  # config.pepper = 'ae9c85587ac5264ef0026d2f7ae3815fdd79f465fd8815338c5b990a63711c8ef46de13e27de91bb94d09a3c08e4216b3370462fd310b480822014ad76db8635'
 
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false
@@ -244,7 +245,7 @@ Devise.setup do |config|
   # Turn scoped views on. Before rendering "sessions/new", it will first check for
   # "users/sessions/new". It's turned off by default because it's slower if you
   # are using only default views.
-  # config.scoped_views = false
+  config.scoped_views = true
 
   # Configure the default scope given to Warden. By default it's the first
   # devise role declared in your routes (usually :user).
@@ -266,7 +267,8 @@ Devise.setup do |config|
   # config.navigational_formats = ['*/*', :html]
 
   # The default HTTP method used to sign out a resource. Default is :delete.
-  config.sign_out_via = :delete
+  # The thing I need
+  config.sign_out_via = :get
 
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
