@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  root 'home_page#home
+  root 'home_page#home'
 
   get 'cabinet/personal', to: 'cabinet#personal'
   get 'cabinet/password', to: 'cabinet#password'
