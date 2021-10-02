@@ -1,16 +1,20 @@
- <link rel="stylesheet" href="././personal.scss">
- <form>
-  <img src="<% @avatar %>" alt="NotSpecified"><br>
+<%= render "shared" %>
 
-  <label for="fname">FIRST NAME</label><br>
-  <input type="text" id="fname" name="fname" value=<%= @first_name ? @first_name : "NotSpecified"%>><br>
+ <%= image_tag "cabinet/light.webp", class: "profile_image rounded mx-auto d-block" %>
 
-  <label for="lname">LAST NAME</label><br>
-  <input type="text" id="lname" name="lname" value=<%= @last_name ? @last_name : "NotSpecified"%>><br>
+<%= form_with method: :get do |form| %>
 
-  <label for="email">EMAIL:</label><br>
-  <input type="text" id="email" name="email" value=<%= @email ? @email : "NotSpecified"%>><br>
 
-  <button type="button" id="update_button">UPDATE PROFILE</button>
+  <%= form.label :first_name, "FIRST NAME" %>
+  <%= form.text_field :first_name, class:"personal_field", maxlength: 40, placeholder: "Enter your first name here", required: "true" %>
 
-</form> 
+  <%= form.label :last_name, "LAST NAME" %>
+  <%= form.text_field :last_name, class: "personal_field", maxlength: 40, placeholder: "Enter your last name here", required: "true" %>
+
+  <%= form.label :email, "EMAIL" %>
+  <%= form.email_field :email, class: "personal_field", maxlength: 40, required: "true" %>
+
+  <%= form.submit "UPDATE PROFILE", class: "form_submit" %>
+  
+<% end %>
+  

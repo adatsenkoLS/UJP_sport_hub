@@ -1,0 +1,45 @@
+form {
+   //margin-left:auto;
+   //margin-right:auto;
+   width: 100px;
+}
+
+.personal_field {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    color: #000000;
+    border: 1px solid #D4D9E2;
+    //box-sizing: border-box;
+    width: 400px;
+    height: 42px;
+    margin: 20px 0px;
+}
+
+.nav-item {
+    font-weight: bold;
+    width: 250px;
+    text-align: center;
+}
+
+.form_submit {
+    min-height: 25px;
+    top: 1px;
+    cursor: pointer;
+    font: bold 13px Arial;
+    background: rgb(220, 0, 65) none repeat scroll 0% 0%;
+    color: white;
+    text-transform: uppercase;
+    display: block;
+    padding: 10px 16px;
+    margin: 20px 5px 10px;
+    border: 1px solid rgb(255, 0, 104);
+    border-radius: 2px;
+    width: 400px;
+}
+
+.profile_image {
+    margin: 20px;
+}
