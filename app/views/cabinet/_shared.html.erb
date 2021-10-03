@@ -1,4 +1,4 @@
-<ul class="nav justify-content-center">
+<ul class="nav justify-content-center" id="cabinet-nav">
   <li class="nav-item">
     <a class="nav-link link-dark list-group-item" href="/cabinet/personal">Personal</a>
   </li>
@@ -12,3 +12,17 @@
     <a class="nav-link link-dark list-group-item" href="/cabinet/teamhub">Team hub</a>
   </li>
 </ul>
+
+<script>
+let header = document.getElementByd("cabinet-nav");
+let tabs = header.getElementsByClassName("list-group-item");
+for (let i = 0; i < tabs.length; i++) {
+  tabs[i].addEventListener("click", function() {
+  let current = document.getElementsByClassName("active_link");
+  if (current.length > 0) { 
+    current[0].className = current[0].className.replace(" active", "");
+  }
+  this.className.toggle("active");
+  });
+}
+</script>

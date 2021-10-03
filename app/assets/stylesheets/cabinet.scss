@@ -1,10 +1,10 @@
 form {
-   //margin-left:auto;
-   //margin-right:auto;
+   margin-left:auto;
+   margin-right:auto;
    width: 100px;
 }
 
-.personal_field {
+.cabinet_field {
     font-family: Roboto;
     font-style: normal;
     font-weight: normal;
@@ -12,10 +12,10 @@ form {
     line-height: 19px;
     color: #000000;
     border: 1px solid #D4D9E2;
-    //box-sizing: border-box;
+    box-sizing: border-box;
     width: 400px;
     height: 42px;
-    margin: 20px 0px;
+    text-indent: 10px;
 }
 
 .nav-item {
@@ -25,21 +25,65 @@ form {
 }
 
 .form_submit {
-    min-height: 25px;
-    top: 1px;
-    cursor: pointer;
-    font: bold 13px Arial;
-    background: rgb(220, 0, 65) none repeat scroll 0% 0%;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 19px;
+    color: #FFFFFF;
+    background: #D72130;    
     color: white;
-    text-transform: uppercase;
     display: block;
-    padding: 10px 16px;
-    margin: 20px 5px 10px;
-    border: 1px solid rgb(255, 0, 104);
-    border-radius: 2px;
     width: 400px;
+    height: 42px;
 }
 
-.profile_image {
+img {
     margin: 20px;
+    display: block;
+    max-width: 100%;
+    height: 120px;
+    width: 120px;   
+  }
+
+.cabinet_field_label {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 11px;
+    letter-spacing: 0.9px;
+    text-transform: uppercase;
+    color: #000000;
+    width: 200px;
+    height: 11px;
+  }
+
+.field_with_label_1 {
+      margin: 20px 0px;
+  }
+
+#form_change_password {
+      margin: 100px 0px 0px 0px;
+  }
+
+::placeholder {
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 16px;    
+    color: #C6CCD7;
+  }
+
+.active_link, .list-group-item:hover {
+    color: red;
+    border-style: none;
+    box-shadow: 4px 4px 8px 2px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    transform: scale(1.1);
+}
+
+.password_visibility {
+    display: inline;
 }

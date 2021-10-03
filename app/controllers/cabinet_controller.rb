@@ -9,7 +9,13 @@ class CabinetController < ApplicationController
 =end
     end
 
+    def update
+    end
+
     def password
+    end
+
+    def change
     end
 
     def surveys

@@ -1,20 +1,28 @@
 <%= render "shared" %>
 
- <%= image_tag "cabinet/light.webp", class: "profile_image rounded mx-auto d-block" %>
+<%= image_tag "cabinet/light.webp", class: "profile_image rounded-circle mx-auto d-block" %>
 
-<%= form_with method: :get do |form| %>
+<div class="form-1 col-10 col-md-8 col-lg-10">
 
+  <%= form_with method: :put do |form| %>
 
-  <%= form.label :first_name, "FIRST NAME" %>
-  <%= form.text_field :first_name, class:"personal_field", maxlength: 40, placeholder: "Enter your first name here", required: "true" %>
+    <div class="field_with_label_1">
+      <%= form.label :first_name, "FIRST NAME", class: "cabinet_field_label" %>
+      <%= form.text_field :first_name, class:"cabinet_field", maxlength: 40, placeholder: "Enter your first name here", required: "true" %>
+    </div>
 
-  <%= form.label :last_name, "LAST NAME" %>
-  <%= form.text_field :last_name, class: "personal_field", maxlength: 40, placeholder: "Enter your last name here", required: "true" %>
+    <div class="field_with_label_1">
+      <%= form.label :last_name, "LAST NAME", class: "cabinet_field_label" %>
+      <%= form.text_field :last_name, class: "cabinet_field", maxlength: 40, placeholder: "Enter your last name here", required: "true" %>
+    </div>
 
-  <%= form.label :email, "EMAIL" %>
-  <%= form.email_field :email, class: "personal_field", maxlength: 40, required: "true" %>
+    <div class="field_with_label_1">
+      <%= form.label :email, "EMAIL", class: "cabinet_field_label" %>
+      <%= form.email_field :email, class: "cabinet_field", maxlength: 40, required: "true" %>
+    </div>
 
-  <%= form.submit "UPDATE PROFILE", class: "form_submit" %>
+    <%= form.submit "UPDATE PROFILE", class: "form_submit" %>
   
-<% end %>
+  <% end %>
+</div>
   

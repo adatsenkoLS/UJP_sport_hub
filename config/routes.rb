@@ -7,5 +7,7 @@ Rails.application.routes.draw do
   get 'cabinet/password', to: 'cabinet#password'
   get 'cabinet/surveys', to: 'cabinet#surveys'
   get 'cabinet/teamhub', to: 'cabinet#teamhub'
+  put 'cabinet/personal', to: 'cabinet#update'
+  put 'cabinet/password', to: 'cabinet#change'
 
 end
