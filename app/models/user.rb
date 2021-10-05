@@ -8,4 +8,8 @@
   def name
     [first_name, last_name].join(' ')
   end
+
+  validates :first_name, :last_name, :email, presence: true
+
+  validates :password, confirmation: true
 end

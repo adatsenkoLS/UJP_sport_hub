@@ -1,7 +1,7 @@
 form {
-   margin-left:auto;
-   margin-right:auto;
-   width: 100px;
+  margin-left:auto;
+  margin-right:auto;
+  width: 100px;
 }
 
 .cabinet_field {
@@ -59,13 +59,10 @@ img {
     height: 11px;
   }
 
-.field_with_label_1 {
-      margin: 20px 0px;
-  }
-
-#form_change_password {
-      margin: 100px 0px 0px 0px;
-  }
+.form-group {
+    margin: 20px 0px;
+    width: 400px;
+}
 
 ::placeholder {
     font-family: Open Sans;
@@ -84,6 +81,10 @@ img {
     transform: scale(1.1);
 }
 
-.password_visibility {
-    display: inline;
+.form_change_password {
+  margin: 100px 0px 0px 0px;
+}
+
+.bi {
+  cursor: pointer;
 }

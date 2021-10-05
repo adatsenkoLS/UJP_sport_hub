@@ -1,28 +1,32 @@
 <ul class="nav justify-content-center" id="cabinet-nav">
   <li class="nav-item">
-    <a class="nav-link link-dark list-group-item" href="/cabinet/personal">Personal</a>
+    <a class="nav-link link-dark list-group-item personal" href="/cabinet/personal">Personal</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link link-dark list-group-item" href="/cabinet/password">Change password</a>
+    <a class="nav-link link-dark list-group-item password" href="/cabinet/password">Change password</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link link-dark list-group-item" href="/cabinet/surveys">My surveys</a>
+    <a class="nav-link link-dark list-group-item surveys" href="/cabinet/surveys">My surveys</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link link-dark list-group-item" href="/cabinet/teamhub">Team hub</a>
+    <a class="nav-link link-dark list-group-item hub" href="/cabinet/teamhub">Team hub</a>
   </li>
 </ul>
 
+
 <script>
-let header = document.getElementByd("cabinet-nav");
-let tabs = header.getElementsByClassName("list-group-item");
+let tabs = document.getElementsByClassName("list-group-item");
 for (let i = 0; i < tabs.length; i++) {
   tabs[i].addEventListener("click", function() {
+  console.log(tabs[i]);
   let current = document.getElementsByClassName("active_link");
+  console.log(current);
   if (current.length > 0) { 
-    current[0].className = current[0].className.replace(" active", "");
+    current[0].className = current[0].className.replace(" active_link", "");
   }
-  this.className.toggle("active");
+  this.classList.toggle("active_link")
+  console.log(tabs[i]);
+  console.log(current);
   });
 }
 </script>
