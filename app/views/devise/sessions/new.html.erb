@@ -1,26 +1,55 @@
-<h2>Log in</h2>
+<div class="left-section"> 
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= image_tag("for-login/photo-login-page.png") %>
+    <h2 class="sport-hub-login-page">Sports Hub</h2>  
+</div>
+
+
+<nav class="nav-bar-login-page">                
+            <ul class="nav-bar-ul-login-page">
+                <li class="li-nav-bar-link-login-page"><a href="" id = "nav-bar-link-1">Don’t have an account?</a></li>
+                <li class="li-nav-bar-link-login-page"><a href="" id = "nav-bar-link-2">Get Started</a></li>
+            </ul>           
+</nav>  
+
+<div class="right-section">
+
+
+ <h2 class="log-in-text">Log in to Sports Hub</h2>
+    
+  <ul class="Login-with">
+      <li><a href="" id ="icon-login-with-fasebook">f</a></li>  
+      <li><a href="" id="icon-login-with-google">G</a></li>            
+ </ul>   
+
+<%= form_for(resource, as: resource_name,:class=>"form-login", url: session_path(resource_name)) do |f| %>
+  
+  
+  <div class="form-group">
+    <span class="login-text">Email address</span>
+     <br>                   
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" ,placeholder: "Email@gmail.com",  :class=>"input-login"%>
   </div>
+   
+  <div class="form-group">
+  
+   <span class="login-text">Password</span>
+    <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations'%>
+  <%= link_to "Forgot password?", new_password_path(resource_name) ,:class=>"forgot-password" %>
+  
+  <br />
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
   <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
+    
+    <%= f.password_field :password, autocomplete: "current-password", placeholder: "8 + characters (letters and numbers)",:class=>"input-login" %>
   </div>
+
+  <%= f.submit "Log in" ,:class=>"login-buton"%>
+  
 <% end %>
 
-<%= render "devise/shared/links" %>
+
+</div>
+
+
+
