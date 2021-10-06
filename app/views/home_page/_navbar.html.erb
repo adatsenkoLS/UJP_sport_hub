@@ -1,0 +1,70 @@
+<%# User Side navbar %>
+  <nav class="nav">
+    <div class = "nav-item-1">
+      <h1 class =" logo"> <%= link_to "Sport hub", root_path, :style => "color:white; text-decoration:none"%></h1>
+    </div>
+    <div class="nav-item-2">
+      <ul class="nav-item-list">
+        <li>
+          <%= show_svg("/search-icons/search-icon.svg")%>
+        </li>
+        <li style = "width:100%">
+          <input type="text" class="input-search" placeholder = "Search by"/>
+        </li>
+      </ul>
+    </div>
+    <div class="nav-item-3">
+      <ul class="nav-item-list">
+        <li class="share">Share</li>
+        <li class="facebook">
+          <%= show_svg("/share-icons/facebook.svg") %>
+        </li>
+        <li class="twitter">
+          <%= show_svg("/share-icons/twitter.svg") %>
+        </li>
+        <li class="google-plus">
+          <%= show_svg("/share-icons/google-plus.svg") %>
+        </li>
+      </ul>
+    </div>
+    <div class="nav-item-4">
+      <ul class="nav-item-list">
+        <%if(!user_signed_in?)%>
+          <li class="btn  "><%= link_to "Sign up", "/users/sign_up", :style=>"color:red; text-decoration:none"%></li>
+          <li class="btn btn-outline"><%= link_to "Log in", "/users/sign_in", :style=>"color:red; text-decoration:none"%></li>
+        <%else%>
+        <li class = "nav-user-avatar">
+        <img />
+        <div class = "dropdown">
+          <button class = "drop-btn"><%= "#{current_user.first_name} #{current_user.last_name}"%>
+              <i><%= show_svg("/share-icons/dropdown-icon.svg")%></i>
+          </button>
+              <div class="dropdown-content">
+                <div class = "dropdown-field survey" style = "height: fit-content">
+                  <span> <%= "#{current_user.first_name} #{current_user.last_name}"%> </span>
+                  <span><%= current_user.email%><span>
+                </div>
+                <div class = "dropdown-field survey">View profile</div>
+                <div class = "dropdown-field survey">Change password</div>
+                <div class = "dropdown-field survey">My surveys</div>
+                <div class = "dropdown-field survey">Team hub</div>
+                <div class = "dropdown-field survey" style = "border-top: 1px solid; border-color: rgba(237, 237, 237, 1)"> <%= link_to 'Log out', destroy_user_session_path, :class=>"link-text-in-dropdown"%></div>
+              </div>
+        </div>
+        </li>
+        <%end%>
+        <li class="dropdown">
+            <button class = "drop-btn">EN
+              <i><%= show_svg("/share-icons/dropdown-icon.svg")%></i>
+            </button>
+              <div class="dropdown-content">
+                <div class="dropdown-field">UKR</div>
+                <div class="dropdown-field">GER</div>
+                <div class="dropdown-field">RUS</div>
+              </div>
+         
+        </li>
+      </ul>
+    </div>
+  </nav>
+
