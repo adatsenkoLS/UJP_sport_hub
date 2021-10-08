@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sporthub</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
+  </head>
+  <body>
+    
+
+<div class="left-section"> 
+
+    <%= image_tag("for-login/photo-login-page.png") %>
+    <h2 class="sport-hub-login-page">Sports Hub</h2>  
+</div>
+
+
+<nav class="nav-bar-login-page">                
+            <ul class="nav-bar-ul-login-page">
+                <li class="li-nav-bar-link-login-page"><a href="" id = "nav-bar-link-1">Don’t have an account?</a></li>
+                <li class="li-nav-bar-link-login-page"><a href="" id = "nav-bar-link-2">Get Started</a></li>
+            </ul>           
+</nav>  
+<div class="right-section">
+
+<%= yield %>
+</div>
+
+
+   <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    
+  </body>
+</html>
