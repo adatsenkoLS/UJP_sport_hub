@@ -19,15 +19,13 @@
   </div>
    
   <div class="form-group">
-  
-   <span class="login-text">Password</span>
-    <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations'%>
-  <%= link_to "Forgot password?", new_password_path(resource_name) ,:class=>"forgot-password" %>
-  
-  <br />
 
-  <% end %>
-    
+   
+
+   <span class="login-text">Password</span>
+  <%= link_to "Forgot password?", new_password_path(resource_name) ,:class=>"forgot-password" %> <br />
+  
+   
     <%= f.password_field :password, autocomplete: "current-password", placeholder: "8 + characters (letters and numbers)",:class=>"input-login" %>
   </div>
 

@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
-class Sessions::UnlocksController < Devise::UnlocksController
-  
-  layout "Login_Layout"
+class Sessions::Password::UnlocksController < Devise::UnlocksController
   # GET /resource/unlock/new
   # def new
   #   super

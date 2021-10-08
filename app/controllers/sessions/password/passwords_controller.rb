@@ -1,13 +1,10 @@
 # frozen_string_literal: true
 
-class Sessions::PasswordsController < Devise::PasswordsController
-  
-  layout "Login_Layout"
-  
- 
-   def new
-   super
-  end
+class Sessions::Password::PasswordsController < Devise::PasswordsController
+  # GET /resource/password/new
+  # def new
+  #   super
+  # end
 
   # POST /resource/password
   # def create
