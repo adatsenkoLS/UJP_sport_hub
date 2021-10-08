@@ -1,3 +1,4 @@
+@import "./colors.scss";
 .sign-up-in-body {
   position: relative;
   display: flex;
@@ -21,7 +22,7 @@
   position: absolute;
   top: 0;
   .btn-to-root {
-    background-color: rgba(215, 33, 48, 1);
+    background-color: $red-main;
     width: 268px;
     height: 83px;
     display: flex;
