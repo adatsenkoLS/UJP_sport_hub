@@ -10,12 +10,14 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:first_name, :last_name, :email, :password) }
   end
 
-  def set_locale
-    I18n.locale = extract_locale || I18n.default_locale
+  def default_url_options
+    { locale: I18n.locale }
   end
 
-  def extract_locale
-    return :en
-    cookies[:locale]&.to_sym
+  def set_locale
+    cookies.permanent[:locale] = params[:locale] if params[:locale].present?
+
+    locale = cookies[:locale]&.to_sym
+    I18n.locale = locale if I18n.available_locales.include?(locale)
   end
 end
