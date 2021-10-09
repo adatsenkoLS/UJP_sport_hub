@@ -18,12 +18,13 @@
 
     font-family: 'Roboto', sans-serif;
     font-style: normal; 
-    font-weight: 400;
+    font-weight: 700;
     font-size: 12px;
     line-height: 10px;
 
     letter-spacing: 0.9px;
     text-transform: uppercase;
+    border: none;
 
 }
 
@@ -145,12 +146,13 @@
     font-weight: 600;
     font-size: 12px;
     line-height: 16px;
-    
     color: #C6CCD7;
     padding-left: 16px ;
-    opacity: 40%;
     padding-top: 8px;
 }
+
+
+
 
 .login-text{
     margin-top: 19px;
@@ -198,4 +200,29 @@
 .Login-with li{
     list-style: none;
     margin-right: 12px;     
+}
+
+
+
+.enterEmail{
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 19px;
+    color: #596377;
+}
+
+
+.backToLogin{
+    font-family: 'Open Sans';
+    text-decoration: none;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 16px;
+    color: #000000;
+    display: flex;
+
+    justify-content: center;
 }

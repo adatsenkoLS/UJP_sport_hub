@@ -1,12 +1,15 @@
 # frozen_string_literal: true
 
-class Sessions::Password::SessionsController < Devise::SessionsController
+class User::SessionsController < Devise::SessionsController
+  
+  layout "Login_Layout"
+  
   # before_action :configure_sign_in_params, only: [:create]
 
-  # GET /resource/sign_in
-  # def new
-  #   super
-  # end
+  
+  def new
+    super
+  end
 
   # POST /resource/sign_in
   # def create
