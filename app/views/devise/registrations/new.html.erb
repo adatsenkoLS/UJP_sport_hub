@@ -37,7 +37,7 @@
     <div class="field">
       <%= f.label :password%>
       <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length%> <%= t "registration_page.fields.password_minimum_characters"%>)</em>
+      <em>(<%= t("registration_page.fields.password_minimum_characters", count: @minimum_password_length)%>)</em>
       <% end %><br />
       <%= f.password_field :password, autocomplete: "new-password" ,:class=>"input-field long"%>
     </div>

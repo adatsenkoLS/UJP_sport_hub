@@ -62,11 +62,17 @@ ua:
       not_locked: "не був заблоковний"
       not_saved:
         one: "1 помилка заборонила цей %{resource} бути збереженим:"
+        two: "%{count} помилки заборинили цей %{resource} бути збереженим:"
         other: "%{count} помилок заборинили цей %{resource} бути збереженим:"
   registration_page:
     create_account: "Створити акаунт"
     fields:
-      password_minimum_characters: "знаків мінімум"
+      password_minimum_characters:
+        one: "%{count} знак мінімум"
+        two: "%{count} знаки мінімум"
+        three: "%{count} знаки мінімум"
+        four: "%{count} знаки мінімум"
+        other: "%{count} знаків мінімум"
     buttons_and_links:
       already_have_an_account: "Вже маєте акаунт?"
       sign_up: "Зареєструватися"
