@@ -11,5 +11,8 @@
 
   validates :first_name, :last_name, :email, presence: true
 
-  validates :password, confirmation: true
+  validates :encrypted_password, :confirmation => true,
+                       :length => {:within => 6..40},
+                       :allow_blank => true,
+                       :on => :change
 end

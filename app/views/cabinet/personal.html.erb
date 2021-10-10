@@ -4,7 +4,7 @@
 
 <div class="form-1 col-10 col-md-8 col-lg-10" >
 
-  <%= form_with method: :put do |form| %>
+  <%= form_with model: @user, method: :put do |form| %>
 
     <div class="form-group">
       <%= form.label :first_name, "FIRST NAME", class: "cabinet_field_label" %>
@@ -20,7 +20,7 @@
 
     <div class="form-group">
       <%= form.label :email, "EMAIL", class: "cabinet_field_label" %>
-      <%= form.email_field :email, class: "cabinet_field", maxlength: 40, required: "true",
+      <%= form.email_field :email, class: "cabinet_field", maxlength: 40, placeholder: "Enter your email here", required: "true",
       value: current_user ? current_user.email : "" %>
     </div>
 
