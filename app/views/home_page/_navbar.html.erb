@@ -44,10 +44,18 @@
                   <span> <%= "#{current_user.first_name} #{current_user.last_name}"%> </span>
                   <span><%= current_user.email%><span>
                 </div>
-                <div class = "dropdown-field survey">View profile</div>
-                <div class = "dropdown-field survey">Change password</div>
-                <div class = "dropdown-field survey">My surveys</div>
-                <div class = "dropdown-field survey">Team hub</div>
+                <div class = "dropdown-field survey">
+                  <%= link_to "View Profile", "/cabinet/personal", class: "index-link"%>
+                </div>
+                <div class = "dropdown-field survey">
+                  <%= link_to "Change Password", "/cabinet/password", class: "index-link" %>
+                </div>
+                <div class = "dropdown-field survey">
+                  <%= link_to "My Surveys", "/cabinet/surveys", class: "index-link" %>
+                </div>
+                <div class = "dropdown-field survey">
+                  <%= link_to "Teamhub", "/cabinet/teamhub", class: "index-link" %>
+                </div>
                 <div class = "dropdown-field survey" style = "border-top: 1px solid; border-color: rgba(237, 237, 237, 1)"> <%= link_to 'Log out', destroy_user_session_path, :class=>"link-text-in-dropdown"%></div>
               </div>
         </div>
