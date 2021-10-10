@@ -1,0 +1,36 @@
+<aside>
+    <nav>
+        <div class="sport_hub_logo">
+            <a class="a_sport_hub" href="">Sports Hub</a>
+        </div>
+    </nav>
+</aside>
+
+<div class="log_menu">
+    <nav>
+        <ul class="flex_menu">
+            <li class="btn1">
+                <a class="a_no_acc" href="">Don’t have an account?</a>
+            </li>
+            <li class="btn2">
+                <a class="a_get_started" href="">Get Started</a>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+<div class="main">
+    <h1 class="h_log">Forgot your password?</h1>
+    <p class="p_forgot">Enter your email address below and we’ll get you back on track.</p>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+      <div class="field">
+        <%= f.label "email address", class:"h_email_log" %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"input_email", placeholder:"Email@gmail.com" %>
+      </div>
+      <div class="actions">
+        <%= f.submit "request reset link", class:"btn_forgot_pass" %>
+      </div>
+    <% end %>
+    <a href="/users/sign_in" class="p_back_log_in">Back to Log In</p>
+</div>

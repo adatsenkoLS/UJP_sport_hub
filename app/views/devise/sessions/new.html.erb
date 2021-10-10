@@ -1,0 +1,54 @@
+<aside>
+    <nav>
+        <div class="sport_hub_logo">
+            <a class="a_sport_hub" href="">Sports Hub</a>
+        </div>
+    </nav>
+</aside>
+
+<div class="log_menu">
+    <nav>
+        <ul class="flex_menu">
+            <li class="btn1">
+                <a class="a_no_acc" href="">Don’t have an account?</a>
+            </li>
+            <li class="btn2">
+                <a class="a_get_started" href="">Get Started</a>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+<div class="main">
+    <h1 class="h_log">Log in to Sports Hub</h1>
+    <div class="log_nav">
+        <nav>
+            <ul class="flex_btns">
+                <li class="facebook_nav">
+                    <a href=""><%= image_tag "FB.png" %></a>
+                </li>
+                <li class="google_nav">
+                    <a class="a_gmail" href=""><%= image_tag "Gmail.png" %></a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="field">
+        <%= f.label "email address", class:"h_email_log" %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"input_email", placeholder:"Email@gmail.com" %>
+      </div>
+      <div class="field">
+        <div class="flex_pass">
+          <%= f.label :password, class:"h_email_log" %>
+          <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+            <%= link_to "Forgot password?", new_password_path(resource_name), class:"a_forgot_pass" %><br />
+          <% end %>
+        </div>
+        <%= f.password_field :password, autocomplete: "current-password", class:"input_email", placeholder:"8 + characters (letters and numbers)" %>
+      </div>
+      <div class="actions">
+        <%= f.submit "Log in", class:"btn_log_in" %>
+      </div>
+    <% end %>
+</div>

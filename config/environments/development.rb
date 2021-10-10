@@ -1,6 +1,19 @@
 require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.smtp_settings = { :address => "localhost", :port => '3000' }
+  config.action_mailer.default_url_options = {:host => "localhost", :port => '3000'}
+  ActionMailer::Base.smtp_settings = {
+    :user_name => 'apikey', # This is the string literal 'apikey', NOT the ID of your API key
+    :password => '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', # This is the secret sendgrid API key which was issued during API key creation
+    :domain => 'sporthub.com',
+    :address => 'smtp.sendgrid.net',
+    :port => 587,
+    :authentication => :plain,
+    :enable_starttls_auto => true
+  }
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded any time
