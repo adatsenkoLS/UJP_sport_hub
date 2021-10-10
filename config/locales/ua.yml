@@ -68,6 +68,7 @@ ua:
     create_account: "Створити акаунт"
     or_use_email: "Або використайте електронну пошту для реєстрації"
     fields:
+    
       password_minimum_characters:
         one: "%{count} знак мінімум"
         two: "%{count} знаки мінімум"

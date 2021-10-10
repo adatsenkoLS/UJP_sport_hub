@@ -33,10 +33,9 @@
   left: 0;
   position: absolute;
   top: 0;
-  z-index: 2;
   .btn-to-root {
     background-color: $red-main;
-    width: 268px;
+    width: 253px;
     height: 83px;
     display: flex;
 
@@ -57,27 +56,13 @@
   }
 }
 
-.register-image {
-  width: 100%;
-  height: 100%;
-}
-
-.register-forms-container {
-  width: 59%;
-  height: 100%;
-  margin: 0 130px;
-  display: flex;
-  padding-top: 40px;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
 .first-last-names-fields {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+}
+
+.first-last-names-fields input {
+  width: 178px;
 }
 
 .input-field.short {
@@ -93,7 +78,7 @@
 }
 
 .field {
-  margin-top: 36px;
+  margin-top: 19px;
 }
 
 .field.firstname {
@@ -120,7 +105,14 @@
   color: $white;
   border: none;
 }
-.logo-style {
-  color: white;
-  text-decoration: none;
+
+.register-forms-container {
+  width: 59%;
+  height: 100%;
+  margin: 0 130px;
+  display: flex;
+  padding-top: 40px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
