@@ -1,19 +1,5 @@
-<div class = "sign-up-in-body">
-  <div class="register-navbar">
-    <div class = "btn-to-root">
-      <h1 class ="logo"> <%= link_to "Sport hub", root_path, :style => "color:white; text-decoration:none"%></h1>
-    </div>
-    <div class = "already-have-an-acc">
-        <span class = "text"><%= t 'registration_page.buttons_and_links.already_have_an_account'%></span>
-        <div class="btn btn-outline"><%= link_to "#{t "registration_page.buttons_and_links.log_in"}", "/users/sign_in", :style=>"color:red; text-decoration:none"%></div>
-      </div>
-    </div>
-  <div class = "register-image-container">
-    <%= image_tag("for-register-images/main-register-image.png", :class=>"register-image")%>
-  </div>
 
-  <div class = "register-forms-container">
-    
+  
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <h2 class = "register-header"><% t "registration_page.create_account"%></h2>
     <%= render "devise/shared/error_messages", resource: resource %>
@@ -42,17 +28,12 @@
       <%= f.password_field :password, autocomplete: "new-password" ,:class=>"input-field long"%>
     </div>
 
-    <div class="field">
-     <%= f.label :password_confirmation%><br />
-     <%= f.password_field :password_confirmation, autocomplete: "new-password",:class=>"input-field long" %>
-    </div>
-
     <div class="actions register-confirm-btn">
     <%= f.submit t "registration_page.buttons_and_links.sign_up" %>
     </div>
     <% end %>
-    <%= render "devise/shared/links" %>
-  </div>
-</div>
+  
+
+
 
 
