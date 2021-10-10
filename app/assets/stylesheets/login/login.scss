@@ -146,7 +146,6 @@
     font-weight: 600;
     font-size: 12px;
     line-height: 16px;
-    color: #C6CCD7;
     padding-left: 16px ;
     padding-top: 8px;
 }
@@ -226,3 +225,15 @@
 
     justify-content: center;
 }
+
+
+
+
+::placeholder {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 16px;
+    color: #C6CCD7;
+  }

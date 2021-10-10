@@ -33,7 +33,7 @@ gem 'devise', '~> 4.8'
 
 # Omniauth
 gem 'omniauth'
-
+gem 'omniauth-facebook'
 group :development, :test do
   gem 'byebug'
   gem 'pry'
