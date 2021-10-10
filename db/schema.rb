@@ -10,10 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_04_164205) do
-
+ActiveRecord::Schema.define(version: 20_211_010_110_131) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+  enable_extension 'plpgsql'
 
   create_table "sessions", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -48,5 +47,4 @@ ActiveRecord::Schema.define(version: 2021_10_04_164205) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end
-
 end
