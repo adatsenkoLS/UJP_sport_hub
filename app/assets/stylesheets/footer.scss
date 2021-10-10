@@ -1,0 +1,29 @@
+.content{
+    min-height: calc(100vh - 70px);
+}
+
+.footer{
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: normal;
+    height: 80px;
+    color: white;
+    background-color: #D72130;;
+}
+.sporthubFooter{
+    font-size: 22px;
+    line-height: 28px;
+    padding-left: 68px;
+}
+.Copyright{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 24px;
+}
+
+.PrivacyTerms{
+    padding-right: 56px;
+    display: block;
+    font-size: 12px;
+    line-height: 16px;
+}
