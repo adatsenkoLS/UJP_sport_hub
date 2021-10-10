@@ -26,9 +26,9 @@
       <% if @minimum_password_length %>
       <%= f.password_field :password, autocomplete: "new-password" ,:class=>"input-login" , :placeholder=>  
       "#{t("registration_page.fields.password_minimum_characters", count: @minimum_password_length)}"%>
-      <% end %><br />
-      
+      <% end %><br />      
     </div>
+
 
     <div class="actions register-confirm-btn">
     <%= f.submit t "registration_page.buttons_and_links.sign_up", :class => "login-buton" %>
