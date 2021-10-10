@@ -2,14 +2,19 @@
 
 @import "../stylesheets/colors";
 
-@import "../stylesheets/navbar";
+@import "../stylesheets/home_page";
 
+<<<<<<< HEAD
 @import "../stylesheets/cabinet";
 // Components
+=======
+@import "../stylesheets/navbar";
+>>>>>>> origin/with_locale
 
-// @import "../stylesheets/components/navbar";
+@import "../stylesheets/register";
 
+// Components
 
 body {
-  font-family: 'Open Sans';
+  font-family: "Open Sans";
 }

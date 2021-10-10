@@ -312,6 +312,7 @@ DEPENDENCIES
   byebug
   database_cleaner
   devise (~> 4.8)
+  i18n (~> 1.8, >= 1.8.10)
   jbuilder (~> 2.7)
   listen (~> 3.3)
   omniauth
