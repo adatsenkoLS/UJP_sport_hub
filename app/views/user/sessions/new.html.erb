@@ -1,0 +1,34 @@
+ 
+
+<%= form_for(resource, as: resource_name,:class=>"form-login", url: session_path(resource_name)) do |f| %>
+   <h2 class="log-in-text">Log in to Sports Hub</h2>
+    
+  <ul class="Login-with">
+      <li><a href="" > <%= image_tag("for-register-images/facebook-register-icon.svg", :class=>"register-image")%></a></li>  
+      <li><a href="" ><%= image_tag("for-register-images/gmail-register-icon.svg", :class=>"register-image")%></a></li>            
+ </ul>  
+
+  <div class="form-group">
+    <span class="login-text">Email address</span>
+     <br>                   
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" ,placeholder: "Email@gmail.com",  :class=>"input-login"%>
+  </div>
+   
+  <div class="form-group">
+
+   <span class="login-text">Password</span>
+  <%= link_to "Forgot password?", new_password_path(resource_name) ,:class=>"forgot-password" %> <br />
+  
+   
+    <%= f.password_field :password, autocomplete: "current-password", placeholder: "8 + characters (letters and numbers)",:class=>"input-login" %>
+  </div>
+
+  <%= f.submit "Log in" ,:class=>"login-buton"%>
+  
+<% end %>
+
+
+
+
+
+

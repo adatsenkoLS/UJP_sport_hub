@@ -30,8 +30,8 @@
     <div class="nav-item-4">
       <ul class="nav-item-list">
         <%if(!user_signed_in?)%>
-          <li class="btn  "><%= link_to "Sign up", "/users/sign_up", :style=>"color:red; text-decoration:none"%></li>
-          <li class="btn btn-outline"><%= link_to "Log in", "/users/sign_in", :style=>"color:red; text-decoration:none"%></li>
+          <li class="btn"><%= link_to "Sign up", "/auth/sign_up", :style=>"color:red; text-decoration:none"%></li>
+          <li class="btn btn-outline"><%= link_to "Log in", "/auth/sign_in", :style=>"color:red; text-decoration:none"%></li>
         <%else%>
         <li class = "nav-user-avatar">
         <img />
@@ -67,10 +67,10 @@
             </button>
               <div class="dropdown-content">
                 <div class="dropdown-field">
-                  <%= link_to "ENG", url_for(locale: :en)%>
+                  <%= link_to "ENG", url_for(locale: :en), :class=>"link-text-in-dropdown"%>
                 </div>
                 <div class="dropdown-field">
-                  <%= link_to "UKR", url_for(locale: :ua)%>
+                  <%= link_to "UKR", url_for(locale: :ua),:class=>"link-text-in-dropdown"%>
                 </div>
                 <div class="dropdown-field">RUS</div>
               </div>

@@ -34,8 +34,12 @@ gem 'devise', '~> 4.8'
 # Omniauth
 gem 'omniauth'
 
+
 # Localization I18n
 gem 'i18n', '~> 1.8', '>= 1.8.10'
+
+
+gem 'omniauth-facebook'
 
 group :development, :test do
   gem 'byebug'

@@ -65,6 +65,11 @@ en:
         other: "%{count} errors prohibited this %{resource} from being saved:"
   registration_page:
     create_account: "Create account"
+<<<<<<< HEAD
+    use_email: "Or use your email for registration:"
+=======
+    or_use_email: "Or use your email for registration"
+>>>>>>> cee8f251b2338e3eb0b434fee563152360030fbb
     fields:
       password_minimum_characters: "characters minimum"
     buttons_and_links:
