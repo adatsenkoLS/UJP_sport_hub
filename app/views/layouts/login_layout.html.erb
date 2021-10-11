@@ -19,8 +19,8 @@
       <h1 class ="logo"> <%= link_to "Sports Hub", root_path, :id => "sport-hub-login-page"%></h1>
     </div>
     <div class = "already-have-an-acc">
-        <span class = "text"><%= t 'registration_page.buttons_and_links.already_have_an_account'%></span>
-        <div class="btn btn-outline"><%= link_to "#{t "registration_page.buttons_and_links.log_in"}", "/auth/sign_in", :style=>"color:red; text-decoration:none" %></div>
+        <span class = "text"><%= t('registration_page.buttons_and_links.already_have_an_account')%></span>
+        <div class="btn btn-outline"><%= link_to t("registration_page.buttons_and_links.log_in"), "/auth/sign_in", :style=>"color:red; text-decoration:none" %></div>
       </div>
     </div>
   <div class = "register-image-container">

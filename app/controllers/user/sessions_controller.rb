@@ -11,6 +11,16 @@ class User::SessionsController < Devise::SessionsController
     super
   end
 
+  def destroy
+    redirect_to post_url(@post)
+  end
+
+  def subscribe_email
+    super
+  end
+
+
+
   # POST /resource/sign_in
   # def create
   #   super
