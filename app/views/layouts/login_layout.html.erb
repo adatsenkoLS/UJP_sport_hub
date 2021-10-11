@@ -12,18 +12,27 @@
   <body>
 
     <div class = "sign-up-in-body">
-  <div class="register-navbar">
-    <div class = "btn-to-root">
-      <h1 class ="logo"> <%= link_to "Sport hub", root_path,:class=>"logo-style"%></h1>
-    </div>
-    <div class = "already-have-an-acc">
-        <span class = "text"><%= t 'registration_page.buttons_and_links.already_have_an_account'%></span>
-        <div class="btn btn-outline"><%= link_to "#{t "registration_page.buttons_and_links.log_in"}", "/auth/sign_in", :style=>"color:red; text-decoration:none"%></div>
+      <div class="register-navbar">
+        <div class = "btn-to-root">
+          <h1 class ="logo"> <%= link_to "Sport hub", root_path,:class=>"logo-style"%></h1>
+          
+        </div>
+        
+        <% if controller_name == "registrations"%>
+          <div class = "already-have-an-acc">
+            <span class = "text"><%= t 'registration_page.buttons_and_links.already_have_an_account'%></span>
+            <div class="btn btn-outline"><%= link_to "#{t("registration_page.buttons_and_links.log_in")}", "/auth/sign_in", :style=>"color:red; text-decoration:none"%></div>
+          </div>
+        <%else%>
+           <div class = "already-have-an-acc">
+            <span class = "text"><%= t 'registration_page.buttons_and_links.dont_have_an_account'%></span>
+            <div class="btn btn-outline"><%= link_to "#{t("registration_page.buttons_and_links.sign_up")}", "/auth/sign_up", :style=>"color:red; text-decoration:none"%></div>
+          </div>
+          <%end%>
       </div>
-    </div>
-  <div class = "register-image-container">
-    <%= image_tag("for-register-images/main-register-image.png", :class=>"register-image")%>
-  </div>
+      <div class = "register-image-container">
+          <%= image_tag("for-register-images/main-register-image.png", :class=>"register-image")%>
+      </div>
 
     <div class = "register-forms-container">
          <%= yield %>
