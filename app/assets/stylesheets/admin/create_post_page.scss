@@ -1,0 +1,229 @@
+html,
+body,
+* {
+  box-sizing: border-box;
+}
+
+body,
+html {
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  &-left-icon-btn,
+  &-btw-header-nav,
+  &-logo,
+  &-left-icons,
+  &-main-content {
+    @extend .container;
+  }
+}
+
+.container-logo {
+  width: 250px;
+  height: 80px;
+  margin-right: auto;
+
+  justify-content: center;
+  align-items: center;
+}
+
+.container-header {
+  nav {
+    display: flex;
+    align-items: center;
+    border-bottom: solid 1px #ededed;
+
+    .container-logo {
+      background-color: #d72130;
+
+      h1 {
+        color: #fffbfb;
+      }
+    }
+  }
+
+  //   you probably don't need this!
+  div:not(.container-logo) {
+    margin-right: 7%;
+    display: flex;
+    align-items: flex-start;
+
+    img:not(:last-of-type) {
+      margin-right: 16px;
+    }
+
+    button {
+      align-self: center;
+      margin-right: 32px;
+    }
+  }
+}
+
+.container-btw-header-nav {
+  align-items: center;
+  border-bottom: 1px solid #d4d9e2;
+
+  button {
+    width: 134px;
+    height: 32px;
+    margin-right: calc(7% + 38px);
+  }
+}
+
+.container-navbar {
+  box-shadow: 0px 5px 6px 0.1px rgba(1, 1, 1, 0.1);
+
+  nav {
+    display: flex;
+    justify-content: flex-start;
+
+    height: calc(34px + 0.875rem);
+
+    .container-opts {
+      display: flex;
+      width: 80%;
+
+      align-items: center;
+      margin-right: auto;
+      justify-content: space-between;
+    }
+
+    .container-left-icon-btn {
+      display: flex;
+      width: 100px;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .icon-arrow-right {
+      margin-right: 40px;
+    }
+
+    .nav-opt {
+      text-transform: uppercase;
+      font-size: 0.875rem;
+      &:not(:last-child) {
+        margin-right: 1%;
+      }
+    }
+  }
+}
+
+.main-page {
+  display: flex;
+
+  .container-left-icons {
+    flex-direction: column;
+    width: 100px;
+    align-items: center;
+
+    border-right: 1px solid #d8d8d8;
+
+    .btn:first-child {
+      margin-top: 50px;
+    }
+
+    .btn {
+      margin-bottom: 40px;
+    }
+  }
+}
+
+.btn {
+  border: none;
+  padding: 0;
+  background-color: #d72130;
+  color: white;
+}
+
+.btn.iconed {
+  position: relative;
+}
+
+.btn.iconed::after {
+  display: block;
+  content: " ";
+  width: 26.82px;
+  height: 30.41px;
+  top: 50%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.btn.iconed.icon-switch-account,
+.btn.iconed.surveys,
+.btn.iconed.banners,
+.btn.iconed.languages,
+.btn.iconed.footer,
+.btn.iconed.social-networks,
+.btn.iconed.users,
+.btn.iconed.ia,
+.btn.iconed.teams,
+.btn.iconed.new-partners,
+.btn.iconed.advertising {
+  background: none;
+}
+
+.btn.iconed.icon-switch-account::after {
+  width: 34px;
+  height: 34px;
+  background-image: url("../public/images/switch-account.svg");
+}
+
+.btn.iconed.icon-arrow {
+  &-left::after,
+  &-right::after {
+    width: 16.11px;
+    height: 12.62px;
+
+    background-image: url("../public/images/arrow-left.svg");
+  }
+
+  &-left,
+  &-right {
+    background: none;
+  }
+
+  //   #C63638
+  &-left:hover::after,
+  &-right:hover::after {
+    background-image: url("../public/images/arrow-left-active.svg");
+  }
+
+  &-right::after {
+    transform: rotate(180deg);
+  }
+}
+
+.btn.iconed.surveys::after {
+  content: url("../public/images/left-menu/Surveys.svg");
+}
+.btn.iconed.banners::after {
+  content: url("../public/images/left-menu/Banners.svg");
+}
+.btn.iconed.languages::after {
+  content: url("../public/images/left-menu/Langueges.svg");
+}
+.btn.iconed.footer::after {
+  content: url("../public/images/left-menu/Footer.svg");
+}
+.btn.iconed.social-networks::after {
+  content: url("../public/images/left-menu/Shares.svg");
+}
+.btn.iconed.users::after {
+  content: url("../public/images/left-menu/My\ users.svg");
+}
+.btn.iconed.ia::after {
+  content: url("../public/images/left-menu/IA.svg");
+}
+.btn.iconed.teams::after {
+  content: url("../public/images/left-menu/teams.svg");
+}
+.btn.iconed.new-partners::after {
+  content: url("../public/images/left-menu/News\ partnerds.svg");
+}
+.btn.iconed.advertising::after {
+  content: url("../public/images/left-menu/Group\ 147.svg");
+}
