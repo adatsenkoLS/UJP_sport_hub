@@ -1,10 +1,9 @@
- 
-
 <%= form_for(resource, as: resource_name,:class=>"form-login", url: session_path(resource_name)) do |f| %>
    <h2 class="log-in-text">Log in to Sports Hub</h2>
     
   <ul class="Login-with">
-      <li><a href="" > <%= image_tag("for-register-images/facebook-register-icon.svg", :class=>"register-image")%></a></li>        
+      <li><a href="" > <%= image_tag("for-register-images/facebook-register-icon.svg", :class=>"register-image")%></a></li>  
+      <li><a href="" ><%= image_tag("for-register-images/gmail-register-icon.svg", :class=>"register-image")%></a></li>            
  </ul>  
 
   <div class="form-group">
@@ -25,9 +24,3 @@
   <%= f.submit "Log in" ,:class=>"login-buton"%>
   
 <% end %>
-
-
-
-
-
-
