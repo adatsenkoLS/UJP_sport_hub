@@ -17,24 +17,15 @@ class CabinetController < ApplicationController
     end
 
     def change
-        current_user = User.new
-        #params[:old_password] == current_user.encrypted_password and 
-        if (params[:password] == params[:password_confirmation])
-            current_user.encrypted_password = params[:password]
-            redirect_back(fallback_location: root_path)
-        end
+        @user = current_user
+        @user.password = params[:password]
+        @user.save
+        redirect_back(fallback_location: root_path)
     end
 
     def surveys
     end
 
     def teamhub
-    end
-
-    def edit
-        @user = current_user
-        @user.encrypted_password = params[:new_password]
-        @user.save
-        redirect_back(fallback_location: root_path)
     end
 end
