@@ -1,0 +1,1 @@
+Rails.application.config.session_store :active_record_store, key: '_devise-omniauth_session', domen: 'https://f0d6-93-171-154-244.ngrok.io'

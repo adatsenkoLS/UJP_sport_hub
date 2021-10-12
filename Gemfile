@@ -32,14 +32,24 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'devise', '~> 4.8'
 
 # Omniauth
+gem 'omniauth-facebook', '~> 2.0.0
+'
+
+gem 'omniauth-google-oauth2'
+
 gem 'omniauth'
+
+gem 'activerecord-session_store'
+
+gem "omniauth-rails_csrf_protection"
+
 
 
 # Localization I18n
 gem 'i18n', '~> 1.8', '>= 1.8.10'
 
 
-gem 'omniauth-facebook'
+
 
 group :development, :test do
   gem 'byebug'
