@@ -1,15 +1,15 @@
 class CabinetController < ApplicationController
-    before_action :logged_in_user, only: [:edit, :update]
+    before_action :authenticate_user!
 
     def personal
     end
 
     def update
-        @user = User.find(params[:id])
+        @user = current_user
         @user.first_name = params[:first_name]
         @user.last_name = params[:last_name]
         @user.email = params[:email]
-
+        @user.save
         redirect_back(fallback_location: root_path)
     end
 
@@ -32,16 +32,9 @@ class CabinetController < ApplicationController
     end
 
     def edit
-        @user = User.find(params[:id])
+        @user = current_user
+        @user.encrypted_password = params[:new_password]
+        @user.save
+        redirect_back(fallback_location: root_path)
     end
-
-
-    private
-
-    def logged_in_user
-        unless logged_in?
-          flash[:danger] = "Please log in."
-          redirect_to login_url
-        end
-      end
 end

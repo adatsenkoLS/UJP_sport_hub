@@ -9,10 +9,16 @@
     [first_name, last_name].join(' ')
   end
 
-  validates :first_name, :last_name, :email, presence: true
+  validates :first_name, presence: {message: "Must be given"}, format: {with: /\A[a-zA-Z]+\z/, message: "Only numbers and letters are allowed" }, 
+    length: {in: 2..40}
 
-  validates :encrypted_password, :confirmation => true,
-                       :length => {:within => 6..40},
-                       :allow_blank => true,
-                       :on => :change
+  validates :last_name, presence: {message: "Must be given"}, format: {with: /\A[a-zA-Z]+\z/, message: "Only numbers and letters are allowed" }, 
+    length: {in: 2..40}
+
+  validates :email, presence: {message: "Must be given"}, format: {with: /\A[a-zA-Z]+\z/, message: "Only numbers and letters are allowed" },
+    length: {in: 2..40}
+     
+  validates :password, presence: true, confirmation: true, format: {with: /\A[a-zA-Z]+\z/, message: "Only numbers and letters are allowed" },
+    length: {in: 8..40}
+
 end
