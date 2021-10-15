@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   devise_for :user,path:'auth', only: :omniauth_callbacks, 
   controllers: { 
   :registrations => 'user/registrations', :sessions => 'user/sessions',  omniauth_callbacks: 'user/omniauth_callbacks' }
@@ -12,20 +11,9 @@ Rails.application.routes.draw do
       omniauth_callbacks: 'user/omniauth_callbacks'
 
     }
-
-
-    
-
   end 
 
   post '/auth/auth/facebook' => 'user/omniauth_callbacks#facebook'
-
-
-  
-     #needed for devise setup phase hook to work
- 
-
-
 
   root 'home_page#home'
 end

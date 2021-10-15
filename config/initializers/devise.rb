@@ -266,7 +266,7 @@ Devise.setup do |config|
   # config.navigational_formats = ['*/*', :html]
 
   # The default HTTP method used to sign out a resource. Default is :delete.
-  config.sign_out_via = :get
+  config.sign_out_via = :delete
 
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
@@ -274,16 +274,14 @@ Devise.setup do |config|
 
   config.omniauth :facebook, Rails.application.credentials.dig(:facebook, :facebook_client_id),
   Rails.application.credentials.dig(:facebook, :facebook_client_secret), scope: 'email',:info_fields => 'name,email', token_params: { parse: :json },
-  callback_url: "https://f0d6-93-171-154-244.ngrok.io/auth/auth/facebook/callback",provider_ignores_state: true
+  callback_url: "https://localhost:3000/auth/auth/facebook/callback",provider_ignores_state: true
 
 
 
   
   config.omniauth :google_oauth2, Rails.application.credentials.dig(:google, :google_client_id),
-  Rails.application.credentials.dig(:google, :google_client_secret), scope: 'userinfo.email,userinfo.profile'
-
-
-  
+  Rails.application.credentials.dig(:google, :google_client_secret), scope: 'userinfo.email,userinfo.profile',
+  callback_url: "https://localhost:3000/auth/auth/google_oauth2/callback",provider_ignores_state: true
 
 
   # ==> Warden configuration
