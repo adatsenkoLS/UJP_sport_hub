@@ -4,6 +4,25 @@ form {
   width: 100px;
 }
 
+.nav-item {
+    font-weight: bold;
+    width: 250px;
+    text-align: center;
+}
+
+.cabinet_field_label {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 11px;
+  letter-spacing: 0.9px;
+  text-transform: uppercase;
+  color: #000000;
+  width: 200px;
+  height: 11px;
+}
+
 .cabinet_field {
     font-family: Roboto;
     font-style: normal;
@@ -18,11 +37,14 @@ form {
     text-indent: 10px;
 }
 
-.nav-item {
-    font-weight: bold;
-    width: 250px;
-    text-align: center;
-}
+.cabinet_field::placeholder {
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 16px;    
+    color: #C6CCD7;
+  }
 
 .form_submit {
     font-family: Open Sans;
@@ -38,7 +60,7 @@ form {
     height: 42px;
 }
 
-img {
+.profile_image {
     margin: 20px;
     display: block;
     max-width: 100%;
@@ -46,32 +68,10 @@ img {
     width: 120px;   
   }
 
-.cabinet_field_label {
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 10px;
-    line-height: 11px;
-    letter-spacing: 0.9px;
-    text-transform: uppercase;
-    color: #000000;
-    width: 200px;
-    height: 11px;
-  }
-
 .form-group {
     margin: 20px 0px;
     width: 400px;
 }
-
-.cabinet_field::placeholder {
-    font-family: Open Sans;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 12px;
-    line-height: 16px;    
-    color: #C6CCD7;
-  }
 
 .active_link, .list-group-item:hover {
     color: red;
@@ -87,8 +87,4 @@ img {
 
 .bi {
   cursor: pointer;
-}
-
-.cabinet_nav {
-  margin-top: 100px;
 }

@@ -33,17 +33,11 @@
           <li class="btn"><%= link_to "Sign up", "/auth/sign_up", :style=>"color:red; text-decoration:none"%></li>
           <li class="btn btn-outline"><%= link_to "Log in", "/auth/sign_in", :style=>"color:red; text-decoration:none"%></li>
         <%else%>
-        <li class = "nav-user-avatar">
-        <img />
         <div class = "dropdown">
           <button class = "drop-btn"><%= "#{current_user.first_name} #{current_user.last_name}"%>
               <i><%= show_svg("/share-icons/dropdown-icon.svg")%></i>
           </button>
               <div class="dropdown-content">
-                <div class = "dropdown-field survey" style = "height: fit-content">
-                  <span> <%= "#{current_user.first_name} #{current_user.last_name}"%> </span>
-                  <span><%= current_user.email%><span>
-                </div>
                 <div class = "dropdown-field survey">
                   <%= link_to "View Profile", "/cabinet/personal", class: "index-link"%>
                 </div>

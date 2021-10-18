@@ -9,13 +9,13 @@
     [first_name, last_name].join(' ')
   end
 
-  validates :first_name, presence: {message: "Must be given"}, format: {with: /\A[a-zA-Z]+\z/, message: "Only numbers and letters are allowed" }, 
+  validates :first_name, presence: {message: "Must be given"}, format: {with: /\A[a-zA-Z]+\z/, message: "Only letters are allowed" }, 
     length: {in: 2..40}
 
-  validates :last_name, presence: {message: "Must be given"}, format: {with: /\A[a-zA-Z]+\z/, message: "Only numbers and letters are allowed" }, 
+  validates :last_name, presence: {message: "Must be given"}, format: {with: /\A[a-zA-Z]+\z/, message: "Only letters are allowed" }, 
     length: {in: 2..40}
 
   validates :email, presence: {message: "Must be given"}, length: {in: 2..40}
-    
 
+  validates :password, presence: true, length: {in: 8..40}
 end
