@@ -10,5 +10,14 @@ Rails.application.routes.draw do
       passwords: 'user/passwords' }
   end
 
+  # scope '(:role)', role: /admin/ do
+  #  resources :atricles
+  # end
+  # scope '(:locale)', locale: /en||ua/ do
+  namespace :users do
+    resources :articles
+  end
+
+  # end
   root 'home_page#home'
 end

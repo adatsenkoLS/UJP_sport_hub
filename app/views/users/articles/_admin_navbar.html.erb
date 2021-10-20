@@ -1,43 +1,13 @@
-<%# User Side navbar %>
-  <nav class="nav">
+<%# User Admin navbar %>
+  <nav class="nav-admin">
   
-    <div class = "nav-item-1">
+    <div class = "nav-item-1-admin">
       <h1 class =" logo"> <%= link_to "Sport hub", root_path, :style => "color:white; text-decoration:none"%></h1>
     </div>
     
-    <div class="nav-item-2">
+    <div class="nav-item-4-admin">
       <ul class="nav-item-list">
-        <li>
-          <%= show_svg("/search-icons/search-icon.svg")%>
-        </li>
-        <li style = "width:100%">
-          <input type="text" class="input-search" placeholder = "Search by"/>
-        </li>
-      </ul>
-    </div>
-    <div class="nav-item-3">
-      <ul class="nav-item-list">
-        <li class="share">Share</li>
-        <li class="facebook">
-          <%= show_svg("/share-icons/facebook.svg") %>
-        </li>
-        <li class="twitter">
-          <%= show_svg("/share-icons/twitter.svg") %>
-        </li>
-        <li class="google-plus">
-          <%= show_svg("/share-icons/google-plus.svg") %>
-        </li>
-      </ul>
-    </div>
-    
-      
-    
-    <div class="nav-item-4">
-      <ul class="nav-item-list">
-        <%if(!user_signed_in?)%>
-          <li class="btn"><%= link_to "Sign up", "/auth/sign_up", :style=>"color:red; text-decoration:none"%></li>
-          <li class="btn btn-outline"><%= link_to "Log in", "/auth/sign_in", :style=>"color:red; text-decoration:none"%></li>
-        <%else%>
+        
         <li class = "nav-user-avatar">
         <img />
         <div class = "dropdown">
@@ -57,7 +27,7 @@
               </div>
         </div>
         </li>
-        <%end%>
+     
         <li class="dropdown">
             <button class = "drop-btn">EN
               <i><%= show_svg("/share-icons/dropdown-icon.svg")%></i>
