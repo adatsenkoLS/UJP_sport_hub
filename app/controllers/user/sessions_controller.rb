@@ -9,6 +9,13 @@ class User::SessionsController < Devise::SessionsController
     super
   end
 
+
+  def subscribe_email
+    super
+  end
+
+
+
   # POST /resource/sign_in
   def create
     super
@@ -16,7 +23,8 @@ class User::SessionsController < Devise::SessionsController
 
   # DELETE /resource/sign_out
   def destroy
-    super
+   
+    reset_session
   end
 
   # protected

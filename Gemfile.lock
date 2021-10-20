@@ -47,6 +47,12 @@ GEM
     activerecord (6.1.4.1)
       activemodel (= 6.1.4.1)
       activesupport (= 6.1.4.1)
+    activerecord-session_store (2.0.0)
+      actionpack (>= 5.2.4.1)
+      activerecord (>= 5.2.4.1)
+      multi_json (~> 1.11, >= 1.11.2)
+      rack (>= 2.0.8, < 3)
+      railties (>= 5.2.4.1)
     activestorage (6.1.4.1)
       actionpack (= 6.1.4.1)
       activejob (= 6.1.4.1)
@@ -153,11 +159,19 @@ GEM
       hashie (>= 3.4.6)
       rack (>= 1.6.2, < 3)
       rack-protection
-    omniauth-facebook (8.0.0)
+    omniauth-facebook (2.0.1)
       omniauth-oauth2 (~> 1.2)
+    omniauth-google-oauth2 (1.0.0)
+      jwt (>= 2.0)
+      oauth2 (~> 1.1)
+      omniauth (~> 2.0)
+      omniauth-oauth2 (~> 1.7.1)
     omniauth-oauth2 (1.7.1)
       oauth2 (~> 1.4)
       omniauth (>= 1.9, < 3)
+    omniauth-rails_csrf_protection (1.0.0)
+      actionpack (>= 4.2)
+      omniauth (~> 2.0)
     orm_adapter (0.5.0)
     parallel (1.21.0)
     parser (3.0.2.0)
@@ -336,6 +350,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  activerecord-session_store
   bootsnap (>= 1.4.4)
   byebug
   database_cleaner
@@ -344,7 +359,9 @@ DEPENDENCIES
   jbuilder (~> 2.7)
   listen (~> 3.3)
   omniauth
-  omniauth-facebook
+  omniauth-facebook (~> 2.0.0)
+  omniauth-google-oauth2
+  omniauth-rails_csrf_protection
   pg (~> 1.1)
   pry
   pry-byebug

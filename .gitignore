@@ -67,3 +67,5 @@ yarn-debug.log*
 !/storage/.keep
 
 .docker
+
+/config/master.key

@@ -2,13 +2,14 @@
     min-height: calc(100vh - 70px);
 }
 
-.footer{
+.lower-footer{
     font-family: 'Open Sans';
     font-style: normal;
     font-weight: normal;
     height: 80px;
     color: white;
-    background-color: #D72130;;
+    background-color: #D72130;
+    margin-top: 57px;
 }
 .sporthubFooter{
     font-size: 22px;
@@ -26,4 +27,83 @@
     display: block;
     font-size: 12px;
     line-height: 16px;
+}
+
+
+.uper-footer{
+    display: flex;
+    margin-left: 252px;
+    margin-top: 50px;
+}
+
+.up-foter-item-1{
+    margin-right: 190px;
+}
+.up-foter-item-2{
+    margin-right: 190px;
+}
+
+#footer-info{
+    text-decoration: none;
+    color: black;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 19px;
+    
+}
+
+.ul-info li a {
+    text-decoration: none;
+    list-style: none;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 16px;
+    color: #7F7B7B;
+}
+.ul-info li{
+  list-style: none;
+  
+}
+
+.ul-info{
+    padding: 0;
+    margin: 0;
+    margin-top: 29px;
+}
+
+.your-email-footer{
+    width: 187px;
+    height: 32px;
+    float: left;
+    border: 1px solid #D8D8D8;
+    padding-left:13px;
+}
+.search-button-footer{
+    width: 97px;
+    height: 32px;
+    background-color: #D72130;
+    color:white;
+    font-size: 12px;
+    line-height: 17px;
+    border: none;
+    margin: 0;
+    
+}
+.ul-items-footer{
+    margin-bottom: 14px;
+}
+
+
+
+
+.hr-main-page{
+    margin-left: auto;
+    width: 88%;
+    height: 1px;
+    background: #D8D8D8;
+    border: 1px solid #B2B2B2;
 }

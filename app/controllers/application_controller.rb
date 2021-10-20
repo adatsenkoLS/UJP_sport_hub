@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_locale
+  skip_before_action :verify_authenticity_token
 
   protected
 
@@ -27,4 +28,10 @@ class ApplicationController < ActionController::Base
     locale = cookies[:locale]&.to_sym
     I18n.locale = locale if I18n.available_locales.include?(locale)
   end
+
+
+
+
+
+  
 end
