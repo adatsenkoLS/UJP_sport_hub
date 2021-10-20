@@ -1,0 +1,17 @@
+<%= render "cabinet/shared" %>
+
+
+<h1>Teams</h1>
+
+<ul>
+  <% @team.each do |team| %>
+    <li>
+        <%= team.team_name %>
+    </li>
+    <li>
+        <%= team.email %>
+    </li>
+    
+    <br>
+  <% end %>
+</ul>

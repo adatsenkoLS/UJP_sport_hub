@@ -1,9 +1,12 @@
 class User < ApplicationRecord
-  # Roles
+  
+  has_many :user_team
+  has_many :team, through: :user_team
+
+
   enum role: %i[user admin]
   after_initialize :set_default_role, if: :new_record?
-  # Include default devise modules. Others available are:
-  # :confirmable, :rememberable, :lockable, :timeoutable, :trackable and :omniauthable
+  
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :validatable,
   :omniauthable, omniauth_providers:[:facebook,:google_oauth2]
@@ -23,9 +26,6 @@ class User < ApplicationRecord
     self.role ||= :user
   end
 
-<<<<<<< HEAD
-end 
-=======
   validates :first_name, presence: {message: "Must be given"}, format: {with: /\A[a-zA-Z]+\z/, message: "Only numbers and letters are allowed" }, 
     length: {in: 2..40}
 
@@ -33,7 +33,4 @@ end
     length: {in: 2..40}
 
   validates :email, presence: {message: "Must be given"}, length: {in: 2..40}
-    
-
 end
->>>>>>> origin/with_cabinet

@@ -16,8 +16,7 @@
     <div class="nav-item-3">
       <ul class="nav-item-list">
         <li class="share">Share</li>
-        <li class="fac
-/public/packs-tesebook">
+        <li class="facebook">
           <%= show_svg("/share-icons/facebook.svg") %>
         </li>
         <li class="twitter">
@@ -55,7 +54,7 @@
                   <%= link_to "My Surveys", "/cabinet/surveys", class: "index-link" %>
                 </div>
                 <div class = "dropdown-field survey">
-                  <%= link_to "Teamhub", "/cabinet/teamhub", class: "index-link" %>
+                  <%= link_to "Teamhub", '/teams', class: "index-link", method: :get %> 
                 </div>
                 <div class = "dropdown-field survey" style = "border-top: 1px solid; border-color: rgba(237, 237, 237, 1)"> <%= link_to 'Log out', destroy_user_session_path, :class=>"link-text-in-dropdown"%></div>
               </div>

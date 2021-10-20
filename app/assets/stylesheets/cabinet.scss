@@ -1,11 +1,9 @@
-form {
-  margin-left:auto;
-  margin-right:auto;
-  width: 100px;
+*{
+  margin: 0;
+  padding: 0;
 }
-
 .cabinet_field {
-    font-family: Roboto;
+    font-family: 'Roboto';
     font-style: normal;
     font-weight: normal;
     font-size: 16px;
@@ -25,7 +23,7 @@ form {
 }
 
 .form_submit {
-    font-family: Open Sans;
+   
     font-style: normal;
     font-weight: bold;
     font-size: 14px;
@@ -38,7 +36,7 @@ form {
     height: 42px;
 }
 
-img {
+.profile_image {
     margin: 20px;
     display: block;
     max-width: 100%;
@@ -47,7 +45,7 @@ img {
   }
 
 .cabinet_field_label {
-    font-family: Roboto;
+    font-family: 'Roboto';
     font-style: normal;
     font-weight: 500;
     font-size: 10px;
@@ -59,13 +57,9 @@ img {
     height: 11px;
   }
 
-.form-group {
-    margin: 20px 0px;
-    width: 400px;
-}
 
 .cabinet_field::placeholder {
-    font-family: Open Sans;
+    
     font-style: normal;
     font-weight: 600;
     font-size: 12px;
@@ -91,4 +85,9 @@ img {
 
 .cabinet_nav {
   margin-top: 100px;
+}
+
+.cabinet-form{
+  display: flex;
+  justify-content: center;
 }
