@@ -66,6 +66,24 @@ ActiveRecord::Schema.define(version: 20_211_019_164_510) do
     t.index ['updated_at'], name: 'index_sessions_on_updated_at'
   end
 
+  create_table 'teams', force: :cascade do |t|
+    t.string 'team_name', null: false
+    t.integer 'count_users', default: 0
+    t.string 'email', default: '', null: false
+    t.datetime 'remember_created_at'
+    t.datetime 'created_at', precision: 6
+    t.datetime 'updated_at', precision: 6
+  end
+
+  create_table 'user_teams', force: :cascade do |t|
+    t.bigint 'user_id'
+    t.bigint 'team_id'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.index ['team_id'], name: 'index_user_teams_on_team_id'
+    t.index ['user_id'], name: 'index_user_teams_on_user_id'
+  end
+
   create_table 'users', force: :cascade do |t|
     t.string 'email', default: '', null: false
     t.string 'encrypted_password', default: '', null: false
@@ -83,13 +101,16 @@ ActiveRecord::Schema.define(version: 20_211_019_164_510) do
     t.datetime 'updated_at', precision: 6, null: false
     t.string 'first_name'
     t.string 'last_name'
-    t.string 'role'
     t.string 'provider', limit: 50, default: ' ', null: false
     t.string 'uid', limit: 500, default: ' ', null: false
+    t.integer 'role'
     t.index ['email'], name: 'index_users_on_email', unique: true
     t.index ['reset_password_token'], name: 'index_users_on_reset_password_token', unique: true
     t.index ['unlock_token'], name: 'index_users_on_unlock_token', unique: true
   end
+
+  add_foreign_key 'user_teams', 'teams', on_delete: :cascade
+  add_foreign_key 'user_teams', 'users', on_delete: :cascade
 
   add_foreign_key 'active_storage_attachments', 'active_storage_blobs', column: 'blob_id'
   add_foreign_key 'active_storage_variant_records', 'active_storage_blobs', column: 'blob_id'

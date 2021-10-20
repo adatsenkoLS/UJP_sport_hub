@@ -23,7 +23,6 @@ class User::SessionsController < Devise::SessionsController
 
   # DELETE /resource/sign_out
   def destroy
-   
     reset_session
   end
 
