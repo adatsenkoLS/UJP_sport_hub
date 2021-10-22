@@ -17,5 +17,5 @@
 
   validates :email, presence: {message: "Must be given"}, length: {in: 2..40}
 
-  validates :password, presence: true, length: {in: 8..40}
+  #validates :password, presence: true, confirmation: true, format: {with: /\A[a-zA-Z0-9]+\z/} , length: {in: 8..40}
 end

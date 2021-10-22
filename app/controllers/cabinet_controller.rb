@@ -11,7 +11,8 @@ class CabinetController < ApplicationController
         else
             @user.update(password: params[:password])
         end
-        redirect_back(fallback_location: root_path)
+
+        #redirect_back(fallback_location: root_path)
     end
 
     def password

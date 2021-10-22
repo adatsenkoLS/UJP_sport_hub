@@ -88,3 +88,9 @@ form {
 .bi {
   cursor: pointer;
 }
+
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
