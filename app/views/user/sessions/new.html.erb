@@ -1,10 +1,14 @@
 <%= form_for(resource, as: resource_name,:class=>"form-login", url: session_path(resource_name)) do |f| %>
    <h2 class="log-in-text">Log in to Sports Hub</h2>
     
-  <ul class="Login-with">
-      <li><a href="" > <%= image_tag("for-register-images/facebook-register-icon.svg", :class=>"register-image")%></a></li>  
-      <li><a href="" ><%= image_tag("for-register-images/gmail-register-icon.svg", :class=>"register-image")%></a></li>            
- </ul>  
+ <ul class="Login-with">
+        <li><a href="" > <%= link_to  'https://localhost:3000/auth/auth/facebook', :class=>"register-image", method: :post do %>
+   <%= image_tag("for-register-images/facebook-register-icon.svg")%>
+<% end %></a></li>  
+        <li><a href="" ><%= link_to  'http://localhost:3000/auth/auth/google_oauth2', :class=>"register-image", method: :post do %>
+   <%= image_tag("for-register-images/gmail-register-icon.svg")%>
+<% end %></a></li>            
+  </ul>  
 
   <div class="form-group">
     <span class="login-text">Email address</span>

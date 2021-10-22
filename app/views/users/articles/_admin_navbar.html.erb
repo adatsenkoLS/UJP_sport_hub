@@ -1,0 +1,49 @@
+<%# User Admin navbar %>
+  <nav class="nav-admin">
+  
+    <div class = "nav-item-1-admin">
+      <h1 class =" logo"> <%= link_to "Sport hub", root_path, :style => "color:white; text-decoration:none"%></h1>
+    </div>
+    
+    <div class="nav-item-4-admin">
+      <ul class="nav-item-list">
+        
+        <li class = "nav-user-avatar">
+        <img />
+        <div class = "dropdown">
+          <button class = "drop-btn"><%= "#{current_user.first_name} #{current_user.last_name}"%>
+              <i><%= show_svg("/share-icons/dropdown-icon.svg")%></i>
+          </button>
+              <div class="dropdown-content">
+                <div class = "dropdown-field survey" style = "height: fit-content">
+                  <span> <%= "#{current_user.first_name} #{current_user.last_name}"%> </span>
+                  <span><%= current_user.email%><span>
+                </div>
+                <div class = "dropdown-field survey">View profile</div>
+                <div class = "dropdown-field survey">Change password</div>
+                <div class = "dropdown-field survey">My surveys</div>
+                <div class = "dropdown-field survey">Team hub</div>
+                <div class = "dropdown-field survey" style = "border-top: 1px solid; border-color: rgba(237, 237, 237, 1)"> <%= link_to 'Log out', destroy_user_session_path, :class=>"link-text-in-dropdown"%></div>
+              </div>
+        </div>
+        </li>
+     
+        <li class="dropdown">
+            <button class = "drop-btn">EN
+              <i><%= show_svg("/share-icons/dropdown-icon.svg")%></i>
+            </button>
+              <div class="dropdown-content">
+                <div class="dropdown-field">
+                  <%= link_to "ENG", url_for(locale: :en), :class=>"link-text-in-dropdown"%>
+                </div>
+                <div class="dropdown-field">
+                  <%= link_to "UKR", url_for(locale: :ua),:class=>"link-text-in-dropdown"%>
+                </div>
+                <div class="dropdown-field">RUS</div>
+              </div>
+         
+        </li>
+      </ul>
+    </div>
+  </nav>
+

@@ -2,17 +2,26 @@
 
 @import "../stylesheets/colors";
 
-@import "../stylesheets/home_page";
+@import "../stylesheets/home_page.scss";
 
-@import "../stylesheets/navbar";
+@import "../stylesheets/home_page_client/navbar.scss";
 
-@import "../stylesheets/register";
+@import "../stylesheets/sessions/register.scss";
 
-@import "../stylesheets/cabinet";
+@import "../stylesheets/sessions/login.scss";
+
+@import "../stylesheets/home_page_client/footer.scss";
+
+@import "../stylesheets/admin/new-post.scss";
+
+@import "../stylesheets/cabinet.scss";
+
+@import "../stylesheets/login/login.scss";
 
 // Components
 
+@import "../stylesheets/admin/admin-navbar.scss";
+// Components
 body {
   font-family: "Open Sans";
 }
-
