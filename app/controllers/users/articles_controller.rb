@@ -1,14 +1,21 @@
 module Users
   class ArticlesController < ApplicationController
-    before_action :authenticate_user!, except: %i[edit update destory new create]
+    before_action :authenticate_user!, only: %w[index]
+    before_action :authenticate_admin!
+
+    def new
+      @article = Article.new
+    end
 
     def create
-      @post = Post.create(post_params)
-      if @post.save
-        redirect_to root_path
+      @article = Article.create(post_params)
+      logger.debug "New article #{@article.attributes.inspect}"
+      if @article.save
+        logger.debug 'The article was saved and user will be redirected...'
+        redirect_to @article
       else
         flash.now[:error] = 'Could not save an article'
-        render action: 'new'
+        render :new
       end
     end
 

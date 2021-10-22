@@ -5,4 +5,21 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-admin = User.create!({ email: 'admin@admin.com', password: 'adminpassword', role: 1 })
+admin = User.create!({ first_name: 'Admin', last_name: 'Administrator', email: 'admin@admin.com',
+                       password: 'adminpassword', role: 1 })
+
+category_names = %w[NBA NFL NHL CBB CFB NASCAR GOLF SOCCER]
+
+category_names.each do |name|
+  Category.create!(name: name.to_s)
+end
+
+subcategory_names = ['AFC West', 'AFC East', 'AFC North', 'AFC South']
+subcategory_names.each do |name|
+  Subcategory.create!(name: name.to_s)
+end
+
+conferences_names = ['AFC West, AFC East, AFC North, AFC South']
+conferences_names.each do |name|
+  Conference.create!(name: name.to_s)
+end
