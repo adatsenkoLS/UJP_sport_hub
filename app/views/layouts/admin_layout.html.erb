@@ -6,9 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Admin</title>
+
+
+       <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
   </head>
   <body>
-    <!-- you already have it: -->
     <%= render "users/articles/admin_navbar"%>
     <div class="container-btw-header-nav">
       <div class="container-logo">
@@ -17,7 +23,7 @@
       <% if controller_name == "articles"%>
       <button class="btn-new-post btn-new-article">+ New Article</button>
       <% end %>
-      <% if  controller_name == "user_teams"%>
+      <% if  controller_name == "teams"%>
         <button class="btn-new-post btn-new-article">+ Add team</button>
       <% end %>
     </div>
@@ -64,6 +70,8 @@
         <button class="btn-new-post iconed advertising"></button>
       </div>
       <div class="container-main-content"></div>
+       <%= yield %>
     </div>
+  
   </body>
 </html>

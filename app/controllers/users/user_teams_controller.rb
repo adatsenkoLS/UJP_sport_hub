@@ -1,5 +1,6 @@
+module Users
 class UserTeamsController < ApplicationController
-
+  layout 'admin_layout'
     def create_team_and_user
   
         @team = Team.find(params['team_id'])

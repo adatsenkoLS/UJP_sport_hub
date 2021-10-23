@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_22_144134) do
+ActiveRecord::Schema.define(version: 2021_10_23_083607) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -111,10 +111,12 @@ ActiveRecord::Schema.define(version: 2021_10_22_144134) do
     t.string "team_name", null: false
     t.integer "count_users", default: 0
     t.string "email", default: "", null: false
+    t.bigint "city_id"
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6
     t.datetime "updated_at", precision: 6
     t.bigint "subcategory_id", null: false
+    t.index ["city_id"], name: "index_teams_on_city_id"
     t.index ["subcategory_id"], name: "index_teams_on_subcategory_id"
   end
 
@@ -159,6 +161,7 @@ ActiveRecord::Schema.define(version: 2021_10_22_144134) do
   add_foreign_key "articles", "users", column: "users_id"
   add_foreign_key "cities", "countries", on_delete: :cascade
   add_foreign_key "subcategories", "categories"
+  add_foreign_key "teams", "cities", on_delete: :cascade
   add_foreign_key "teams", "subcategories"
   add_foreign_key "user_teams", "teams", on_delete: :cascade
   add_foreign_key "user_teams", "users", on_delete: :cascade

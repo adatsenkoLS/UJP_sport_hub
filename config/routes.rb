@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
   
-  get 'cabinet/teamhub/:team_id', to: 'user_teams#create_team_and_user', as: 'create_user_team'
-  resources :teams
-  resource :user_team
-  
+  get 'admin/teams/:team_id', to: 'user_teams#create_team_and_user', as: 'create_user_team'
+    
   devise_for :user,path:'auth', only: :omniauth_callbacks, 
   controllers: { 
   :registrations => 'user/registrations', :sessions => 'user/sessions',  omniauth_callbacks: 'user/omniauth_callbacks' }
@@ -25,10 +23,10 @@ Rails.application.routes.draw do
   # end
   # scope '(:locale)', locale: /en||ua/ do
   namespace :users do
-    resources :articles
+    resources :articles,:teams,:user_team
   end
 
-  # end
+  # end 
   root 'home_page#home'
 
   get 'cabinet/personal', to: 'cabinet#personal'
