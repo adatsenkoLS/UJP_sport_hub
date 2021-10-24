@@ -9,7 +9,6 @@ class CreateArticles < ActiveRecord::Migration[6.1]
       t.string :caption
       t.text :content
       t.boolean :show_comments
-
       t.timestamps
     end
   end

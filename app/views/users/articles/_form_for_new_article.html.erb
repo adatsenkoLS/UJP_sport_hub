@@ -5,7 +5,8 @@
         <%= f.select(:conference, ['1', '2', '3'], {}, {:class => 'my_style'})  %>
     </div>
     <div>
-        <% teams_array = Team.all.collect {|team| [team.name, team.id] }%>
-        <%= f.collection_select(:team_id,) %>
+      
+        <%= f.collection_select(:teams_id, Team.all, :id, :team_name,{},{class:'dropdown-menu'}) %>
+        <% end %>
     </div>
 </div>

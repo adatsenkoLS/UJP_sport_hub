@@ -9,7 +9,7 @@
   </head>
   <body>
     <!-- you already have it: -->
-    <%= render "users/articles/admin_navbar"%>
+    <%= render "admin_navbar"%>
     <div class="container-btw-header-nav">
       <div class="container-logo">
         <h2 id="current-menu-item">NBA</h2>
@@ -56,7 +56,9 @@
         <button class="btn-new-post iconed new-partners"></button>
         <button class="btn-new-post iconed advertising"></button>
       </div>
-      <div class="container-main-content"></div>
+      <div class="container-main-content">
+        <%= render "form_for_new_article"%>
+      </div>
     </div>
   </body>
 </html>
