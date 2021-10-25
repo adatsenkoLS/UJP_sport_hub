@@ -10,6 +10,9 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "../javascript/channels"
 
+import * as team from "../javascript/channels/teams" 
+
+
 
 Rails.start()
 Turbolinks.start()

@@ -29,7 +29,7 @@ module Users
     private
 
     def team_params
-      params.require(:team).permit(:id, :team_name, :email)
+      params.require(:team).permit(:id, :team_name, :city_id,:subcategory_id)
     end
 
   end

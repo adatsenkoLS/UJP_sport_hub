@@ -110,7 +110,6 @@ ActiveRecord::Schema.define(version: 2021_10_23_083607) do
   create_table "teams", force: :cascade do |t|
     t.string "team_name", null: false
     t.integer "count_users", default: 0
-    t.string "email", default: "", null: false
     t.bigint "city_id"
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6
