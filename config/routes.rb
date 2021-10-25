@@ -16,7 +16,7 @@ Rails.application.routes.draw do
       omniauth_callbacks: 'user/omniauth_callbacks'
 
     }
-  end 
+  end
 
   post '/auth/auth/facebook' => 'user/omniauth_callbacks#facebook'
 

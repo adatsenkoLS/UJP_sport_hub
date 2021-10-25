@@ -12,6 +12,8 @@ module Users
       end
     end
 
+    def show; end
+
     private
 
     def post_params
