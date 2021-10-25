@@ -1,12 +1,33 @@
 <%= form_for @article do |f|%>
 
-<div>
-    <div>
-        <%= f.select(:conference, ['1', '2', '3'], {}, {:class => 'my_style'})  %>
-    </div>
-    <div>
-      
-        <%= f.collection_select(:teams_id, Team.all, :id, :team_name,{},{class:'dropdown-menu'}) %>
-        <% end %>
-    </div>
-</div>
+        <div class='item0'>
+            <%= f.label :picture, :class=>'login-text'%><br>
+            <%= f.file_field :image, :class=>'input_img' %>
+        </div>
+        <div class='item1'>
+            <%= f.label :conference, :class=>'login-text'%><br>
+            <%= f.select(:conference, ['1', '2', '3'], {}, {:class=>'form-select dropdown'})  %>
+        </div>
+        <div class='item2'>
+            <%= f.label :team, :class=>'login-text'%><br>
+            <%= f.collection_select(:teams_id, Team.all, :id, :team_name,{}, {:class=>'form-select dropdown'}) %>
+        </div>
+        <div class='item3'>
+            <%= f.label :location, :class=>'login-text'%><br>
+            <%= f.collection_select(:teams_id, Team.all, :id, :team_name,{}, {:class=>'form-select dropdown'}) %>
+        </div>
+        <div class='item4'> 
+            <%= f.label :alt, :class=>'login-text'%><br>
+            <%= f.collection_select(:teams_id, Team.all, :id, :team_name,{}, {:class=>'form-select dropdown'}) %>
+        </div>
+        <div class='item5'> 
+            <%= f.label :article_headline, :class=>'login-text'%><br>
+            <%= f.collection_select(:teams_id, Team.all, :id, :team_name,{}, {:class=>'form-select dropdown'}) %>
+        </div>
+          <div class='item6'> 
+            <%= f.label :caption, :class=>'login-text'%><br>
+            <%= f.collection_select(:teams_id, Team.all, :id, :team_name,{}, {:class=>'form-select dropdown'}) %>
+        </div>
+    
+    <% end %>
+
