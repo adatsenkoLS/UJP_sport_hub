@@ -1,16 +1,11 @@
 Rails.application.routes.draw do
   # Old change
-  get 'cabinet/teamhub/:team_id', to: 'user_teams#create_team_and_user', as: 'create_user_team'
+  # get 'cabinet/teamhub/:team_id', to: 'user_teams#create_team_and_user', as: 'create_user_team'
   resources :teams
   resource :user_team
 
   # New change
   get 'admin/teams/:team_id', to: 'user_teams#create_team_and_user', as: 'create_user_team'
-
-  devise_for :user, path: 'auth', only: :omniauth_callbacks,
-                    controllers: {
-                      registrations: 'user/registrations', sessions: 'user/sessions', omniauth_callbacks: 'user/omniauth_callbacks'
-                    }
 
   devise_for :user, path: 'auth', only: :omniauth_callbacks,
                     controllers: {
@@ -30,14 +25,13 @@ Rails.application.routes.draw do
   # scope '(:role)', role: /admin/ do
   #  resources :atricles
   # end
-  # scope '(:locale)', locale: /en||ua/ do
-  namespace :users do
-    resources :articles, :teams, :user_team
+  scope '(:locale)', locale: /en||ua/ do
+    namespace :users do
+      resources :articles, :teams, :user_team
+    end
+
+    resources :articles
   end
-
-  resources :articles
-
-  # end
   root 'home_page#home'
 
   get 'cabinet/personal', to: 'cabinet#personal'
