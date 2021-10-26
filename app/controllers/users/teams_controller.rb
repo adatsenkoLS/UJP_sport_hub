@@ -7,6 +7,7 @@ module Users
 
     def new
       @team = Team.new   
+      
     end
 
     def show 
