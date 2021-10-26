@@ -23,3 +23,10 @@ conferences_names = ['AFC West, AFC East, AFC North, AFC South']
 conferences_names.each do |name|
   Conference.create!(name: name.to_s)
 end
+
+coutry = Country.create!(coutry_name: 'Texas')
+
+city_names = %w[Houston Dallas Austin Plano Laredo]
+city_names.each do |name|
+  City.create!(city_name: name.to_s, country_id: coutry.id)
+end
