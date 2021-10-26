@@ -7,6 +7,7 @@
 <div class ="team-form">
 <%= simple_form_for @team, url: users_teams_path, method: :post do |form| %>
   
+  
   <div class="form-group combobox-teams">
     <%= form.label :select_location,class: "login-text"%>
      <div class="selector-team"> <%= collection_select(:team, :city_id, City.all,:id, :team_country) %></div>
@@ -15,11 +16,14 @@
   
     <div class="form-group combobox-teams">
     <%= form.label :select_category,class: "login-text"%>
-    <div class="selector-team"> <%= form.collection_select :id, Category.all, :id, :name, id: "category_id" %></div>
+
+
+    <div class="selector-team"> <%= form.collection_select :id, Category.all, :id,:name %></div>
    
   </div>
   <div class="form-group combobox-teams " id="subcategories_select">
     <%= form.label :select_subcategory,class: "login-text"%>
+
     <div class="selector-team"> <%= form.collection_select  :subcategory_id, Subcategory.all, :id, :name  %></div>
     
   </div>

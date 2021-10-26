@@ -54,7 +54,7 @@ gem "omniauth-rails_csrf_protection"
 gem 'i18n', '~> 1.8', '>= 1.8.10'
 
 
-
+gem 'jquery-rails'
 
 group :development, :test do
   gem 'byebug'

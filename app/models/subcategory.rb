@@ -9,8 +9,6 @@ class Subcategory < ApplicationRecord
   end
 
 
-  def get_subcategories
-    @subcategories = Subcategory.where(category_id: params[:category_id])
-  end
+ 
 
 end
