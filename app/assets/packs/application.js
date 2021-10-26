@@ -12,8 +12,9 @@ import "../javascript/channels"
 
 import "../javascript/teams" 
 
+import "jquery"
+
 
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
-

@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   
-  get 'admin/teams/:team_id', to: 'user_teams#create_team_and_user', as: 'create_user_team'
+  get 'admin/teams/:team_id', to: 'user_teams#create_team_and_user', as: 'create_user_team', defaults: { format: "js" }
+
+
+  get 'category/:category_id/getsubcategory', to: 'categories#get_sub_by_category', as: 'get_sub_by_category'
+
     
   devise_for :user,path:'auth', only: :omniauth_callbacks, 
   controllers: { 
@@ -23,9 +27,11 @@ Rails.application.routes.draw do
   # end
   # scope '(:locale)', locale: /en||ua/ do
   namespace :users do
-    resources :articles,:teams,:user_team
+    resources :articles,:teams,:user_team,:category
   end
-
+ 
+  resources :cities
+ 
   # end 
   root 'home_page#home'
 
