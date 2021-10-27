@@ -6,7 +6,7 @@
         </div>
         <div class='item1'>
             <%= f.label :conference, :class=>'login-text'%><br>
-            <%= f.collection_select(:conferences_id, Conference.all, :id, :name,{}, {:class=>'form-select dropdown'}) %>
+            <%= f.collection_select(:conference_id, Conference.all, :id, :name,{}, {:class=>'form-select dropdown'}) %>
         </div>
         <div class='item2'>
             <%= f.label :team, :class=>'login-text'%><br>

@@ -16,12 +16,11 @@ module Users
     end
 
     def create
-
-      @article = Article.new(post_params.except('conferences_id'))
+      @article = Article.new(post_params.except('conference_id'))
 
       logger.debug "New article #{@article.attributes.inspect}"
       if @article.save
-        @article_conference = ArticleConference.create!(conference_id: post_params['conferences_id'],
+        @article_conference = ArticleConference.create!(conference_id: post_params['conference_id'],
                                                         article_id: @article.id)
         logger.debug 'The article was saved and user will be redirected...'
         redirect_to @article
@@ -36,7 +35,8 @@ module Users
     private
 
     def post_params
-      @post_params ||= params.require(:article).permit(:conferences_id, :team_id, :city_id, :alternative_text, :headline, :caption, :user_id)
+      @post_params ||= params.require(:article).permit(:conference_id, :team_id, :city_id, :alternative_text,
+                                                       :headline, :caption, :user_id)
     end
   end
 end

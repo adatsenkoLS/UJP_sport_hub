@@ -46,10 +46,10 @@ ActiveRecord::Schema.define(version: 2021_10_27_154940) do
   create_table "article_conferences", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "articles_id", null: false
-    t.bigint "conferences_id", null: false
-    t.index ["articles_id"], name: "index_article_conferences_on_articles_id"
-    t.index ["conferences_id"], name: "index_article_conferences_on_conferences_id"
+    t.bigint "article_id", null: false
+    t.bigint "conference_id", null: false
+    t.index ["article_id"], name: "index_article_conferences_on_article_id"
+    t.index ["conference_id"], name: "index_article_conferences_on_conference_id"
   end
 
   create_table "articles", force: :cascade do |t|
@@ -159,8 +159,8 @@ ActiveRecord::Schema.define(version: 2021_10_27_154940) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "article_conferences", "articles", column: "articles_id"
-  add_foreign_key "article_conferences", "conferences", column: "conferences_id"
+  add_foreign_key "article_conferences", "articles"
+  add_foreign_key "article_conferences", "conferences"
   add_foreign_key "articles", "cities"
   add_foreign_key "articles", "teams"
   add_foreign_key "articles", "users"
