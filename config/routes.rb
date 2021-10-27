@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :comments
   get 'cabinet/teamhub/:team_id', to: 'user_teams#create_team_and_user', as: 'create_user_team'
   resources :teams
   resource :user_team
@@ -25,7 +26,9 @@ Rails.application.routes.draw do
   # end
   # scope '(:locale)', locale: /en||ua/ do
   namespace :users do
-    resources :articles
+    resources :articles do
+      resources :comments
+    end
   end
 
   # end
