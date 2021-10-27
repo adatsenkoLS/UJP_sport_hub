@@ -8,11 +8,6 @@ Rails.application.routes.draw do
                       registrations: 'user/registrations', sessions: 'user/sessions', omniauth_callbacks: 'user/omniauth_callbacks'
                     }
 
-  devise_for :user, path: 'auth', only: :omniauth_callbacks,
-                    controllers: {
-                      registrations: 'user/registrations', sessions: 'user/sessions', omniauth_callbacks: 'user/omniauth_callbacks'
-                    }
-
   scope '(:locale)', locale: /en||ua/ do
     devise_for :user, path: 'auth', skip: :omniauth_callbacks, controllers:
     { registrations: 'user/registrations',
@@ -26,14 +21,14 @@ Rails.application.routes.draw do
   # scope '(:role)', role: /admin/ do
   #  resources :atricles
   # end
-  # scope '(:locale)', locale: /en||ua/ do
-  namespace :users do
-    resources :articles, :teams, :user_team, :category
+  scope '(:locale)', locale: /en||ua/ do
+    namespace :users do
+      resources :articles, :teams, :user_team, :category
+    end
+    resources :articles
+    resources :cities
   end
 
-  resources :cities
-
-  # end
   root 'home_page#home'
 
   get 'cabinet/personal', to: 'cabinet#personal'
