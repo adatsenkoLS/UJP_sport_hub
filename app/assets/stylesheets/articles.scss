@@ -1,3 +1,83 @@
 // Place all the styles related to the Articles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.article-view {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin: 5% 25%;  
+}
+
+.article-view-content {
+    margin: 8% 0;
+}
+
+.article-view-main-image {
+    position: relative;
+}
+
+.article-view-caption-headline {
+    position: absolute;
+    bottom: 25%; 
+    left: 85%;
+    width: 35%;
+    height: 50%;
+    background-color: #F6F6F6;
+    color: black;
+    padding: 30px;
+}
+
+.article-view-published-shared {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    color: #7F7B7B;
+}
+
+.article-view-headline {
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 22px;
+    color: #C63638;
+}
+
+.article-view-caption {
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 30px;
+    color: #2B2F43;
+}
+
+.article-view-comments {
+    background: #F8F8F8;
+    width: 100%;
+    padding: 2%;
+}
+
+.article-view-comments-title {
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 19px;
+    color: #000000;
+}
+
+.article-view-comments-body {
+    background: #FFFFFF;
+    border: 1px solid #D8D8D8;
+    box-sizing: border-box;
+}
+
+.article-image {
+    width: 900px;
+    height: 500px;
+}

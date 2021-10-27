@@ -1,0 +1,34 @@
+<%= render "home_page/navbar"%>
+
+<div class="article-view">
+
+    <div class="article-view-main-image">
+        <%= image_tag "articles/#{@article.id}.webp", class:"article-image"%>
+        <div class="article-view-caption-headline">
+            <p class="article-view-published-shared">Published / 
+            <%= ((@article.created_at.day > 9) ? (@article.created_at.day.to_s) : ("0" + @article.created_at.day.to_s)) + "." + 
+            ((@article.created_at.month > 9) ? (@article.created_at.month.to_s) : ("0" + @article.created_at.month.to_s)) + "." + 
+            @article.created_at.year.to_s%></p>
+            <p class="article-view-headline"><%= @article.headline %></p>
+            <p class="article-view-caption"><%= @article.caption %></p>
+            <p class="article-view-published-shared"> 
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-share" viewBox="0 0 16 16">
+                    <path d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5zm-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/>
+                </svg>
+                Share
+            </p>
+        </div>
+    </div>
+
+    <div class="article-view-content">
+        <%= @article.content%>
+    </div>
+
+    <div class="article-view-comments">
+        <p class="article-view-comments-title">Comments</p>
+
+        <div class="article-view-comments-body">
+            <input type="text" placeholder="Write a comment">
+        </div>
+    </div>
+</div>

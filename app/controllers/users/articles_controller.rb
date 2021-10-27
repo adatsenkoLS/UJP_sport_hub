@@ -12,7 +12,9 @@ module Users
       end
     end
 
-    def show; end
+    def show
+      @article = Article.find(params[:id])
+    end
 
     private
 
