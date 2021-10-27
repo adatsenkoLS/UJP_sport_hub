@@ -14,7 +14,12 @@
       <div class="container-logo">
         <h2 id="current-menu-item">NBA</h2>
       </div>
+      <% if controller_name == "articles"%>
       <button class="btn-new-post btn-new-article">+ New Article</button>
+      <% end %>
+      <% if  controller_name == "user_teams"%>
+        <button class="btn-new-post btn-new-article">+ Add team</button>
+      <% end %>
     </div>
     <div class="container-navbar">
       <nav>
@@ -52,7 +57,9 @@
         <button class="btn-new-post iconed social-networks"></button>
         <button class="btn-new-post iconed users"></button>
         <button class="btn-new-post iconed ia"></button>
-        <button class="btn-new-post iconed teams"></button>
+        <!--Make teams button -->
+        <%= link_to '', '/users/teams/new', class: "btn-new-post iconed teams", method: :get %> 
+        <!------------------------------------->
         <button class="btn-new-post iconed new-partners"></button>
         <button class="btn-new-post iconed advertising"></button>
       </div>

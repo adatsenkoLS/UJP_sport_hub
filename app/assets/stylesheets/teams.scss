@@ -1,3 +1,83 @@
-// Place all the styles related to the teams controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+.map-team{
+    padding-left: 86px;
+    padding-top: 25px;
+    padding-right: 29px;
+    
+}
+
+.map-team img{
+    width: 100%;
+    height: 88%;
+}
+
+.combobox-teams select{
+    width: 390px;
+    height: 42px;
+    border: 1px solid #111;
+    background: transparent;
+    padding: 5px 35px 5px 5px;
+    font-size: 16px;
+    border: 1px solid #D4D9E2;    
+}
+
+.combobox-teams input{
+    width: 390px;
+    height: 42px;
+}
+
+.team-form{
+    margin-top: 36px;
+    display: flex;
+    justify-content: center ;
+    justify-items: center;
+    
+}
+
+
+
+input[type="file"] {
+    display: none;
+}
+
+
+.custom-file-upload {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 19px;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+
+.add-logo-team{
+    height: 200px;
+    width: 390px;
+    background: rgba(196, 196, 196, 0.08);
+    border: 1px dashed #D1D1D1; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+    flex-direction: column;
+}
+
+.add-logo-team img{
+    margin-bottom: 18px;
+}
+
+
+.cansel-team-button{
+    margin-top: 9px;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 16px;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    color: #D72130;
+}

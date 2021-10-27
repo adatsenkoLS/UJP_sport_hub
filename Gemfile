@@ -21,9 +21,15 @@ gem 'jbuilder', '~> 2.7'
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+gem 'executable-hooks'
+
+gem 'simple_form'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
+
+# Bootstrap
+gem 'bootstrap', '~> 5.1'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
@@ -32,8 +38,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'devise', '~> 4.8'
 
 # Omniauth
-gem 'omniauth-facebook', '~> 2.0.0
-'
+gem 'omniauth-facebook', '~> 2.0.0'
 
 gem 'omniauth-google-oauth2'
 
@@ -49,7 +54,7 @@ gem "omniauth-rails_csrf_protection"
 gem 'i18n', '~> 1.8', '>= 1.8.10'
 
 
-
+gem 'jquery-rails'
 
 group :development, :test do
   gem 'byebug'

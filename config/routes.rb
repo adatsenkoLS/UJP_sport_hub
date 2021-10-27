@@ -9,12 +9,17 @@ Rails.application.routes.draw do
   controllers: { 
   :registrations => 'user/registrations', :sessions => 'user/sessions',  omniauth_callbacks: 'user/omniauth_callbacks' }
 
-  scope '(:locale)', locale: /en||ua/ do
-    devise_for :user,path:'auth', skip: :omniauth_callbacks,controllers:
-    { :registrations => 'user/registrations', 
-      :sessions => 'user/sessions',
-      :passwords => 'user/passwords',
-      omniauth_callbacks: 'user/omniauth_callbacks'
+  get 'category/:category_id/getsubcategory', to: 'categories#get_sub_by_category', as: 'get_sub_by_category'
+
+  devise_for :user, path: 'auth', only: :omniauth_callbacks,
+                    controllers: {
+                      registrations: 'user/registrations', sessions: 'user/sessions', omniauth_callbacks: 'user/omniauth_callbacks'
+                    }
+
+  devise_for :user, path: 'auth', only: :omniauth_callbacks,
+                    controllers: {
+                      registrations: 'user/registrations', sessions: 'user/sessions', omniauth_callbacks: 'user/omniauth_callbacks'
+                    }
 
     }
   end
@@ -30,6 +35,8 @@ Rails.application.routes.draw do
       resources :comments
     end
   end
+
+  resources :cities
 
   # end
   root 'home_page#home'

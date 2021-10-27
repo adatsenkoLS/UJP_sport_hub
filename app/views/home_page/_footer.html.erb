@@ -29,7 +29,7 @@
                 <li><%= link_to "Sign up to receive the latest sports news","#"%></li>
 
                 <%= form_with do |f| %>
-                    <%= f.text_field :last_name ,autofocus: true, autocomplete: "last_name",:class=>"your-email-footer",
+                    <%= f.text_field :last_name ,autofocus: false, autocomplete: "last_name",:class=>"your-email-footer",
                     :placeholder => "Your email address" %>
                     <%= f.submit "Subscribe",:class=>"search-button-footer"%>
                 <% end %>
