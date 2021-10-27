@@ -60,12 +60,12 @@ ActiveRecord::Schema.define(version: 2021_10_27_154940) do
     t.boolean "show_comments"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "users_id", null: false
-    t.bigint "teams_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "team_id", null: false
     t.bigint "city_id", null: false
     t.index ["city_id"], name: "index_articles_on_city_id"
-    t.index ["teams_id"], name: "index_articles_on_teams_id"
-    t.index ["users_id"], name: "index_articles_on_users_id"
+    t.index ["team_id"], name: "index_articles_on_team_id"
+    t.index ["user_id"], name: "index_articles_on_user_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -162,8 +162,8 @@ ActiveRecord::Schema.define(version: 2021_10_27_154940) do
   add_foreign_key "article_conferences", "articles", column: "articles_id"
   add_foreign_key "article_conferences", "conferences", column: "conferences_id"
   add_foreign_key "articles", "cities"
-  add_foreign_key "articles", "teams", column: "teams_id"
-  add_foreign_key "articles", "users", column: "users_id"
+  add_foreign_key "articles", "teams"
+  add_foreign_key "articles", "users"
   add_foreign_key "cities", "countries", on_delete: :cascade
   add_foreign_key "subcategories", "categories"
   add_foreign_key "teams", "cities", on_delete: :cascade
