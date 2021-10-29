@@ -1,11 +1,35 @@
-<%= form_for @article do |f|%>
+<%= form_with model: @article, url: users_articles_path do |f|%>
 
-<div>
-    <div>
-        <%= f.select(:conference, ['1', '2', '3'], {}, {:class => 'my_style'})  %>
-    </div>
-    <div>
-        <% teams_array = Team.all.collect {|team| [team.name, team.id] }%>
-        <%= f.collection_select(:team_id,) %>
-    </div>
-</div>
+        <div class='item0'>
+            <%= f.label :picture, :class=>'login-text'%><br>
+            <%= f.file_field :image, :class=>'input_img' %>
+        </div>
+        <div class='item1'>
+            <%= f.label :conference, :class=>'login-text'%><br>
+            <%= f.collection_select(:conference_id, Conference.all, :id, :name,{}, {:class=>'form-select dropdown'}) %>
+        </div>
+        <div class='item2'>
+            <%= f.label :team, :class=>'login-text'%><br>
+            <%= f.collection_select(:team_id, Team.all, :id, :team_name,{}, {:class=>'form-select dropdown'}) %>
+        </div>
+        <div class='item3'>
+            <%= f.label :location, :class=>'login-text'%><br>
+            <%= f.collection_select(:city_id, City.all, :id, :city_name,{}, {:class=>'form-select dropdown'}) %>
+        </div>
+        <div class='item4'> 
+            <%= f.label :alt, :class=>'login-text'%><br>
+            <%= f.text_field :alternative_text,:class=>'form-control' %>
+        </div>
+        <div class='item5'> 
+            <%= f.label :article_headline, :class=>'login-text'%><br>
+            <%= f.text_field :headline ,:class=>'form-control'%>
+        </div>
+          <div class='item6'> 
+            <%= f.label :caption, :class=>'login-text'%><br>
+            <%= f.text_field :caption,:class=>'form-control' %>
+        </div>
+       
+        <%= f.submit 'Create article'%>
+    
+    <% end %>
+

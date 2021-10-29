@@ -7,11 +7,10 @@ module Users
     end
 
     def new
-      @team = Team.new   
-      
+      @team = Team.new
     end
 
-    def show 
+    def show
       @team = Team.find(params[:id])
     end
 
@@ -37,8 +36,7 @@ module Users
     private
 
     def team_params
-      params.require(:team).permit(:id, :team_name, :city_id,:subcategory_id)
+      params.require(:team).permit(:id, :team_name, :city_id, :subcategory_id)
     end
-
   end
 end

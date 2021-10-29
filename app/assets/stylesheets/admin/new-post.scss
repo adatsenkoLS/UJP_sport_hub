@@ -15,8 +15,77 @@ html {
 .container-left-icons,
 .container-main-content {
   display: flex;
+  flex-direction: column;
+  width: 90%;
 }
 
+.container-main-content {
+  margin: 25px;
+  form {
+    display: grid;
+    row-gap: 40px;
+    column-gap: 35px;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto;
+    grid-template-areas:
+      "upload_img upload_img upload_img"
+      "conference team location"
+      "alt alt alt"
+      "headline headline headline"
+      "caption caption caption";
+
+    .item0 {
+      grid-area: upload_img;
+      height: 300px;
+    }
+
+    .item1 {
+      grid-area: conference;
+    }
+
+    .item2 {
+      grid-area: team;
+    }
+
+    .item3 {
+      grid-area: location;
+    }
+
+    .item4 {
+      grid-area: alt;
+    }
+
+    .item5 {
+      grid-area: headline;
+    }
+    .item6 {
+      grid-area: caption;
+    }
+  }
+
+  width: 90%;
+}
+
+.input_img {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+.inputfile + label {
+  font-size: 1.25em;
+  font-weight: 700;
+  color: white;
+  background-color: black;
+  display: inline-block;
+}
+
+.inputfile:focus + label,
+.inputfile + label:hover {
+  background-color: red;
+}
 .container-logo {
   width: 250px;
   height: 80px;
@@ -209,3 +278,8 @@ html {
 .btn-new-post.iconed.advertising::after {
   content: url("/images/left-menu/Group-147.svg");
 }
+
+// .form-select.dropdown {
+//   width: 250px;
+//   height: 36px;
+// }
