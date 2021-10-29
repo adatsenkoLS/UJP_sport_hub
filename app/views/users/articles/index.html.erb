@@ -1,0 +1,18 @@
+   <% logger.debug @article  %>
+    <% @articles.each do |article|%>
+
+        <div>
+            <div>ALT
+                <%= article.alternative_text%>
+            </div>
+            <div>HEADLINE
+                <%= article.headline%>
+            </div>
+            <div>CAPTION
+                <%= article.caption%>
+            </div>
+            <div> USER_ID
+                <%= article.user_id%>
+            </div>
+        </div>
+    <%end%>
