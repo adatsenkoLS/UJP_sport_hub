@@ -1,6 +1,6 @@
 class Subcategory < ApplicationRecord
   belongs_to :category
-  has_many :teams 
+  has_many :team
 
 
   def sub_category

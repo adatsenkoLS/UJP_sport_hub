@@ -115,10 +115,10 @@ ActiveRecord::Schema.define(version: 2021_10_27_154940) do
     t.string "team_name", null: false
     t.integer "count_users", default: 0
     t.bigint "city_id"
+    t.bigint "subcategory_id"
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6
     t.datetime "updated_at", precision: 6
-    t.bigint "subcategory_id", null: false
     t.index ["city_id"], name: "index_teams_on_city_id"
     t.index ["subcategory_id"], name: "index_teams_on_subcategory_id"
   end
@@ -167,7 +167,7 @@ ActiveRecord::Schema.define(version: 2021_10_27_154940) do
   add_foreign_key "cities", "countries", on_delete: :cascade
   add_foreign_key "subcategories", "categories"
   add_foreign_key "teams", "cities", on_delete: :cascade
-  add_foreign_key "teams", "subcategories"
+  add_foreign_key "teams", "subcategories", on_delete: :cascade
   add_foreign_key "user_teams", "teams", on_delete: :cascade
   add_foreign_key "user_teams", "users", on_delete: :cascade
 end

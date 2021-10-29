@@ -1,14 +1,12 @@
 class City < ApplicationRecord
     belongs_to :country
-
+    has_many :team
 
 
     def team_country
-        team_country = "#{self.country.coutry_name} #{self.city_name}" 
+        team_country = "#{self.country.coutry_name}, #{self.city_name}" 
         return team_country 
-
     end
-
 
 
     def populate_other_list

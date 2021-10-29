@@ -77,7 +77,18 @@
         <button class="btn-new-post iconed advertising"></button>
       </div>
       <div class="container-main-content"></div>
-       <%= yield %>
+        
+          <% flash.each do |type, msg| %>
+             <div class= "alert-mes-success">
+            
+                  <%= image_tag("teams/success.png",:class => "add-mess-team-img")%>
+      
+                <span class= "closebtn" onclick = "this.parentElement.style.display='none'">&times;</span>
+                <strong>Your team is successfully added</strong>
+                This team is added to your IA
+             </div>
+          <% end %>
+        <%= yield %>
     </div>
 
 

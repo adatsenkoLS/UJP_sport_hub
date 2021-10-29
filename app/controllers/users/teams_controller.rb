@@ -1,6 +1,7 @@
 module Users
   class TeamsController < ApplicationController
     layout 'admin_layout'
+    add_flash_types :info, :error, :warning,:success
     def index
       @team = Team.all
     end
@@ -14,17 +15,23 @@ module Users
     end
 
     def create
+      pp "hi #{team_params}"
       @team = Team.new(team_params)
       if @team.save
-        redirect_to @team
+
+        redirect_to  users_teams_path, success: "Invalid"
+        
       else
-        render :new
+        pp "Error"
+        redirect_to new_users_team_path 
       end
     end
 
     def create_team_and_user(_response)
       @team_and_users = TeamAndUser.new(@user.id, @team.id)
     end
+
+   
 
     private
 

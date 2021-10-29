@@ -1,9 +1,28 @@
-<h1>Hi</h1>
 
-<% @team.each do |t| %>
-  <tr>
-    <td><%= t.team_name %></td>
-    <td><%= t.city_id %></td>
-    <td><%= t.subcategory_id %></td>
-  </tr>
-<% end %>
+
+
+
+<div>
+<table class="table table-sm">
+  <thead>
+    <tr>
+      <th scope="col">Teams</th>
+      <th scope="col">Location</th>
+      <th scope="col">Date added</th>
+      <th scope="col">Category</th>
+      <th scope="col">SubCategory</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @team.each do |t| %>
+    <tr>
+      <td ><%= t.team_name %></td>
+      <td><%= t.team_country_city %></td>
+      <td><%= t.date_added %></td>
+      <td><%= t.team_category%></td>
+      <td><%= t.subcategory.name%></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+</div>

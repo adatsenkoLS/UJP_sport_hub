@@ -1,22 +1,21 @@
 
 
 teamsCheck = () => {
-    let el = document.getElementById('team_id');
+    let el = document.getElementById('team_subcategory');
     el.setAttribute("onchange", "Check(this)");
+    $("#team_subcategory_id").empty();
 }
 
  Check = (op) => {
-  console.log(op.value)
   s = $.ajax({
     url: "/category/" + op.value + "/getsubcategory", 
     type: "GET",
     dataType: "script",
     data: { "team_id": op.value },
     success: function(result) { 
-
+      $("#team_subcategory_id").empty();
       let array = JSON.parse(result)
       let el = document.getElementById('team_subcategory_id');
-      $("#team_subcategory_id").empty();
       var i;
       var iLength = Object.keys(array).length;
       for (i = 0; i < iLength; i++) {
@@ -27,19 +26,7 @@ teamsCheck = () => {
       }
     }
   })
- 
-
-
-
-
 } 
 
 
 
-
-
-
-
-NextCheck = (op) => {
-  console.log(op.options[op.selectedIndex])     
-}
