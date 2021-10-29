@@ -1,41 +1,184 @@
 // Place all the styles related to the Home_page controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-.notice,
-.alert {
-  display: none;
+body {
+	font-family: Open Sans;
 }
 
 div {
-  border: 1px solid red;
+	align-items: center;
 }
 
-sub_article {
+.line {
+	background: #D8D8D8;
+	border: 5px solid #B2B2B2;
+}
+
+.home_page {
+	background: #FFFFFF;
+	overflow: hidden;
+	min-height: 100%;
+	margin-left: 25%;
+}
+
+header {
+	width: 1440px;
+	height: 84px;
+	left: 0px;
+	top: -1px;
+	border: 1px solid red;
+}
+
+footer {
+	width: 1440px;
+	height: 377px;
+	left: 0px;
+	top: 2883px;
+	bottom: 0;
+	border: 1px solid red;
+}
+
+.sub_article {
 	width: 828px;
 	height: 294px;
-	left: 241px;
-	top: 657px;
-
 	display: flex;
 	justify-content: space-between;
 }
 
-.sub1 {
+.sub1, .sub2, .sub3, .sub4 {
 	width: 202px;
 	height: 294px;
+	display: flex;
+	flex-direction: column;
 }
 
-.sub2 {
-	width: 202px;
-	height: 294px;
+.sub_img_1 {
+	width: 177px;
+	height: 128px;
 }
 
-.sub3 {
-	width: 202px;
-	height: 294px;
+.sub_img_2 {
+	background-image: url("/img/sub/sub_article_photo_2.jpg");
+	width: 177px;
+	height: 128px;
 }
 
-.sub4 {
-	width: 202px;
-	height: 294px;
+.sub_img_3 {
+	background-image: url("/img/sub/sub_article_photo_3.jpg");
+	width: 177px;
+	height: 128px;
+}
+
+.sub_img_4 {
+	background-image: url("/img/sub/sub_article_photo_4.jpg");
+	width: 177px;
+	height: 128px;
+}
+
+.sub_text_1 h1 {
+	font-family: Open Sans;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 16px;
+	line-height: 22px;
+	color: #2B2F43;
+}
+
+.sub_text_1 p {
+	width: 150px;
+	height: 57px;
+	font-family: Open Sans;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 14px;
+	line-height: 19px;
+	color: #7F7B7B;
+}
+
+.breakdown {
+	width: 813px;
+	height: 721px;
+	display: flex;
+	flex-wrap: wrap;
+    align-items: flex-start;
+	justify-content: space-between;
+}
+
+.breakdown_rect_1, .breakdown_rect_2, .breakdown_rect_3, .breakdown_rect_4 {
+	width: 390px;
+	height: 295px;
+	border: 1px solid #EDEDED;
+	box-sizing: border-box;
+}
+
+.rect_img_1 {
+	width: 389px;
+	height: 196px;
+	background-image: url("/img/breakdown/break_1.jpg");
+}
+
+.rect_text_1 {
+	font-family: Open Sans;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 22px;
+	line-height: 30px;
+	
+	color: #2B2F43;
+}
+
+.rect_in_rect_1 {
+	border: 1px solid #EDEDED;
+	box-sizing: border-box;
+	display: flex;
+}
+
+.rect_img_2 {
+	width: 151px;
+	height: 97px;
+	background-image: url("/img/breakdown/break_2.jpg");
+}
+
+.rect_text_2 p {
+	font-family: Open Sans;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 14px;
+	line-height: 19px;
+	color: #7F7B7B;
+}
+
+.rect_text_2 h3 {
+	font-family: Open Sans;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 16px;
+	line-height: 22px;
+	color: #2B2F43;
+}
+
+.photo_of_the_day {
+	width: 827px;
+	height: 658px;
+}
+
+.most {
+	width: 816px;
+	height: 346px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.most_popular {
+	width: 390px;
+	height: 346px;
+	border: 1px solid #EDEDED;
+	box-sizing: border-box;
+}
+
+.most_commented {
+	width: 391px;
+	height: 346px;
+	border: 1px solid #EDEDED;
+	box-sizing: border-box;
 }
