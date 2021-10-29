@@ -1,29 +1,61 @@
-<h2>Sign up</h2>
+<aside>
+    <nav>
+        <div class="sport_hub_logo">
+            <a class="a_sport_hub" href="">Sports Hub</a>
+        </div>
+    </nav>
+</aside>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+<div class="log_menu">
+    <nav>
+        <ul class="flex_menu">
+            <li class="btn1">
+                <a class="a_no_acc" href="">Don’t have an account?</a>
+            </li>
+            <li class="btn2">
+                <a class="a_get_started" href="">Get Started</a>
+            </li>
+        </ul>
+    </nav>
+</div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+<div class="main">
+    <h1 class="h_log">Create Account</h1>
+    <div class="log_nav">
+        <nav>
+            <ul class="flex_btns">
+                <li class="facebook_nav">
+                    <a href=""><%= image_tag "FB.png" %></a>
+                </li>
+                <li class="google_nav">
+                    <a class="a_gmail" href=""><%= image_tag "Gmail.png" %></a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <p class="p_use_email">Or use your email for registration:</p>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+      <div class="field flex_pass name_margin_top">
+        <div>
+          <%= f.label "first name", class:"h_email_log" %>
+          <input class="name_inputs", placeholder="John">
+        </div>
+        <div class="name_margin_left">
+          <%= f.label "last name", class:"h_email_log" %>
+          <input class="name_inputs", placeholder="Doe">
+        </div>
+      </div>
+      <div class="field name_margin_top">
+        <%= f.label "email address", class:"h_email_log" %><br />
+        <%= f.email_field :email, autocomplete: "email", class:"input_email", placeholder:"Email@gmail.com" %>
+      </div>
+      <div class="field name_margin_top">
+        <%= f.label :password, class:"h_email_log" %><br />
+        <%= f.password_field :password, autocomplete: "new-password", class:"input_email", placeholder:"8 + characters (letters and numbers)" %>
+      </div>
+      <div class="actions">
+        <%= f.submit "SIGN UP", class:"btn_sign_in" %>
+      </div>
+    <% end %>
+</div>

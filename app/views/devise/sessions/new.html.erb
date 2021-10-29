@@ -26,9 +26,11 @@
             <ul class="flex_btns">
                 <li class="facebook_nav">
                     <a href=""><%= image_tag "FB.png" %></a>
+                    <%= button_to "Log in with Facebook", '/auth/facebook'%>
                 </li>
                 <li class="google_nav">
                     <a class="a_gmail" href=""><%= image_tag "Gmail.png" %></a>
+                    <%= button_to "Log in with Google", '/auth/google_oauth2'%>
                 </li>
             </ul>
         </nav>
