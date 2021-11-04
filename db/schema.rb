@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_27_102944) do
+ActiveRecord::Schema.define(version: 2021_10_27_154940) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,10 +43,16 @@ ActiveRecord::Schema.define(version: 2021_10_27_102944) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "article_conferences", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "article_id", null: false
+    t.bigint "conference_id", null: false
+    t.index ["article_id"], name: "index_article_conferences_on_article_id"
+    t.index ["conference_id"], name: "index_article_conferences_on_conference_id"
+  end
+
   create_table "articles", force: :cascade do |t|
-    t.string "conference"
-    t.string "team"
-    t.string "location"
     t.text "alternative_text"
     t.string "headline"
     t.string "caption"
@@ -54,7 +60,26 @@ ActiveRecord::Schema.define(version: 2021_10_27_102944) do
     t.boolean "show_comments"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "user_id"
+    t.bigint "user_id", null: false
+    t.bigint "team_id", null: false
+    t.bigint "city_id", null: false
+    t.index ["city_id"], name: "index_articles_on_city_id"
+    t.index ["team_id"], name: "index_articles_on_team_id"
+    t.index ["user_id"], name: "index_articles_on_user_id"
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "cities", force: :cascade do |t|
+    t.string "city_name", default: "", null: false
+    t.bigint "country_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["country_id"], name: "index_cities_on_country_id"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -62,6 +87,18 @@ ActiveRecord::Schema.define(version: 2021_10_27_102944) do
     t.integer "article_id"
     t.integer "parent_id"
     t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "conferences", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "countries", force: :cascade do |t|
+    t.string "coutry_name", default: "", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -75,13 +112,24 @@ ActiveRecord::Schema.define(version: 2021_10_27_102944) do
     t.index ["updated_at"], name: "index_sessions_on_updated_at"
   end
 
+  create_table "subcategories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "category_id", null: false
+    t.index ["category_id"], name: "index_subcategories_on_category_id"
+  end
+
   create_table "teams", force: :cascade do |t|
     t.string "team_name", null: false
     t.integer "count_users", default: 0
-    t.string "email", default: "", null: false
+    t.bigint "city_id"
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6
     t.datetime "updated_at", precision: 6
+    t.bigint "subcategory_id", null: false
+    t.index ["city_id"], name: "index_teams_on_city_id"
+    t.index ["subcategory_id"], name: "index_teams_on_subcategory_id"
   end
 
   create_table "user_teams", force: :cascade do |t|
@@ -120,6 +168,15 @@ ActiveRecord::Schema.define(version: 2021_10_27_102944) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "article_conferences", "articles"
+  add_foreign_key "article_conferences", "conferences"
+  add_foreign_key "articles", "cities"
+  add_foreign_key "articles", "teams"
+  add_foreign_key "articles", "users"
+  add_foreign_key "cities", "countries", on_delete: :cascade
+  add_foreign_key "subcategories", "categories"
+  add_foreign_key "teams", "cities", on_delete: :cascade
+  add_foreign_key "teams", "subcategories"
   add_foreign_key "user_teams", "teams", on_delete: :cascade
   add_foreign_key "user_teams", "users", on_delete: :cascade
 end
