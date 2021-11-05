@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   # end
   scope '(:locale)', locale: /en||ua/ do
     namespace :users do
-      resources :articles, :teams, :user_team, :category
+      resources :articles, :teams, :user_team, :category, :news_partners
     end
     resources :articles
     resources :cities

@@ -1,0 +1,2 @@
+class NewsPartner < ApplicationRecord
+end
