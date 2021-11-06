@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin</title>
+  </head>
+  <body>
+    <%= render "users/articles/admin_navbar"%>
+    <div class="container-btw-header-nav">
+      <div class="container-logo">
+        <h2 id="current-menu-item-news">News Partners</h2>
+      </div>
+      <% if controller_name == "articles"%>
+      <button class="btn-new-post btn-new-article">+ New Article</button>
+      <% end %>
+      <% if  controller_name == "user_teams"%>
+        <button class="btn-new-post btn-new-article">+ Add team</button>
+      <% end %>
+      <% if  controller_name == "news_partners"%>
+        <button class="btn-new-post btn-new-partner">+ Add New Partner</button>
+      <% end %>
+    </div>
+    <div class="container-navbar">
+      <nav>
+        <div class="container-left-icon-btn">
+          <button class="btn-new-post iconed icon-arrow-left"></button>
+        </div>
+
+        <!-- it may be button or link. -->
+        <!-- depends on  -->
+
+        <div class="container-opts">
+          <span class="nav-opt">home</span>
+          <span class="nav-opt">nba</span>
+          <span class="nav-opt">nfl</span>
+          <span class="nav-opt">mlb</span>
+          <span class="nav-opt">nhl</span>
+          <span class="nav-opt">cbb</span>
+          <span class="nav-opt">cfb</span>
+          <span class="nav-opt">nascar</span>
+          <span class="nav-opt">golf</span>
+          <span class="nav-opt">video</span>
+          <span class="nav-opt">lifestyle</span>
+          <span class="nav-opt">dealbook</span>
+        </div>
+
+        <button class="btn-new-post iconed icon-arrow-right"></button>
+      </nav>
+    </div>
+    <div class="main-page">
+      <div class="container-left-icons">
+        <button class="btn-new-post iconed surveys"></button>
+        <button class="btn-new-post iconed banners"></button>
+        <button class="btn-new-post iconed languages"></button>
+        <button class="btn-new-post iconed footer"></button>
+        <button class="btn-new-post iconed social-networks"></button>
+        <button class="btn-new-post iconed users"></button>
+        <button class="btn-new-post iconed ia"></button>
+        <!--Make teams button -->
+        <%= link_to '', '/users/teams/new', class: "btn-new-post iconed teams", method: :get %> 
+        <!------------------------------------->
+        <button class="btn-new-post iconed new-partners"></button>
+        <button class="btn-new-post iconed advertising"></button>
+      </div>
+      <div class="container-main-content">
+        <%= render "form_for_new_news_partner"%>
+      </div>
+    </div>
+  </body>
+</html>

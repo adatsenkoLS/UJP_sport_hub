@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_27_154940) do
+ActiveRecord::Schema.define(version: 2021_11_05_103306) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -82,6 +82,15 @@ ActiveRecord::Schema.define(version: 2021_10_27_154940) do
     t.index ["country_id"], name: "index_cities_on_country_id"
   end
 
+  create_table "comments", force: :cascade do |t|
+    t.text "body"
+    t.integer "article_id"
+    t.integer "parent_id"
+    t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "conferences", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
@@ -90,6 +99,15 @@ ActiveRecord::Schema.define(version: 2021_10_27_154940) do
 
   create_table "countries", force: :cascade do |t|
     t.string "coutry_name", default: "", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "news_partners", force: :cascade do |t|
+    t.string "title"
+    t.boolean "active"
+    t.string "api_key"
+    t.string "default_sources"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
