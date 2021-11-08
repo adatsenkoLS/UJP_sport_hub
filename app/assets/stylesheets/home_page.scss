@@ -5,10 +5,6 @@ body {
 	font-family: Open Sans;
 }
 
-div {
-	align-items: center;
-}
-
 .line {
 	background: #D8D8D8;
 	border: 5px solid #B2B2B2;
@@ -18,23 +14,18 @@ div {
 	background: #FFFFFF;
 	overflow: hidden;
 	min-height: 100%;
-	margin-left: 25%;
+	// margin-left: 25%;
 }
 
 header {
 	width: 1440px;
 	height: 84px;
-	left: 0px;
-	top: -1px;
 	border: 1px solid red;
 }
 
 footer {
 	width: 1440px;
 	height: 377px;
-	left: 0px;
-	top: 2883px;
-	bottom: 0;
 	border: 1px solid red;
 }
 
@@ -181,4 +172,54 @@ footer {
 	height: 346px;
 	border: 1px solid #EDEDED;
 	box-sizing: border-box;
+}
+
+aside {
+	float: left;
+	width: 224px;
+	margin-top: 80px;
+	margin-left: 55px;
+}
+
+.asside_nav li a {
+	text-decoration: none;
+	color: #B2B2B2;
+	font-family: Open Sans;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 14px;
+	line-height: 19px;
+}
+
+.asside_nav li {
+	margin-bottom: 17px;
+	list-style: none;
+}
+
+.nav_p_follow {
+	color: #B2B2B2;
+}
+
+.nav_follow {
+	margin-left: 31px;
+	margin-top: 32px;
+}
+
+.asside_nav_img {
+	width: 19px;
+	text-decoration: none;
+	display: flex;
+	justify-content: center;
+}
+
+.asside_nav_flex {
+	display: flex;
+}
+
+.t_y_margin_left {
+	margin-left: 31px;
+}
+
+.g_y_margin_top {
+	margin-top: 27px;
 }
