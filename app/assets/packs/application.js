@@ -12,7 +12,7 @@ import "../javascript/channels"
 
 import "../javascript/teams" 
 
-import "jquery"
+
 
 
 Rails.start()

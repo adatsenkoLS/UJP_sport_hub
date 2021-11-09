@@ -29,6 +29,8 @@ Rails.application.routes.draw do
     resources :cities
   end
 
+  delete '/users/teams/:id', to: 'users/teams#destroy',as: 'delete_path'
+
   root 'home_page#home'
 
   get 'cabinet/personal', to: 'cabinet#personal'

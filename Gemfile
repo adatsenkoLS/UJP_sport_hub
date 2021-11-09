@@ -54,7 +54,9 @@ gem "omniauth-rails_csrf_protection"
 gem 'i18n', '~> 1.8', '>= 1.8.10'
 
 
-gem 'jquery-rails'
+gem 'rails-assets-jquery', source: 'https://rails-assets.org'
+gem 'rails-assets-datatables', source: 'https://rails-assets.org'
+gem 'kaminari'
 
 group :development, :test do
   gem 'byebug'
@@ -88,3 +90,5 @@ group :test do
   gem 'rspec-sidekiq', '~> 3.1'
   gem 'simplecov', '~> 0.21.2'
 end
+
+

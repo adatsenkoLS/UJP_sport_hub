@@ -1,17 +1,12 @@
-.map-team{
-    
-  
-}
+
 .alert-info{
     width: 500px;
 }
-.map-team img{
-    padding-left: 86px;
-    padding-top: 25px;
-    padding-right: 29px;
-    width: 120vh;
-    height: 88%;
-    display: block;
+.map-team {
+    
+    max-width: 100%;
+    height: auto;
+    float: left;
 }
 
 .combobox-teams select{
@@ -30,20 +25,23 @@
 }
 
 .team-form{
-    position: relative;
-    margin-top: 36px;
+    
+    padding-left: 29px;
     display: flex;
-    justify-content: center ;
-    justify-items: center;
-   
+    flex-direction: column;
+    max-width: 100%;
+    justify-content: space-between;
+    
 }
 
-
+.teams-all-buttons{
+   align-items: flex-end;
+   
+}
 
 input[type="file"] {
     display: none;
 }
-
 
 .custom-file-upload {
     font-family: 'Open Sans';
@@ -65,7 +63,6 @@ input[type="file"] {
     display: flex;
     justify-content: center;
     align-items: center;
-   
     flex-direction: column;
 }
 
@@ -75,7 +72,6 @@ input[type="file"] {
 
 
 .cansel-team-button{
-    margin-top: 9px;
     font-family: 'Open Sans';
     font-style: normal;
     font-weight: 600;
@@ -86,6 +82,29 @@ input[type="file"] {
     justify-content: center;
     color: #D72130;
 }
+
+/*Main page*/
+
+.main-page-team{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    max-width: 100%;
+}
+
+.cabinet-form{
+    display: flex;  
+    box-sizing: border-box;
+    align-self: center;
+    
+} 
+
+
+
+/*---------------*/
+
+
 
 
 
@@ -118,3 +137,76 @@ input[type="file"] {
     cursor: pointer;
     transition: 0.3s;
   }
+
+
+
+
+/*----------------------Table-----------------------------*/
+#table-team-names thead{
+    
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 16px;
+    background: #F2F2F2;
+    
+}
+#team-table_filter{
+    display: none;
+}
+
+.table-scroll-team{
+  height: 40px;
+  overflow-x: auto;
+  border-bottom: 1px solid #eee;
+}
+#DataTables_Table_0_wrapper table{
+    
+    width:100%;
+    justify-content: center;
+	align-self: center;
+	border: none;
+}
+.table-scroll-team thead th {
+	font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 16px;
+	text-align: left;
+	border: none;
+	padding: 10px 15px;
+	background: #F2F2F2;
+	font-size: 14px;
+
+}
+.table-scroll-team tbody td {
+	text-align: left;
+	
+    border-bottom: 1px solid #D4D9E2;
+	padding: 10px 15px;
+	font-size: 14px;
+	vertical-align: top;
+}
+
+.edit-team{
+    font-family: 'Open Sans';
+font-style: normal;
+font-weight: 600;
+font-size: 12px;
+line-height: 16px;
+text-decoration: none;
+color: #d72130;
+}
+
+.table-team td{
+    padding: 20px;
+}
+.table-team th{
+    padding: 15px;
+    
+}
+
+
+/**/
