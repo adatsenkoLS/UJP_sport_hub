@@ -26,8 +26,11 @@ Rails.application.routes.draw do
       resources :articles, :teams, :user_team, :category
     end
     resources :articles
-    resources :cities, :news_partners
+    resources :cities
   end
+
+  get 'news_partners', to: "news_partners#show"
+  patch 'news_partners', to: "news_partners#change_status"
 
   root 'home_page#home'
 

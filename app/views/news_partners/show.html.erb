@@ -9,19 +9,11 @@
   </head>
   <body>
     <%= render "users/articles/admin_navbar"%>
-    <div class="container-btw-header-nav">
-      <div class="container-logo">
+    <div class="container-btw-header-title">
+      <div class="container-logo-news">
         <h2 id="current-menu-item-news">News Partners</h2>
       </div>
-      <% if controller_name == "articles"%>
-      <button class="btn-new-post btn-new-article">+ New Article</button>
-      <% end %>
-      <% if  controller_name == "user_teams"%>
-        <button class="btn-new-post btn-new-article">+ Add team</button>
-      <% end %>
-      <% if  controller_name == "news_partners"%>
-        <button class="btn-new-post btn-new-partner">+ Add New Partner</button>
-      <% end %>
+      <button class="btn-new-post btn-new-partner">+ Add New Partner</button>
     </div>
     <div class="container-navbar">
       <nav>
