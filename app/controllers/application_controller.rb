@@ -28,10 +28,4 @@ class ApplicationController < ActionController::Base
     locale = cookies[:locale]&.to_sym
     I18n.locale = locale if I18n.available_locales.include?(locale)
   end
-
-
-
-
-
-  
 end

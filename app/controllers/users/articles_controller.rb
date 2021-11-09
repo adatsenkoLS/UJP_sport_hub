@@ -3,6 +3,17 @@ module Users
     # layout 'admin_layout'
     # before_action :authenticate_user!, only: %w[index]
     # before_action :authenticate_admin!, only: %w[index new show create]
+    include ArticlesHelper
+
+    # To change status of an article
+    def change_status
+      @article = Article.find(params[:id])
+      p '----------------------------------------------------------------'
+      pp @article
+      p '----------------------------------------------------------------'
+      @article.update(params.require(:article).permit(:is_published))
+      redirect_to users_articles_path
+    end
 
     def index
       @articles = Article.all
@@ -32,11 +43,17 @@ module Users
       end
     end
 
+    def edit
+      @article = Article.find(params[:id])
+    end
+
+    # def update; end
+
     private
 
     def post_params
       @post_params ||= params.require(:article).permit(:conference_id, :team_id, :city_id, :alternative_text,
-                                                       :headline, :caption, :user_id)
+                                                       :headline, :caption, :user_id, :image, :content)
       @post_params[:user_id] = current_user.id if params[:action] == 'create'
       @post_params
     end

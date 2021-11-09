@@ -38,5 +38,11 @@ module Sporthub
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    # Have no idea if I need this
+    # initializer(:remove_action_mailbox_and_activestorage_routes, after: :add_routing_paths) do |app|
+    #   app.routes_reloader.paths.delete_if { |path| path =~ /activestorage/ }
+    #   app.routes_reloader.paths.delete_if { |path| path =~ /actionmailbox/ }
+    # end
   end
 end

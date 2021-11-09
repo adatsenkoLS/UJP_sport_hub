@@ -23,9 +23,17 @@ Rails.application.routes.draw do
   # end
   scope '(:locale)', locale: /en||ua/ do
     namespace :users do
-      resources :articles, :teams, :user_team, :category
+      resources :articles do
+        member do
+          patch 'change_status'
+        end
+      end
+      resources :teams, :user_team, :category
+      # patch 'articles/:id', to: 'articles#change_status', as: 'change_status'
     end
+    # patch 'articles/:id', to: 'articles#change_status', as: 'change_status'
     resources :articles
+
     resources :cities
   end
 
