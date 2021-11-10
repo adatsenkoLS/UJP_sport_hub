@@ -26,8 +26,12 @@
         <table class="news_partners_table">
             <tbody>
                 <div class="news_partners_table_row">
-                    <tr class="news_partners_table_data", onclick="show_hide_row('hidden_row');"> 
-                        <td class="news_partners_table_title"><span class="bi bi-plus"></span><%= news_partner.title %></td>
+                    <tr class="news_partners_table_data"> 
+
+                        <td class="news_partners_table_title">
+                            <span class="bi bi-plus", onclick="show_hide_row('hidden_row');"></span><%= news_partner.title %>
+                        </td>
+
                         <td class="news_partners_status_form">
                             <%= form_with model: @news_partner, method: :patch do |form|%>
                                 <div class="form-check form-switch">                        
@@ -37,13 +41,16 @@
                                 <%= form.submit "Submit", :style=>"display:none;" %>
                             <%end%>
                         </td>
+
                         <td class="news_partners_table_actions">
                             <%= image_tag("news_partners/pencil.png", size: "20", class: "news_partners_edit_icon")%>
                             <%= image_tag("news_partners/delete.png", size: "20", class: "news_partners_delete_icon")%>
                         </td>
+
                     </tr>
                 </div>
-                    <tr id="hidden_row" class="hidden_row">
+                    <!-- %= j = "hidden_row" << (i+1).to_s% -->
+                    <tr id="hidden_row", class="hidden_row" >
                     <td>
                         <%= render "form_for_edit_news_partners" %>
                     </td>

@@ -30,7 +30,9 @@ Rails.application.routes.draw do
   end
 
   get 'news_partners', to: "news_partners#show"
+  get 'news_partners/new', to: "news_partners#new"
   patch 'news_partners', to: "news_partners#change_status"
+  put 'news_partners', to: "news_partners#update"
 
   root 'home_page#home'
 

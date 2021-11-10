@@ -1,8 +1,10 @@
 class NewsPartnersController < ApplicationController
     def show
+        @news_partners = NewsPartner.all
+        @news_partner = NewsPartner.new
     end
 
-    def change_status
-        news_partner = NewsPartner.find
+    def new
     end
+
 end
