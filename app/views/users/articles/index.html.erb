@@ -55,7 +55,7 @@
       </div>
       <div class="container-main-content">
         <div class = "articles">
-    <% @articles.each_with_index do |article, index|%>
+    <% @articles.order(:id).each_with_index do |article, index|%>
         <div class="single-article">  
             <div>
                 <%= image_tag article.image, :class=>"small-article-img"%>

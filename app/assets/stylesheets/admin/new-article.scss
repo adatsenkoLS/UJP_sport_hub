@@ -16,7 +16,7 @@ html {
 .container-main-content {
   display: flex;
   flex-direction: column;
-  width: 90%;
+  width: 100%;
 }
 
 .container-main-content {
@@ -103,7 +103,6 @@ html {
   height: 100%;
   top: 0;
   left: 0;
-  z-index: 1;
 }
 
 .text-in-input {

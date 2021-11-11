@@ -4,7 +4,7 @@ module Users
     # before_action :authenticate_user!, only: %w[index]
     # before_action :authenticate_admin!, only: %w[index new show create]
     include ArticlesHelper
-
+    # skip_before_action :verify_authenticity_token
     # To change status of an article
     def change_status
       @article = Article.find(params[:id])
@@ -34,7 +34,6 @@ module Users
         @article_conference = ArticleConference.create!(conference_id: post_params['conference_id'],
                                                         article_id: @article.id)
         logger.debug 'The article was saved and user will be redirected...'
-
         redirect_to users_articles_path
       else
         pp @article.errors
@@ -47,7 +46,14 @@ module Users
       @article = Article.find(params[:id])
     end
 
-    # def update; end
+    def update
+      @article = Article.find(params[:id])
+      @article.update(conference_id: params[:article][:conference_id], team_id: params[:article][:team_id],
+                      city_id: params[:article][:city_id], alternative_text: params[:article][:alternative_text],
+                      headline: params[:article][:headline], caption: params[:article][:caption],
+                      user_id: params[:article][:user_id], image: params[:article][:image],
+                      content: params[:article][:content])
+    end
 
     private
 
