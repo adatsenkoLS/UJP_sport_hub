@@ -5,30 +5,34 @@
 
 
 <%= simple_form_for @team, url: users_teams_path, method: :post do |form| %>
-  
-  <div class="team-form">
-    <div class="form-group combobox-teams">
-      <%= form.label :select_location,class: "login-text"%>
-       <%= collection_select(:team, :city_id, City.all,:id, :team_country, {:include_blank => 'All',class:"selector-team"}) %>
-    </div>
-  
-    <div class="form-group combobox-teams">
-      <%= form.label :select_category,class: "login-text"%>
-      <%= collection_select(:teams, :subcategory ,Category.all, :id,:name, {:include_blank => 'All',class:"selector-team",id: 'team_subcategory'}) %>
-    </div>  
+   
+   <div class="team-form">
+    
+      <div>
+      
+        <div class="form-group combobox-teams">
+          <%= label_tag( nil,'SELECT LOCATION',class: "login-text")%>
+         <%= collection_select(:team, :city_id, City.all,:id, :team_country, {:include_blank => 'All',class:"selector-team"}) %>
+        </div>
+      
+        <div class="form-group combobox-teams">
+          <%= label_tag( nil,'SELECT CATEGORY',class: "login-text")%>
+          <%= collection_select(:teams, :subcategory ,Category.all, :id,:name, {:include_blank => 'All',class:"selector-team",id: 'team_subcategory'}) %>
+        </div>  
 
-    <div class="form-group combobox-teams " id="subcategories_select">
-      <%= form.label :select_subcategory,class: "login-text"%>
-      <%= form.collection_select  :subcategory_id, Subcategory.all, :id, :name , {:include_blank => 'All',class:"selector-team"} %>
-    </div>
+        <div class="form-group combobox-teams " id="subcategories_select">
+          <%= label_tag( nil,'SELECT SUBCATEGORY', class: "login-text") %>
+           <%= form.collection_select  :subcategory_id, Subcategory.all, :id, :name , {:include_blank => 'All',class:"selector-team"} %>
+        </div>
 
 
-    <div class="form-group combo  box-teams">
-      <%= form.label :team_name, class: "login-text" %>
-      <%= form.text_field :team_name,:class=>"input-login" %>
-    </div>
+        <div class="form-group combobox-teams">
+          <%= label_tag( nil,'TEAM NAME', class:  "login-text") %>
+          <%= form.text_field :team_name,:class=>"input-login" %>
+        </div>
+      </div>
 
-    <div class= "add-logo-team form-group">
+       <div class= "add-logo-team form-group">
       <%= image_tag("teams/photoAddTeam.svg")%>
       <label for="file-upload" class="custom-file-upload">
           <i class="fa fa-cloud-upload"></i> <span style="color: #D72130;">Add logo</span>  right here
@@ -36,13 +40,16 @@
       <%= form.file_field :image,:id=>"file-upload" %>
     </div>
 
-  <div class="combobox-teams butons-teams">
-    <%= form.submit "Add to list",:class=>"login-buton alert-button" %>
+     <div class="teams-all-buttons">
+        
+        <%= submit_tag( "Apply",:class=>"login-buton alert-button",id: "filter-team") %>   
+        <%= link_to 'Cancel', '/users/teams/new', class: "cansel-team-button", method: :get %> 
+      
+      </div>   
+      
+    </div>
   </div>
-
-  <%= link_to 'Cancel', '/users/teams/new', class: "cansel-team-button", method: :get %> 
-</div>
-<% end %>
+  <% end %>
 
 <script>teamsCheck() </script>
 

@@ -29,12 +29,22 @@ module Users
       end
     end
 
+
     def create_team_and_user(_response)
       @team_and_users = TeamAndUser.new(@user.id, @team.id)
     end
 
+    def edit
+      @team = Team.find(params[:id])
+      pp @team
+    end
+
+    
     def update
-      super
+      @team = Team.find(params[:id])
+      
+      @team.update(team_name: params[:team][:team_name], city_id: params[:team][:city_id],subcategory_id: params[:team][:subcategory_id])
+      redirect_to users_teams_path
     end
 
     def destroy
@@ -46,7 +56,7 @@ module Users
     private
 
     def team_params
-      params.require(:team).permit(:id, :team_name,:city_id, :subcategory_id,:image,:team_country_city)
+      params.require(:team).permit(:id, :team_name,:city_id, :subcategory_id,:image,:category_id)
     end
   end
 end

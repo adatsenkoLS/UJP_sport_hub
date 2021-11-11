@@ -5,7 +5,7 @@
 .map-team {
     
     max-width: 100%;
-    height: auto;
+    height: 600px;
     float: left;
 }
 
@@ -35,7 +35,7 @@
 }
 
 .teams-all-buttons{
-   align-items: flex-end;
+   align-self: flex-end;
    
 }
 
@@ -97,10 +97,13 @@ input[type="file"] {
     display: flex;  
     box-sizing: border-box;
     align-self: center;
-    
+    margin-bottom: 80px;
+   
 } 
 
+.hover-links tr:hover{
 
+}
 
 /*---------------*/
 
@@ -198,6 +201,8 @@ font-size: 12px;
 line-height: 16px;
 text-decoration: none;
 color: #d72130;
+margin-right: 36px;
+
 }
 
 .table-team td{
@@ -206,6 +211,15 @@ color: #d72130;
 .table-team th{
     padding: 15px;
     
+}
+
+.table-scroll-team tbody tr td:nth-child(6) {
+    visibility: hidden;
+}
+
+.table-scroll-team tbody tr:hover td:nth-child(6){
+    visibility:unset;
+
 }
 
 

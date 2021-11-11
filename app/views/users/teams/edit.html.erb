@@ -3,57 +3,67 @@
   <div class="cabinet-form">
     <%= image_tag("teams/Map.png", class:"map-team")%>
 
-    <div class="team-form">
+
+
+  <%= simple_form_for @team, url: users_team_path, method: :put,class: "team-form" do |form| %>
+    
+   <div class="team-form">
     
       <div>
       
         <div class="form-group combobox-teams">
           <%= label_tag( nil,'SELECT LOCATION',class: "login-text")%>
-          <%= collection_select(:teams, :city_id, City.all,:id, :team_country, {:include_blank => 'All',class:"selector-team"}) %>
+         <%= collection_select(:team, :city_id, City.all,:id, :team_country, {:include_blank => 'All',class:"selector-team"}) %>
         </div>
       
         <div class="form-group combobox-teams">
           <%= label_tag( nil,'SELECT CATEGORY',class: "login-text")%>
-          <%= collection_select(:teams, :subcategory ,Category.all, :id,:name, {:include_blank => 'All',class:"selector-team",id: 'team_subcategory'}) %>
+          <%= collection_select(:teams, :subcategory ,Category.all, :id,:name, {:include_blank =>  @team.subcategory.category.name,class:"selector-team",id: 'team_subcategory'}) %>
         </div>  
 
         <div class="form-group combobox-teams " id="subcategories_select">
           <%= label_tag( nil,'SELECT SUBCATEGORY', class: "login-text") %>
-          <%= collection_select( :teams,  :subcategory_id, Subcategory.all, :id, :name , {:include_blank => 'All',class:"selector-team"}) %>
+           <%= form.collection_select  :subcategory_id, Subcategory.all, :id, :name , {:include_blank => 'All',class:"selector-team"} %>
         </div>
 
 
-        <div class="form-group combo  box-teams">
-          <%= label_tag( nil,'TEAM NAME', class: "login-text") %>
-          <%= text_field_tag(:team_name,nil,class:"input-login") %>
+        <div class="form-group combobox-teams">
+          <%= label_tag( nil,'TEAM NAME', class:  "login-text") %>
+          <%= form.text_field :team_name,:class=>"input-login" %>
         </div>
       </div>
 
-      <div class="teams-all-buttons">
+       <div class= "add-logo-team form-group">
+      <%= image_tag("teams/photoAddTeam.svg")%>
+      <label for="file-upload" class="custom-file-upload">
+          <i class="fa fa-cloud-upload"></i> <span style="color: #D72130;">Add logo</span>  right here
+      </label>  
+      <%= form.file_field :image,:id=>"file-upload" %>
+    </div>
+
+     <div class="teams-all-buttons">
         
         <%= submit_tag( "Apply",:class=>"login-buton alert-button",id: "filter-team") %>   
         <%= link_to 'Cancel', '/users/teams/new', class: "cansel-team-button", method: :get %> 
       
-      </div>  
+      </div>   
       
     </div>
-   
   </div>
-
-  <%= content_tag :table, role: :datatable, data: { url: users_teams_path(format: :json)},class: "table-scroll-team",id: "team-table" do %>
-    <thead>
-      <tr>
-        <th scope="col">TEAMS</th>
-        <th scope="col">LOCATION</th>
-        <th scope="col">DATE ADDED</th>
-        <th scope="col">CATEGORY</th>
-        <th scope="col">SUBCATEGORY</th>
-        <th></th>
-      
-      </tr>
-    </thead>
-    <tbody></tbody>
   <% end %>
+    <%= content_tag :table, role: :datatable, data: { url: users_teams_path(format: :json)},class: "table-scroll-team",id: "team-table" do %>
+      <thead>
+        <tr>
+          <th scope="col">TEAMS</th>
+          <th scope="col">LOCATION</th>
+          <th scope="col">DATE ADDED</th>
+          <th scope="col">CATEGORY</th>
+          <th scope="col">SUBCATEGORY</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    <% end %>
   
 </div>
 

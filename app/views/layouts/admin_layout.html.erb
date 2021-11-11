@@ -22,14 +22,18 @@
     <%= render "users/articles/admin_navbar"%>
     <div class="container-btw-header-nav">
       <div class="container-logo">
-        <h2 id="current-menu-item">NBA</h2>
+      <% if  controller_name == "teams"%>
+        <h2 id="current-menu-item">Teams</h2>
+        <% else%>
+          <h2 id="current-menu-item">NBA</h2>
+        <% end %>
       </div>
       <% if controller_name == "articles"%>
       <button class="btn-new-post btn-new-article">+ New Article</button>
       <% end %>
       <% if  controller_name == "teams"%>
-        <button class="btn-new-post btn-new-article">+ Add team</button>
-     
+   
+      <%= link_to '+ Add team', '/users/teams/new', class: "btn-new-post btn-new-article link-admin-add", method: :get %> 
       <% else %>
           <button class="btn-new-post btn-new-article">+ Add team</button>
       <% end %>
@@ -71,7 +75,7 @@
         <button class="btn-new-post iconed users"></button>
         <button class="btn-new-post iconed ia"></button>
         <!--Make teams button -->
-        <%= link_to '', '/users/teams/new', class: "btn-new-post iconed teams", method: :get %> 
+        <%= link_to '', '/users/teams', class: "btn-new-post iconed teams", method: :get %> 
         <!------------------------------------->
         <button class="btn-new-post iconed new-partners"></button>
         <button class="btn-new-post iconed advertising"></button>

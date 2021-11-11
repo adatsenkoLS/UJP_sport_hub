@@ -16,7 +16,7 @@ html {
 .container-main-content {
   display: flex;
   flex-direction: column;
-  width: 90%;
+  width: 100%;
 }
 
 .container-main-content {
@@ -27,12 +27,7 @@ html {
     column-gap: 35px;
     grid-template-columns: auto auto auto;
     grid-template-rows: auto;
-    grid-template-areas:
-      "upload_img upload_img upload_img"
-      "conference team location"
-      "alt alt alt"
-      "headline headline headline"
-      "caption caption caption";
+  
 
     .item0 {
       grid-area: upload_img;
@@ -112,7 +107,7 @@ html {
 }
 
 .container-btw-header-nav {
-  align-items: center;
+  align-items: end;
   border-bottom: 1px solid #d4d9e2;
 
   button {

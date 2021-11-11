@@ -11,10 +11,10 @@ class TeamsDatatable < ApplicationDatatable
                 column << team.team_category
                 column << team.subcategory.name
 
-                links = []
-                links << link_to('Edit',"/users/teams/#{team.id}", method: :put ,class: "edit-team")
-                links << link_to('Destroy',"/users/teams/#{team.id}", method: :delete)
-                column << links.join(' ')    
+                links = [] 
+                links << link_to('Edit',"/users/teams/#{team.id}/edit", method: :get , class: "edit-team")
+                links << link_to(image_tag("teams/delete.svg"),"/users/teams/#{team.id}", method: :delete)
+                column << links.join(' ')   
             end
 
         end
@@ -50,13 +50,18 @@ class TeamsDatatable < ApplicationDatatable
 
     if (country == "") & (category != "") & (subcategory != "")
 
-        
         teams = teams.where("subcategory_id = #{subcategory} and category_id = #{category} and team_name LIKE '%#{team_name}'") 
        
-    elsif (country != "" )& (country != nil) & (category != "") & (subcategory = "")
-        teams = teams.where("city_id = #{country} and category_id = #{category}  and team_name LIKE '%#{team_name}'") 
-    elsif (country != "") & (category != "") & (subcategory != "")
-        teams = teams 
+    elsif (country =="" ) & (country == nil) & (category != "") & (subcategory != "")
+
+        teams = teams.where("category_id = #{category} and subcategory_id = #{subcategory} and team_name LIKE '%#{team_name}'") 
+
+    elsif (country != "") & (country != nil) & (category != "") & (subcategory != "")
+
+        teams = teams.where("city_id = #{country} and category_id = #{category} and subcategory_id = #{subcategory} and team_name LIKE '%#{team_name}'")
+    
+    elsif (country == "" )  & (category == "") & (subcategory == "") & (team_name != nil)
+        teams = teams.where("team_name LIKE '%#{team_name}'")
     else
         teams = teams
     end
