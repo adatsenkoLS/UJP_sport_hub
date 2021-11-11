@@ -34,6 +34,28 @@
     color: #FFFFFF;
 }
 
+.news_partners_index_link {
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: center;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.news_partners_index_link:hover {
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: center;
+    color: #FFFFFF;
+    text-decoration: none;    
+}
+
 .news_partners_empty {
     display: flex;
     flex-direction: column;
@@ -156,4 +178,119 @@
 
 #news_partners_edit_form_default_sources {
     width: 400px;
+}
+
+.news_partners_new_tab {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    left: 40%;
+    top: 40%;
+    box-shadow: 0px 4px 28px #818181;
+    background-color: #FFFFFF;
+    width: 458px;
+    height: 246px;
+    text-align: center;
+
+    .login-text {
+        text-align: start;
+        margin-left: 10%;
+    }
+
+    .login-buton {
+        width: 107px;
+        height: 32px;
+        align-self: flex-end;
+        text-transform: none;
+    }
+
+    .cancel {
+        color: #D72130;
+        background-color: #FFFFFF;
+    }
+
+    .buttons {
+        margin-left: 150px;
+    }
+
+    select {
+        padding: 7px 40px 7px 12px;
+        width: 80%;
+        border: 1px solid #E8EAED;
+        border-radius: 5px;
+        background: white;
+        box-shadow: 0 1px 3px -2px #9098A9;
+        cursor: pointer;
+        font-family: Open Sans;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 16px;
+        color: #2B2F43;
+        transition: all 150ms ease; 
+    }
+}
+
+.news_partners_new_tab_heading {
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 33px;
+    color: #000000;
+    margin-top: 7%;
+}
+
+.news_partners_new_tab_select {
+    background-color: #FFFFFF;
+}
+
+.news_partners_delete_tab {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    left: 40%;
+    top: 40%;
+    box-shadow: 0px 4px 28px #818181;
+    background-color: #FFFFFF;
+    width: 458px;
+    height: 246px;
+    text-align: center;
+
+    h1 {
+        font-family: Open Sans;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 19px;
+        text-align: center;
+        color: #000000;
+        margin-top: 15%;
+    }
+
+    p {
+        font-family: Open Sans;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 19px;
+        text-align: center;
+        color: #000000;
+    }
+
+    .cancel {
+        color: #D72130;
+        background-color: #FFFFFF;
+    }
+
+    .buttons {
+        margin-left: 150px;
+    }
+
+    .login-buton {
+        width: 107px;
+        height: 32px;
+        align-self: flex-end;
+        text-transform: none;
+    }
 }

@@ -5,12 +5,12 @@
 
         <div class="form-group">
             <%= form.label :news_partners_edit_form_api_key, "API KEY"%>
-            <%= form.text_field :news_partners_edit_form_api_key %>
+            <%= form.text_field :news_partners_edit_form_api_key, value: news_partner.api_key %>
         </div>
 
         <div class="form-group">
             <%= form.label :news_partners_edit_form_default_sources, "DEFAULT SOURCES" %>
-            <%= form.text_field :news_partners_edit_form_default_sources %>
+            <%= form.text_field :news_partners_edit_form_default_sources, value: news_partner.default_sources %>
         </div>
 
     </div>

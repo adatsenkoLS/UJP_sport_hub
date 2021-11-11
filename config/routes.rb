@@ -31,6 +31,8 @@ Rails.application.routes.draw do
 
   get 'news_partners', to: "news_partners#show"
   get 'news_partners/new', to: "news_partners#new"
+  get 'news_partners/delete', to: "news_partners#delete"
+  post 'news_partners', to: "news_partners#create"
   patch 'news_partners', to: "news_partners#change_status"
   put 'news_partners', to: "news_partners#update"
 

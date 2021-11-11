@@ -1,8 +1,0 @@
-<div class="news_partners_add_popup">
-    <h1>Add new News Partner</h1>
-    <%= form_with model: @news_partner, method: :patch do |form| %>
-        <%= form.label :name, "NAME" %>
-        <%= form.select :name, ["Google News", "UA News", "News.com"] %>
-        <%= form.submit "Add"%>
-    <% end %>
-</div>
