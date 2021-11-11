@@ -21,8 +21,7 @@
         </table>
 
 
-    <% NewsPartner.all.size.times do |i| %>
-    <% news_partner = NewsPartner.find(i+1) %>
+    <% NewsPartner.all.each do |news_partner| %>
         <table class="news_partners_table">
             <tbody>
                 <div class="news_partners_table_row">
@@ -49,7 +48,6 @@
 
                     </tr>
                 </div>
-                    <!-- %= j = "hidden_row" << (i+1).to_s% -->
                     <tr id="hidden_row", class="hidden_row" >
                     <td>
                         <%= render "form_for_edit_news_partners" %>
