@@ -13,7 +13,7 @@ class TeamsDatatable < ApplicationDatatable
 
                 links = [] 
                 links << link_to('Edit',"/users/teams/#{team.id}/edit", method: :get , class: "edit-team")
-                links << link_to(image_tag("teams/delete.svg"),"/users/teams/#{team.id}", method: :delete)
+                links << "<a id ='btnChangeBg' onclick = 'deleteTeam(#{team.id})' style ='cursor: pointer;'>#{image_tag("teams/delete.svg")}</a>"
                 column << links.join(' ')   
             end
 
@@ -45,9 +45,8 @@ class TeamsDatatable < ApplicationDatatable
     subcategory = array[2]
     team_name = array[3]
 
-    teams = Team.joins(:subcategory).order("#{sort_column} #{sort_direction}")
-    teams = teams.page(page).per(per_page)
-
+    teams = Team.joins(:subcategory)
+    teams = teams.page(page)
     if (country == "") & (category != "") & (subcategory != "")
 
         teams = teams.where("subcategory_id = #{subcategory} and category_id = #{category} and team_name LIKE '%#{team_name}'") 

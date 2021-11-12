@@ -44,13 +44,13 @@ module Users
       @team = Team.find(params[:id])
       
       @team.update(team_name: params[:team][:team_name], city_id: params[:team][:city_id],subcategory_id: params[:team][:subcategory_id])
-      redirect_to users_teams_path
+      redirect_to users_teams_path 
     end
 
     def destroy
       @team = Team.find(params[:id])
       @team.destroy()
-      redirect_to users_teams_path
+      redirect_to users_teams_path 
     end
 
     private

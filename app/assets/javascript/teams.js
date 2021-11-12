@@ -1,13 +1,13 @@
 
 
 teamsCheck = () => {
-    let el = document.getElementById('teams_subcategory');
+    let el = document.getElementById('team_subcategory');
     el.setAttribute("onchange", "Check(this);");
-    $("#teams_subcategory_id").empty();
+
 }
 
  Check = (op) => {
-  $("#teams_subcategory_id").empty();
+  $("#team_subcategory_id").empty();
   console.log( op.value)
   if (op.value == ''){
     op.value = -1
@@ -21,7 +21,7 @@ teamsCheck = () => {
     success: function(result) { 
      
       let array = JSON.parse(result)
-      let el = document.getElementById('teams_subcategory_id');
+      let el = document.getElementById('team_subcategory_id');
       var i;
       var iLength = Object.keys(array).length;
       

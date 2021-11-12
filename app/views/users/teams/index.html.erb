@@ -9,17 +9,17 @@
       
         <div class="form-group combobox-teams">
           <%= label_tag( nil,'SELECT LOCATION',class: "login-text")%>
-          <%= collection_select(:teams, :city_id, City.all,:id, :team_country, {:include_blank => 'All',class:"selector-team"}) %>
+          <%= collection_select(:team, :city_id, City.all,:id, :team_country, {:include_blank => 'All',class:"selector-team"}) %>
         </div>
       
         <div class="form-group combobox-teams">
           <%= label_tag( nil,'SELECT CATEGORY',class: "login-text")%>
-          <%= collection_select(:teams, :subcategory ,Category.all, :id,:name, {:include_blank => 'All',class:"selector-team",id: 'team_subcategory'}) %>
+          <%= collection_select(:team, :subcategory ,Category.all, :id,:name, {:include_blank => 'All',class:"selector-team",id: 'team_subcategory'}) %>
         </div>  
 
         <div class="form-group combobox-teams " id="subcategories_select">
           <%= label_tag( nil,'SELECT SUBCATEGORY', class: "login-text") %>
-          <%= collection_select( :teams,  :subcategory_id, Subcategory.all, :id, :name , {:include_blank => 'All',class:"selector-team"}) %>
+          <%= collection_select( :team,  :subcategory_id, Subcategory.all, :id, :name , {:include_blank => 'All',class:"selector-team"}) %>
         </div>
 
 
@@ -54,13 +54,19 @@
     </thead>
     <tbody></tbody>
   <% end %>
-  
-</div>
+
+
+
+
+
 
 <%= javascript_include_tag('datatables.js') %>
 
 <script>
 teamsCheck()
+
+
+
 
 
 
@@ -91,9 +97,9 @@ $('#team-table').each(function(){
             var table = $('#team-table').DataTable();
 
             $('#filter-team').on('click',function () {
-              var country = $("#teams_city_id ").val();
-              var category = $("#teams_subcategory ").val();
-              var subcategory = $("#teams_subcategory_id").val();
+              var country = $("#team_city_id ").val();
+              var category = $("#team_subcategory ").val();
+              var subcategory = $("#team_subcategory_id").val();
               var team_name = $("#team_name").val()
               var query = [country,category,subcategory,team_name]
               table.search( query ).draw();                     
@@ -102,10 +108,80 @@ $('#team-table').each(function(){
       });
     }); 
 
+var Confirm = {
+    open (options) {
+        options = Object.assign({}, {
+            title: '',
+            message: '',
+            okText: 'OK',
+            cancelText: 'Cancel',
+            onok: function () {console.log("delete")},
+            oncancel: function () {console.log("cansel")}
+        }, options);
+
+    const html = `
+         <div class="alert-warning">
+                <%= image_tag("teams/youWontDelete.svg")%>
+                <p class="warning-text"><span>You are about to delete this team!</span>Are you sure?</p>
+                <div class="warning-buttons">
+                    <a style ='cursor: pointer;' id = warning-cansel>Cancel</a>
+                    <a style ='cursor: pointer;' id = warning-delete>Delete</a>
+                </div>
+    `;
+
+    const template = document.createElement('template')
+    
+    template.innerHTML = html;
+
+    //Elements
+    const confirmEl  = template.content.querySelector('.alert-warning');
+    const bntNo      = template.content.querySelector('#warning-cansel');
+    const bntYes     = template.content.querySelector('#warning-delete');
 
 
+    confirmEl.addEventListener('click', e => {
+            if (e.target === confirmEl) {
+                options.oncancel();
+                this._close(confirmEl);
+            }
+        });
 
-// teams_city_id
+        
+    bntYes.addEventListener('click', () => {
+            options.onok();
+            this._close(confirmEl);
+        });
 
+    bntNo.addEventListener('click', () => {
+                options.oncancel();
+                this._close(confirmEl);
+            });
+    let main_page = document.body.getElementsByClassName("main-page-team")[0];
+    
+    main_page.appendChild(template.content);
+  },
 
+  _close(confirmEl){
+    confirmEl.classList.add('confirm--close');
+
+        confirmEl.addEventListener('animationend', () => {
+
+            let main_page = document.body.getElementsByClassName("main-page-team")[0];
+            main_page.removeChild(confirmEl);
+        });
+  }
+} 
+
+deleteTeam = (id) =>
+{
+     Confirm.open({
+     
+      onok: () => {
+            fetch(`/users/teams/${id}`, {
+            method: 'DELETE'
+        })
+        document.location.reload();
+      }
+     })
+}
 </script>   

@@ -17,7 +17,7 @@
       
         <div class="form-group combobox-teams">
           <%= label_tag( nil,'SELECT CATEGORY',class: "login-text")%>
-          <%= collection_select(:teams, :subcategory ,Category.all, :id,:name, {:include_blank => 'All',class:"selector-team",id: 'team_subcategory'}) %>
+          <%= collection_select(:team, :subcategory ,Category.all, :id,:name, {:include_blank => 'All',class:"selector-team",id: 'team_subcategory'}) %>
         </div>  
 
         <div class="form-group combobox-teams " id="subcategories_select">
@@ -33,16 +33,19 @@
       </div>
 
        <div class= "add-logo-team form-group">
-      <%= image_tag("teams/photoAddTeam.svg")%>
+      
+        <img class = "btn-input-image" id="img_preview" src = "/assets/teams/photoAddTeam.svg">
+      
       <label for="file-upload" class="custom-file-upload">
-          <i class="fa fa-cloud-upload"></i> <span style="color: #D72130;">Add logo</span>  right here
+     
+       <p id= "text-upload-file"><span style="color: #D72130;">Add logo</span>  right here</p> 
       </label>  
       <%= form.file_field :image,:id=>"file-upload" %>
     </div>
 
      <div class="teams-all-buttons">
         
-        <%= submit_tag( "Apply",:class=>"login-buton alert-button",id: "filter-team") %>   
+        <%= submit_tag( "Add to list",:class=>"login-buton alert-button",id: "filter-team") %>   
         <%= link_to 'Cancel', '/users/teams/new', class: "cansel-team-button", method: :get %> 
       
       </div>   
@@ -51,7 +54,22 @@
   </div>
   <% end %>
 
-<script>teamsCheck() </script>
+<script>teamsCheck() 
+
+ function showPreview(event) {
+       if(event.target.files.length>0){
+           let src = URL.createObjectURL(event.target.files[0]);
+           let preview = document.getElementById('img_preview');
+           preview.src = src;
+           $("#img_preview").css('margin-bottom','0px');
+           document.getElementById('img_preview').classList.add("preview");
+           $("#text-upload-file").css('display','none');
+       }
+   } 
+   const input = document.getElementById("file-upload");
+   input.addEventListener("change", showPreview);
+
+</script>
 
 </div>
 

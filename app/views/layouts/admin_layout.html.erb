@@ -83,14 +83,16 @@
       <div class="container-main-content">
         
           <% flash.each do |type, msg| %>
-             <div class= "alert-mes-success">
-            
+          <% if type == 'success'%>
+               <div class= "alert-mes-success">
                   <%= image_tag("teams/success.png",:class => "add-mess-team-img")%>
-      
                 <span class= "closebtn" onclick = "this.parentElement.style.display='none'">&times;</span>
                 <strong>Your team is successfully added</strong>
                 This team is added to your IA
              </div>
+      
+          <% end %>
+          
           <% end %>
         <%= yield %>
     </div>

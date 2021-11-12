@@ -86,6 +86,7 @@ input[type="file"] {
 /*Main page*/
 
 .main-page-team{
+    margin-top: 46px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -105,6 +106,15 @@ input[type="file"] {
 
 }
 
+
+/*Img-Load-team*/
+
+
+
+.img-load-team{
+
+}
+
 /*---------------*/
 
 
@@ -113,11 +123,12 @@ input[type="file"] {
 
 .alert-mes-success {
     padding: 20px;
-    width: 472px;
+    width: 572px;
     height: 85px;
     background: #FFFFFF;
     box-shadow: 0px 4px 28px #818181;
     position: absolute;
+    align-self: end;
   }
 .add-mess-team-img 
 {
@@ -140,6 +151,122 @@ input[type="file"] {
     cursor: pointer;
     transition: 0.3s;
   }
+
+
+
+
+
+/*Warning flash display*/
+
+
+.alert-warning{
+    box-shadow: 0px 4px 28px #818181;
+    display: flex;
+    width: 458px;
+    height: 247px;
+    flex-direction: column;
+    padding: 18px 35px;
+    background-color: white;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation-duration: 0.2s;
+    animation-fill-mode: forwards;
+    animation-delay: 0.2s;
+}
+.warning-text span{
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 19px;
+}
+.warning-text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 71px;
+    color: black;
+}
+
+.alert-warning img{
+    position: relative;
+    top:-55px;
+    align-self: center;
+}
+.warning-buttons{
+    align-self: flex-end;
+}
+.warning-buttons a{
+    text-decoration: none;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 16px;
+    
+}
+
+#warning-delete{
+    color:white;
+    background: #D72130;
+    border: 1px solid #C63638;
+    box-sizing: border-box;
+    padding: 8px 35px;
+    
+}
+#warning-cansel{
+    font-weight: 600;
+    color: #D72130;
+    margin-right: 32px; 
+    align-self: center;
+}
+
+
+.confirm--close {
+    animation-name: confirm---close;
+}
+
+@keyframes confirm---close {
+    from { opacity: 1 }
+    to { opacity: 0 }
+}
+/*------------*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
