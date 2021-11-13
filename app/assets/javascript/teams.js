@@ -37,6 +37,9 @@ CheckSubcategory = (op) => {
 } 
 
 
+
+
+
 //Table for team informamtion
 //path to app/datatables for information
 tableTeam = () => $('#team-table').each(function(){

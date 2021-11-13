@@ -71,6 +71,4 @@ class TeamsDatatable < ApplicationDatatable
     
    end
 
-
-
 end

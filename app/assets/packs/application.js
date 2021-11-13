@@ -11,6 +11,7 @@ import * as ActiveStorage from "@rails/activestorage"
 import "../javascript/channels"
 
 import "../javascript/teams" 
+import "../javascript/delete" 
 
 
 
