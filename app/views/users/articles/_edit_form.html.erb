@@ -1,4 +1,4 @@
-<%= form_with model: @article, :id=>'submit', method: 'put' , multipart: true do |f|%>
+<%= form_with model: @article, :id=>'submit', method: 'put', url: users_article_url(@article.id) , multipart: true do |f|%>
 
         <div class='item0'>
             <%= f.label :picture, :class=>'login-text'%><br>
@@ -55,7 +55,6 @@
            txtInInput.style.display = "none"
        }
    } 
-
    const input = document.getElementById("article_image");
    input.addEventListener("change", showPreview); 
 
@@ -63,5 +62,4 @@
         let preview = document.getElementById('img_preview');
         URL.revokeObjectURL(preview.src);
     })
-
 </script>

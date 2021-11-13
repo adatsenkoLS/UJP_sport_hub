@@ -5,7 +5,9 @@
         <h2 id="current-menu-item">NBA</h2>
       </div>
       <% if controller_name == "articles"%>
-      <button class="btn-new-post btn-new-article">+ New Article</button>
+      <button class="btn-new-post btn-new-article">
+            <%= link_to '+ New Article', new_users_article_path, :style=>"color:white; text-decoration:none" %>
+      </button>
       <% end %>
       <% if  controller_name == "user_teams"%>
         <button class="btn-new-post btn-new-article">+ Add team</button>
@@ -16,9 +18,6 @@
         <div class="container-left-icon-btn">
           <button class="btn-new-post iconed icon-arrow-left"></button>
         </div>
-
-        <!-- it may be button or link. -->
-        <!-- depends on  -->
 
         <div class="container-opts">
           <span class="nav-opt">home</span>
@@ -89,18 +88,19 @@
                 </svg>
               </button>
               <ul class="dropdown-menu" aria-labelledby="dropdownMenu<%="-#{index}"%>">
-                <li><button class="dropdown-item publishBtn" id="<%="#{index}"%>" type="button">
-              
-                <% if article.is_published == false%>
-                <%# , data: { params: { article: { is_published: true} }.to_param}, :method=> 'PATCH', remote: true %>
-                  <%= link_to 'Publish', change_status_users_article_path(article, article:{is_published: true}), action:'change_status', method: 'patch'%>
-                <% elsif article.is_published == true%>
-                  <%= link_to 'Unpublish', change_status_users_article_path(article, article:{is_published: false}), action:'change_status', method: 'patch'%>
-                <%end%>
-               
-                </button></li>
-                <li><button class="dropdown-item" type="button">Another action</button></li>
-                <li><button class="dropdown-item" type="button">Something else here</button></li>
+                <li>
+                  <button class="dropdown-item publishBtn" id="<%="#{index}"%>" type="button">
+                    <% if article.is_published == false%>
+                    <%# , data: { params: { article: { is_published: true} }.to_param}, :method=> 'PATCH', remote: true %>
+                      <%= link_to 'Publish', change_status_users_article_path(article, article:{is_published: true}), action:'change_status', method: 'patch', :class=>'link-text-in-dropdown'%>
+                    <% elsif article.is_published == true%>
+                      <%= link_to 'Unpublish', change_status_users_article_path(article, article:{is_published: false}), action:'change_status', method: 'patch', :class=>:'link-text-in-dropdown'%>
+                    <%end%>
+                  </button>
+                </li>
+                <li><%=link_to 'Edit', edit_users_article_path(article.id), :class=>'dropdown-item link-text-in-dropdown' %></li>
+                <li><%=link_to 'Delete', users_article_path(article.id), method:'delete', action:'destroy', :class=>'dropdown-item link-text-in-dropdown'%></li>
+                <li><button class="dropdown-item link-text-in-dropdown" type="button">Move</button></li>
               </ul>
             </div>
         </div>

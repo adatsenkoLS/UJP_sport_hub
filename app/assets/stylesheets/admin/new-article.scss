@@ -141,6 +141,8 @@ html {
   align-items: center;
   border-bottom: 1px solid #d4d9e2;
 
+  display: flex;
+  flex-direction: row;
   button {
     width: 134px;
     height: 32px;
@@ -305,16 +307,12 @@ html {
   content: url("/images/left-menu/Group-147.svg");
 }
 
-// .form-select.dropdown {
-//   width: 250px;
-//   height: 36px;
-// }
-
 .articles {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 100%;
 }
 
 .single-article {

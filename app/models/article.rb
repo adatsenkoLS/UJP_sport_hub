@@ -5,9 +5,9 @@ class Article < ApplicationRecord
   has_many :conference, through: :article_conference
   validates_uniqueness_of :headline, :caption
 
-  # validate :image_presence
+  validate :image_presence
 
-  # def image_presence
-  #   errors.add(:image, "can't be blank") unless image.attached?
-  # end
+  def image_presence
+    errors.add(:image, "can't be blank") unless image.attached?
+  end
 end

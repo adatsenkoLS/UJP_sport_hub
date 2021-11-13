@@ -48,11 +48,16 @@ module Users
 
     def update
       @article = Article.find(params[:id])
-      @article.update(conference_id: params[:article][:conference_id], team_id: params[:article][:team_id],
-                      city_id: params[:article][:city_id], alternative_text: params[:article][:alternative_text],
-                      headline: params[:article][:headline], caption: params[:article][:caption],
-                      user_id: params[:article][:user_id], image: params[:article][:image],
-                      content: params[:article][:content])
+      @article.update(post_params.except(:conference_id))
+      redirect_to users_articles_path
+    end
+
+    def destroy
+      @article = Article.find(params[:id])
+
+      ArticleConference.destroy_by(article_id: @article.id)
+      @article.destroy
+      redirect_to users_articles_path
     end
 
     private
