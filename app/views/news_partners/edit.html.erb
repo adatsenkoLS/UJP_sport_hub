@@ -61,16 +61,16 @@
       </div>
 
     <div class="news_partners_delete_tab">
-        <%= image_tag("news_partners/red-delete.png", class: "news_partners_delete_tab_icon") %>
-        <h1>You are about to delete this News Partner!</h1>
-        <p class="mb-0">This partner will be deleted from News Partner list!</p>
-        <p>Are you sure?</p>
+        <%= image_tag("news_partners/warning-red.png", class: "news_partners_delete_tab_icon") %>
+        <h1>Would you like to save last changement?</h1>
+        <p class="mb-0">You've made some changes!</p>
+        <p>Do you want to save them?</p>
 
-         <%= form_with model: @news_partner, method: :post do |form| %>
+         <%= form_with model: @news_partner, method: :put do |form| %>
 
             <div class="form-group buttons">
-              <%= link_to (button_tag "Cancel", type: "button", class: "login-buton cancel"), news_partners_path %>
-              <%= form.submit "Delete", class:"login-buton" %>
+              <%= link_to (button_tag "Cancel", type: "button", class: "login-buton cancel"), "/news_partners" %>
+              <%= form.submit "Save", class:"login-buton" %>
             </div>
 
         <% end %>
