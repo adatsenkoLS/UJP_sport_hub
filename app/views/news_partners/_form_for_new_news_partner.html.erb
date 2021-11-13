@@ -1,0 +1,80 @@
+<% if !NewsPartner.first %>
+
+    <div class="news_partners_empty">
+        <%= image_tag("news_partners/warning-grey.png", size: "120")%>
+        <p id="news_partners_empty_info">News Partners page is empty!</p>
+        <p id="news_partners_empty_prop">You can add New Partners here and manage them.</p>
+    </div>
+
+<% else %>
+
+
+    <div class="container_news_partners_table">
+        <table class="news_partners_table">
+            <thead>
+                <tr id="news_partners_table_header">
+                    <th>NEWS PARTNERS NAME</th>
+                    <th>STATUS<%= image_tag("news_partners/filter.png", size: "20", class: "news_partners_sort_icon")%></th>
+                    <th>ACTIONS</th>
+                </tr>
+            </thead>
+        </table>
+
+
+    <% NewsPartner.all.each do |news_partner| %>
+        <table class="news_partners_table">
+            <tbody>
+                <div class="news_partners_table_row">
+                    <tr class="news_partners_table_data"> 
+
+                        <td class="news_partners_table_title">
+                            <span class="bi bi-plus", onclick='show_hide_row(<%= news_partner.id%>);'></span><%= news_partner.title %>
+                        </td>
+
+                        <td class="news_partners_status_form">
+                            <%= form_with model: @news_partner, method: :patch do |form|%>
+                                <div class="form-check form-switch">                        
+                                    <%= form.check_box :news_partners_status_change, class:"form-check-input" %>
+                                    <%= news_partner.active ? "Active" : "Inactive" %>
+                                </div>
+                                <%= form.submit "Submit", :style=>"display:none;" %>
+                            <%end%>
+                        </td>
+
+                        <td class="news_partners_table_actions">
+                            <span onclick='show_hide_row(<%= news_partner.id%>);'><%= image_tag("news_partners/pencil.png", size: "20", class: "news_partners_edit_icon")%></span>
+                            <%= image_tag("news_partners/delete.png", size: "20", class: "news_partners_delete_icon", onClick: "delete_row(#{news_partner.id})") %>
+                        </td>
+
+                    </tr>
+                </div>
+                    <%= content_tag :tr, class:"hidden_row", id: news_partner.id do %>
+                    <td>
+                        <%= render "form_for_edit_news_partners" , news_partner: news_partner%>
+                    </td>
+                    <% end %>
+            </tbody>
+        </table>
+    <% end %>
+    </div>
+<% end %>
+
+<script>
+    function show_hide_row(row) {
+        $("#"+row).toggle();
+    }
+
+    function delete_row(row_id) {
+        event.preventDefault();
+        let form = document.createElement("form");
+        form.method = "POST";   
+        form.action = `/news_partners/delete/${row_id}`;
+        form.style = "display: none;";
+        let methodInput = document.createElement("input");
+        methodInput.value = "delete";
+        methodInput.name = "_method]    ";
+        form.appendChild(methodInput);
+        document.body.appendChild(form);
+        form.submit(); 
+    }
+</script>

@@ -1,5 +1,7 @@
 @import "../../../node_modules/bootstrap/scss/bootstrap";
 
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css");;
+
 @import "../stylesheets/colors";
 
 @import "../stylesheets/home_page.scss";
@@ -17,6 +19,8 @@
 @import "../stylesheets/cabinet.scss";
 
 @import "../stylesheets/teams.scss";
+
+@import "../stylesheets/news_partners.scss";
 // Components
 
 @import "../stylesheets/admin/admin-navbar.scss";
