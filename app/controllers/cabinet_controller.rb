@@ -26,6 +26,8 @@ class CabinetController < ApplicationController
     def surveys
     end
 
-    def teamhub
+    def followed_team
+        
+
     end
 end

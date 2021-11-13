@@ -15,17 +15,13 @@ class CategoriesController < ApplicationController
 
 
   def get_sub_by_category
+     
      @subcategories = Subcategory.where(category_id: params[:category_id])
-
      render :json => @subcategories
+    
   end
 
-
-
-
-
   private
-
   def category_params
     params.require(:category).permit(:name, :user_id)
   end

@@ -138,7 +138,7 @@ html {
 }
 
 .container-btw-header-nav {
-  align-items: center;
+  align-items: end;
   border-bottom: 1px solid #d4d9e2;
 
   display: flex;
@@ -191,7 +191,7 @@ html {
 
 .main-page {
   display: flex;
-
+ 
   .container-left-icons {
     flex-direction: column;
     width: 100px;

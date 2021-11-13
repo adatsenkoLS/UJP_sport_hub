@@ -35,6 +35,8 @@ Rails.application.routes.draw do
     resources :cities
   end
 
+  delete '/users/teams/:id', to: 'users/teams#destroy',as: 'delete_path'
+
   root 'home_page#home'
 
   get 'cabinet/personal', to: 'cabinet#personal'
@@ -42,4 +44,5 @@ Rails.application.routes.draw do
   get 'cabinet/surveys', to:  'cabinet#surveys'
   put 'cabinet/personal', to: 'cabinet#update'
   put 'cabinet/password', to: 'cabinet#change'
+  put 'cabinet/teamhub', to: 'cabinet#followed_team'
 end

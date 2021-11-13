@@ -46,10 +46,10 @@ ActiveRecord::Schema.define(version: 2021_11_06_203713) do
   create_table "article_conferences", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "article_id", null: false
-    t.bigint "conference_id", null: false
-    t.index ["article_id"], name: "index_article_conferences_on_article_id"
-    t.index ["conference_id"], name: "index_article_conferences_on_conference_id"
+    t.bigint "articles_id", null: false
+    t.bigint "conferences_id", null: false
+    t.index ["articles_id"], name: "index_article_conferences_on_articles_id"
+    t.index ["conferences_id"], name: "index_article_conferences_on_conferences_id"
   end
 
   create_table "articles", force: :cascade do |t|
@@ -60,13 +60,13 @@ ActiveRecord::Schema.define(version: 2021_11_06_203713) do
     t.boolean "show_comments"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "user_id", null: false
+    t.bigint "users_id", null: false
     t.bigint "team_id", null: false
     t.bigint "city_id", null: false
     t.boolean "is_published", default: false, null: false
     t.index ["city_id"], name: "index_articles_on_city_id"
     t.index ["team_id"], name: "index_articles_on_team_id"
-    t.index ["user_id"], name: "index_articles_on_user_id"
+    t.index ["users_id"], name: "index_articles_on_users_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -116,10 +116,10 @@ ActiveRecord::Schema.define(version: 2021_11_06_203713) do
     t.string "team_name", null: false
     t.integer "count_users", default: 0
     t.bigint "city_id"
+    t.bigint "subcategory_id"
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6
     t.datetime "updated_at", precision: 6
-    t.bigint "subcategory_id", null: false
     t.index ["city_id"], name: "index_teams_on_city_id"
     t.index ["subcategory_id"], name: "index_teams_on_subcategory_id"
   end
@@ -160,15 +160,15 @@ ActiveRecord::Schema.define(version: 2021_11_06_203713) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "article_conferences", "articles"
-  add_foreign_key "article_conferences", "conferences"
+  add_foreign_key "article_conferences", "articles", column: "articles_id"
+  add_foreign_key "article_conferences", "conferences", column: "conferences_id"
   add_foreign_key "articles", "cities"
   add_foreign_key "articles", "teams"
-  add_foreign_key "articles", "users"
+  add_foreign_key "articles", "users", column: "users_id"
   add_foreign_key "cities", "countries", on_delete: :cascade
   add_foreign_key "subcategories", "categories"
   add_foreign_key "teams", "cities", on_delete: :cascade
-  add_foreign_key "teams", "subcategories"
+  add_foreign_key "teams", "subcategories", on_delete: :cascade
   add_foreign_key "user_teams", "teams", on_delete: :cascade
   add_foreign_key "user_teams", "users", on_delete: :cascade
 end

@@ -1,9 +1,67 @@
-<h1>Hi</h1>
+<div class="main-page-team">
+  
+  <div class="cabinet-form">
+    <%= image_tag("teams/Map.png", class:"map-team")%>
 
-<% @team.each do |t| %>
-  <tr>
-    <td><%= t.team_name %></td>
-    <td><%= t.city_id %></td>
-    <td><%= t.subcategory_id %></td>
-  </tr>
-<% end %>
+    <div class="team-form">
+    
+      <div>
+      
+        <div class="form-group combobox-teams">
+          <%= label_tag( nil,'SELECT LOCATION',class: "login-text")%>
+          <%= collection_select(:team, :city_id, City.all,:id, :team_country, {:include_blank => 'All',class:"selector-team"}) %>
+        </div>
+      
+        <div class="form-group combobox-teams">
+          <%= label_tag( nil,'SELECT CATEGORY',class: "login-text")%>
+          <%= collection_select(:team, :subcategory ,Category.all, :id,:name, {:include_blank => 'All',class:"selector-team",id: 'team_subcategory'}) %>
+        </div>  
+
+        <div class="form-group combobox-teams " id="subcategories_select">
+          <%= label_tag( nil,'SELECT SUBCATEGORY', class: "login-text") %>
+          <%= collection_select( :team,  :subcategory_id, Subcategory.all, :id, :name , {:include_blank => 'All',class:"selector-team"}) %>
+        </div>
+
+
+        <div class="form-group combo  box-teams">
+          <%= label_tag( nil,'TEAM NAME', class: "login-text") %>
+          <%= text_field_tag(:team_name,nil,class:"input-login") %>
+        </div>
+      </div>
+
+      <div class="teams-all-buttons">
+        
+        <%= submit_tag( "Apply",:class=>"login-buton alert-button",id: "filter-team") %>   
+        <%= link_to 'Cancel', '/users/teams', class: "cansel-team-button", method: :get %> 
+      
+      </div>  
+      
+    </div>
+   
+  </div>
+
+  <%= content_tag :table, role: :datatable, data: { url: users_teams_path(format: :json)},class: "table-scroll-team",id: "team-table" do %>
+    <thead>
+      <tr>
+        <th scope="col">TEAMS</th>
+        <th scope="col">LOCATION</th>
+        <th scope="col">DATE ADDED</th>
+        <th scope="col">CATEGORY</th>
+        <th scope="col">SUBCATEGORY</th>
+        <th></th>
+      
+      </tr>
+    </thead>
+    <tbody></tbody>
+  <% end %>
+
+<%= javascript_include_tag('datatables.js') %>
+
+<script>
+teamsCheck()
+tableTeam()
+
+
+
+
+</script>   

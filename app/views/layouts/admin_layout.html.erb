@@ -26,26 +26,28 @@
     <title>Admin</title>
 
 
-       <%= csrf_meta_tags %>
+    <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
-
-    
-
-
   </head>
   <body>
     <%= render "users/articles/admin_navbar"%>
     <div class="container-btw-header-nav">
       <div class="container-logo">
+      <% if  controller_name == "teams"%>
+        <h2 id="current-menu-item">Teams</h2>
+      <% else%>
         <h2 id="current-menu-item">NBA</h2>
+      <% end %>
       </div>
       <% if controller_name == "articles"%>
-      <button class="btn-new-post btn-new-article">+ New Article</button>
+        <button class="btn-new-post btn-new-article">+ New Article</button>
       <% end %>
       <% if  controller_name == "teams"%>
+        <%= link_to '+ Add team', '/users/teams/new', class: "btn-new-post btn-new-article link-admin-add", method: :get %> 
+      <% else %>
         <button class="btn-new-post btn-new-article">+ Add team</button>
       <% end %>
     </div>
@@ -86,18 +88,30 @@
         <button class="btn-new-post iconed users"></button>
         <button class="btn-new-post iconed ia"></button>
         <!--Make teams button -->
-        <%= link_to '', '/users/teams/new', class: "btn-new-post iconed teams", method: :get %> 
+        <%= link_to '', '/users/teams', class: "btn-new-post iconed teams", method: :get %> 
         <!------------------------------------->
         <button class="btn-new-post iconed new-partners"></button>
         <button class="btn-new-post iconed advertising"></button>
       </div>
-      <div class=""></div>
-       <%= yield %>
+      <div class="container-main-content">
+        <% flash.each do |type, msg| %>
+          <% if type == 'success'%>
+              <div class= "alert-mes-success">
+                <%= image_tag("teams/success.png",:class => "add-mess-team-img")%>
+                <span class= "closebtn" onclick = "this.parentElement.style.display='none'">&times;</span>
+                <strong>Your team is successfully added</strong>
+                This team is added to your IA
+             </div>
+          <% elsif type == 'warning'%>
+            <div class= "alert-mes-success">
+                 <%= image_tag("teams/success.png",:class => "add-mess-team-img")%>
+                <span class= "closebtn" onclick = "this.parentElement.style.display='none'">&times;</span>
+                <strong>Deleted!</strong>
+                The team is successfully deleted.
+             </div>
+          <% end %>  
+        <% end %>
+      <%= yield %>
     </div>
-
-
-
-
-
   </body>
 </html>
