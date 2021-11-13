@@ -45,10 +45,6 @@
               <i><%= show_svg("/share-icons/dropdown-icon.svg")%></i>
           </button>
               <div class="dropdown-content">
-                <div class = "dropdown-field survey" style = "height: fit-content">
-                  <span> <%= "#{current_user.first_name} #{current_user.last_name}"%> </span>
-                  <span><%= current_user.email%><span>
-                </div>
                 <div class = "dropdown-field survey">
                   <%= link_to "View Profile", "/cabinet/personal", class: "index-link"%>
                 </div>

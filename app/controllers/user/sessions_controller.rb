@@ -24,6 +24,7 @@ class User::SessionsController < Devise::SessionsController
   # DELETE /resource/sign_out
   def destroy
     reset_session
+    redirect_back(fallback_location: root_path)
   end
 
   # protected

@@ -71,7 +71,7 @@
         form.action = `/news_partners/delete/${row_id}`;
         form.style = "display: none;";
         let methodInput = document.createElement("input");
-        methodInput.value = "delete";
+        methodInput.value = "destroy";
         methodInput.name = "_method]    ";
         form.appendChild(methodInput);
         document.body.appendChild(form);

@@ -17,12 +17,6 @@
               <i><%= show_svg("/share-icons/dropdown-icon.svg")%></i>
           </button>
               <div class="dropdown-content">
-                <div class = "dropdown-field survey" style = "height: fit-content">
-                <% if user_signed_in? %>
-                  <span> <%= "#{current_user.first_name} #{current_user.last_name}"%> </span>
-                  <span><%= current_user.email%><span>
-                  <% end %>
-                </div>
                 
                 <div class = "dropdown-field survey">View profile</div>
                 <div class = "dropdown-field survey">Change password</div>
