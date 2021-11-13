@@ -40,6 +40,8 @@ class TeamsDatatable < ApplicationDatatable
     search = params[:search][:value]
     array = search.split(',')
 
+
+    #get all information from array
     country = array[0]
     category = array[1]
     subcategory = array[2]
@@ -47,15 +49,11 @@ class TeamsDatatable < ApplicationDatatable
 
     teams = Team.joins(:subcategory)
     teams = teams.page(page)
-    if (country == "") & (category != "") & (subcategory != "")
+    if (country == "") & (category != "") & (subcategory != "") #get category and subcategory without country
 
         teams = teams.where("subcategory_id = #{subcategory} and category_id = #{category} and team_name LIKE '%#{team_name}'") 
-       
-    elsif (country =="" ) & (country == nil) & (category != "") & (subcategory != "")
 
-        teams = teams.where("category_id = #{category} and subcategory_id = #{subcategory} and team_name LIKE '%#{team_name}'") 
-
-    elsif (country != "") & (country != nil) & (category != "") & (subcategory != "")
+    elsif (country != "") & (country != nil) & (category != "") & (subcategory != "") #country and  category and subcategory 
 
         teams = teams.where("city_id = #{country} and category_id = #{category} and subcategory_id = #{subcategory} and team_name LIKE '%#{team_name}'")
     

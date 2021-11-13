@@ -32,7 +32,7 @@
       <div class="teams-all-buttons">
         
         <%= submit_tag( "Apply",:class=>"login-buton alert-button",id: "filter-team") %>   
-        <%= link_to 'Cancel', '/users/teams/new', class: "cansel-team-button", method: :get %> 
+        <%= link_to 'Cancel', '/users/teams', class: "cansel-team-button", method: :get %> 
       
       </div>  
       
@@ -55,58 +55,11 @@
     <tbody></tbody>
   <% end %>
 
-
-
-
-
-
 <%= javascript_include_tag('datatables.js') %>
 
 <script>
 teamsCheck()
-
-
-
-
-
-
-$('#team-table').each(function(){
-      $(this).DataTable({
-        processing: true,
-        serverSide: true,
-        searching: true,
-        paging: false,
-        info: false,
-        columns: [
-      {name: 'team_name'},
-      {name: 'team_country_city' },
-      {name: 'date_added' }  ,   
-      {name: 'team_category' },
-      {name: 'subcategory.name'},
-      {name: 'links'}
-    ],
-        ajax: {
-          "url": $(this).data('url'),
-          "data": function (d) {
-           
-          }
-        },
-
-        "scrollY":        "334px",
-          initComplete: function () {
-            var table = $('#team-table').DataTable();
-
-            $('#filter-team').on('click',function () {
-              var country = $("#team_city_id ").val();
-              var category = $("#team_subcategory ").val();
-              var subcategory = $("#team_subcategory_id").val();
-              var team_name = $("#team_name").val()
-              var query = [country,category,subcategory,team_name]
-              table.search( query ).draw();                     
-            })      
-        }
-      });
-    }); 
+tableTeam()
 
 var Confirm = {
     open (options) {
@@ -177,10 +130,16 @@ deleteTeam = (id) =>
      Confirm.open({
      
       onok: () => {
-            fetch(`/users/teams/${id}`, {
-            method: 'DELETE'
-        })
-        document.location.reload();
+            let form = document.createElement("form");
+            form.method = "POST";
+            form.action = `/users/teams/${id}`;
+            form.style = "display: none;";
+            let methodInput = document.createElement("input");
+            methodInput.value = "DELETE";
+            methodInput.name = "_method]";
+            form.appendChild(methodInput);
+            document.body.appendChild(form);
+            form.submit();         
       }
      })
 }

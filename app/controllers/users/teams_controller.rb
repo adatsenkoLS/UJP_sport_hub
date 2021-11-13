@@ -50,7 +50,7 @@ module Users
     def destroy
       @team = Team.find(params[:id])
       @team.destroy()
-      redirect_to users_teams_path 
+      redirect_to users_teams_path, warning: "deleted"
     end
 
     private
