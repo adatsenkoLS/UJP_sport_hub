@@ -1,6 +1,6 @@
 class Team < ApplicationRecord
     has_many :user_team
-    has_many :user, through: :user_team
+    has_many :users, through: :user_team
     belongs_to :subcategory
     belongs_to :city
     has_one_attached :image

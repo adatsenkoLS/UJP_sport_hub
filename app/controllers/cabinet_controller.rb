@@ -27,7 +27,10 @@ class CabinetController < ApplicationController
     end
 
     def followed_team
-        
+        @teams = current_user.teams
+    end
+
+    def followed_team
 
     end
 end
