@@ -1,0 +1,67 @@
+<%= form_with model: @article, :id=>'submit',  url: users_articles_path , multipart: true do |f|%>
+
+        <div class='item0'>
+            <%= f.label :picture, :class=>'login-text'%><br>
+            <%# <%= f.file_field :image, :class=>'input_img' %> 
+            <input class="input_img" type="file" name="article[image]" id="article_image"/>
+            <label for = "article_image">
+                <%# <div class = "btn-input-image"></div> %>
+                <img class = "btn-input-image" id="img_preview" src = "/images/input-icon.svg">
+                 <div class = "text-in-input" id="text-with-input">
+                    <div> <span style= "color: #D72130">+Add picture</span> or drop it right here </div>
+                    <div> You can add next formats: png. jpg. jpeg. tif </div>
+                </div>
+            </label>
+        </div>
+        <div class='item1'>
+            <%= f.label :conference, :class=>'login-text'%><br>
+            <%= f.collection_select(:conference_id, Conference.all, :id, :name,{}, {:class=>'form-select dropdown'}) %>
+        </div>
+        <div class='item2'>
+            <%= f.label :team, :class=>'login-text'%><br>
+            <%= f.collection_select(:team_id, Team.all, :id, :team_name,{}, {:class=>'form-select dropdown'}) %>
+        </div>
+        <div class='item3'>
+            <%= f.label :location, :class=>'login-text'%><br>
+            <%= f.collection_select(:city_id, City.all, :id, :city_name,{}, {:class=>'form-select dropdown'}) %>
+        </div>
+        <div class='item4'> 
+            <%= f.label :alt, :class=>'login-text'%><br>
+            <%= f.text_field :alternative_text,:class=>'form-control' %>
+        </div>
+        <div class='item5'> 
+            <%= f.label :article_headline, :class=>'login-text'%><br>
+            <%= f.text_field :headline , :class=>'form-control'%>
+        </div>
+          <div class='item6'> 
+            <%= f.label :caption, :class=>'login-text'%><br>
+            <%= f.text_field :caption, :class=>'form-control' %>
+        </div>
+        <div class='item7'>
+            <%= f.text_area :content, :class=>'tinymce'%>
+        </div>
+        <%= f.submit 'Create article'%>
+    
+    <% end %>
+
+<script>
+   function showPreview(event) {
+       if(event.target.files.length>0){
+           let src = URL.createObjectURL(event.target.files[0]);
+           let preview = document.getElementById('img_preview');
+           preview.src = src;
+           document.getElementById('img_preview').classList.add("preview");
+           let txtInInput=document.getElementById('text-with-input');
+           txtInInput.style.display = "none"
+       }
+   } 
+
+   const input = document.getElementById("article_image");
+   input.addEventListener("change", showPreview); 
+
+    document.getElementById("submit").addEventListener("submit", (e)=>{
+        let preview = document.getElementById('img_preview');
+        URL.revokeObjectURL(preview.src);
+    })
+
+</script>

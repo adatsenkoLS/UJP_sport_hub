@@ -1,0 +1,50 @@
+
+<footer class="footer"> 
+<div class="hr-main-page"></div>
+    <div class="uper-footer">
+        
+        <div class="up-foter-item-1">
+            <%= link_to "COMPANY INFO","#",:id => "footer-info"%>
+            <ul class="ul-info">
+                <li class=" ul-items-footer"><%= link_to "About Sports Hub","#"%></li>
+                <li class=" ul-items-footer"><%= link_to "News / In the Press","#"%></li>
+                <li class=" ul-items-footer"><%= link_to "Advertising / Sports Blogger Ad Network","#"%></li>
+                <li class=" ul-items-footer"><%= link_to "Events","#"%></li>
+                <li ><%= link_to "Contact Us","#"%></li>
+            </ul>
+        </div>
+
+        <div class="up-foter-item-2">
+            <%= link_to "CONTRIBUTORS","#",:id => "footer-info"%>    
+             <ul class="ul-info ul-items-footer">
+                <li class=" ul-items-footer"><%= link_to "Featured Writers Program","#"%></li>
+                <li class=" ul-items-footer"><%= link_to "Featured Team Writers Program","#"%></li>
+                <li><%= link_to "Internship Program","#"%></li>
+            </ul>
+        </div>
+
+        <div class="up-foter-item-3">
+            <%= link_to "NEWSLETTER","#",:id => "footer-info"%>
+            <ul class="ul-info">
+                <li><%= link_to "Sign up to receive the latest sports news","#"%></li>
+
+                <%= form_with do |f| %>
+                    <%= f.text_field :last_name ,autofocus: false, autocomplete: "last_name",:class=>"your-email-footer",
+                    :placeholder => "Your email address" %>
+                    <%= f.submit "Subscribe",:class=>"search-button-footer"%>
+                <% end %>
+                
+            </ul>
+        </div>
+    </div>
+
+    <div class= "lower-footer">
+        <div class="Copyright">
+            <span class="sporthubFooter">Sports Hub</span>
+            <div>
+            <span class="PrivacyTerms">Copyright ©2019 Sports Hub</span>
+            <span class="PrivacyTerms">Privacy / Terms</span>
+            </div>
+        </div>
+    </div>
+</footer>

@@ -1,0 +1,43 @@
+ 
+ <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <h2 class = "register-header"><% t "registration_page.create_account"%></h2>
+   <h2 class="log-in-text">Create account</h2>
+    
+    <ul class="Login-with">
+        <li><a href="" > <%= link_to  'http://localhost:3000/auth/auth/facebook', :class=>"register-image", method: :post do %>
+   <%= image_tag("for-register-images/facebook-register-icon.svg")%>
+<% end %></a></li>  
+        <li><a href="" ><%= link_to  'http://fb8d-93-171-154-244.ngrok.io/auth/auth/google_oauth2', :class=>"register-image", method: :post do %>
+   <%= image_tag("for-register-images/gmail-register-icon.svg")%>
+<% end %></a></li>            
+  </ul>  
+    <%= f.label t("registration_page.use_email"), :class=>"enterEmail" %>
+
+    <div class = "first-last-names-fields">
+        <div >
+        <%= f.label :first_name,:class => "login-text"%><br />
+        <%= f.text_field :first_name ,autofocus: true, autocomplete: "first_name",:class=>"input-login", :placeholder => "John"%>
+        </div>
+
+        <div >
+          <%= f.label :last_name,:class => "login-text"%><br />
+          <%= f.text_field :last_name ,autofocus: true, autocomplete: "last_name",:class=>"input-login",:placeholder => "Doe"%>
+        </div>
+    </div>    
+
+    <div class="field">
+      <%= f.label :email,:class => "login-text"%><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" ,:class=>"input-login",:placeholder => "jonhdoe@gmail.com"%>
+    </div>
+
+    <div class="field">
+      
+      <%= f.label :password,:class => "login-text"%><br />
+      <%= f.password_field :password, autocomplete: "new-password" ,:class=>"input-login",
+      :placeholder => t("registration_page.fields.password_minimum_characters")%>
+  
+    </div>
+    <%= f.submit t("registration_page.buttons_and_links.sign_up"),:class=>"login-buton" %>
+  
+<% end %>
+  

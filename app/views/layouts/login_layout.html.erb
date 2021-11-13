@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sporthub</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
+  </head>
+  <body>
+
+    <div class = "sign-up-in-body">
+      <div class="register-navbar">
+        <div class = "btn-to-root">
+          <h1 class ="logo"> <%= link_to "Sport hub", root_path,:class=>"logo-style"%></h1>
+          
+        </div>
+        
+        <% if controller_name == "registrations"%>
+          <div class = "already-have-an-acc">
+            <span class = "text"><%= t 'registration_page.buttons_and_links.already_have_an_account'%></span>
+            <div class="btn btn-outline"><%= link_to "#{t("registration_page.buttons_and_links.log_in")}", "/auth/sign_in", :style=>"color:red; text-decoration:none"%></div>
+          </div>
+        <%else%>
+           <div class = "already-have-an-acc">
+            <span class = "text"><%= t 'registration_page.buttons_and_links.dont_have_an_account'%></span>
+            <div class="btn btn-outline"><%= link_to "#{t("registration_page.buttons_and_links.sign_up")}", "/auth/sign_up", :style=>"color:red; text-decoration:none"%></div>
+          </div>
+          <%end%>
+      </div>
+      <div class = "register-image-container">
+          <%= image_tag("for-register-images/main-register-image.png", :class=>"register-image")%>
+      </div>
+
+    <div class = "register-forms-container">
+         <%= yield %>
+    </div>
+    
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    
+  </body>
+</html>
