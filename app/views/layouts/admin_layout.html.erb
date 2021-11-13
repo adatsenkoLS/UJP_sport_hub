@@ -47,8 +47,6 @@
       <% end %>
       <% if  controller_name == "teams"%>
         <%= link_to '+ Add team', '/users/teams/new', class: "btn-new-post btn-new-article link-admin-add", method: :get %> 
-      <% else %>
-        <button class="btn-new-post btn-new-article">+ Add team</button>
       <% end %>
     </div>
     <div class="container-navbar">
@@ -93,7 +91,7 @@
         <button class="btn-new-post iconed new-partners"></button>
         <button class="btn-new-post iconed advertising"></button>
       </div>
-      <div class="container-main-content">
+      <div class="container-main-content-all">
         <% flash.each do |type, msg| %>
           <% if type == 'success'%>
               <div class= "alert-mes-success">

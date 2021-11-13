@@ -44,5 +44,5 @@ Rails.application.routes.draw do
   get 'cabinet/surveys', to:  'cabinet#surveys'
   put 'cabinet/personal', to: 'cabinet#update'
   put 'cabinet/password', to: 'cabinet#change'
-  put 'cabinet/teamhub', to: 'cabinet#followed_team'
+  get 'cabinet/followed_team', to: 'cabinet#followed_team'
 end

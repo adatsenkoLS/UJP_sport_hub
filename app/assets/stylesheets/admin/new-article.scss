@@ -9,11 +9,19 @@ html {
   margin: 0;
 }
 
+
+.container-main-content-all {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+
 .container-left-icon-btn,
 .container-btw-header-nav,
 .container-logo,
 .container-left-icons,
-.container-main-content {
+.container-main-content-all {
   display: flex;
   flex-direction: column;
   width: 100%;

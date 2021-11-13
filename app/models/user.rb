@@ -3,7 +3,7 @@ class User < ApplicationRecord
   
 
   has_many :user_team
-  has_many :team, through: :user_team
+  has_many :teams, through: :user_team
 
   # Roles
   
