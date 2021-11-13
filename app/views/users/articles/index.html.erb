@@ -1,113 +1,54 @@
-  <body>
-    <%= render "admin_navbar"%>
-    <div class="container-btw-header-nav">
-      <div class="container-logo">
-        <h2 id="current-menu-item">NBA</h2>
-      </div>
-      <% if controller_name == "articles"%>
-      <button class="btn-new-post btn-new-article">
-            <%= link_to '+ New Article', new_users_article_path, :style=>"color:white; text-decoration:none" %>
-      </button>
-      <% end %>
-      <% if  controller_name == "user_teams"%>
-        <button class="btn-new-post btn-new-article">+ Add team</button>
-      <% end %>
-    </div>
-    <div class="container-navbar">
-      <nav>
-        <div class="container-left-icon-btn">
-          <button class="btn-new-post iconed icon-arrow-left"></button>
-        </div>
-
-        <div class="container-opts">
-          <span class="nav-opt">home</span>
-          <span class="nav-opt">nba</span>
-          <span class="nav-opt">nfl</span>
-          <span class="nav-opt">mlb</span>
-          <span class="nav-opt">nhl</span>
-          <span class="nav-opt">cbb</span>
-          <span class="nav-opt">cfb</span>
-          <span class="nav-opt">nascar</span>
-          <span class="nav-opt">golf</span>
-          <span class="nav-opt">video</span>
-          <span class="nav-opt">lifestyle</span>
-          <span class="nav-opt">dealbook</span>
-        </div>
-
-        <button class="btn-new-post iconed icon-arrow-right"></button>
-      </nav>
-    </div>
-    <div class="main-page">
-      <div class="container-left-icons">
-        <button class="btn-new-post iconed surveys"></button>
-        <button class="btn-new-post iconed banners"></button>
-        <button class="btn-new-post iconed languages"></button>
-        <button class="btn-new-post iconed footer"></button>
-        <button class="btn-new-post iconed social-networks"></button>
-        <button class="btn-new-post iconed users"></button>
-        <button class="btn-new-post iconed ia"></button>
-        <!--Make teams button -->
-        <%= link_to '', '/users/teams/new', class: "btn-new-post iconed teams", method: :get %> 
-        <!------------------------------------->
-        <button class="btn-new-post iconed new-partners"></button>
-        <button class="btn-new-post iconed advertising"></button>
-      </div>
-      <div class="container-main-content">
-        <div class = "articles">
+<div class="container-main-content">
+  <div class = "articles">
     <% @articles.order(:id).each_with_index do |article, index|%>
-        <div class="single-article">  
-            <div>
-                <%= image_tag article.image, :class=>"small-article-img"%>
-            </div>
-            <div class="describtion-container">
-                <div class="headline"><%= article.headline%></div>
-                <div class="pre-content">
-                    <%= simple_format(get_first_paragraph(article.content))%>
-                </div>
-
-
-                <div class = "bottom-container-single-article">
-                  <%conference_name = Conference.select(:name).joins(:article_conference).where(article_conference: {article_id: article.id}).pluck(:name).join%>
-                  <div class = "conference-and-city">
-                    <%= "#{conference_name}/#{City.find(article.city_id).city_name}"%>      
-                  </div>
-                  <%if article.is_published%>
-                  <span class = "status">
-                      Published
-                  </span>
-                  <%end%>
-                </div>
-
-            </div>
-            <div class="dropdown">
-              <button class="three-dots" type="button" id="dropdownMenu<%="-#{index}"%>" data-bs-toggle="dropdown" aria-expanded="false">
-                <svg width="20" height="4" viewBox="0 0 20 4" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="2" cy="2" r="2" fill="#C63638"/>
-                  <circle cx="10" cy="2" r="2" fill="#C63638"/>
-                  <circle cx="18" cy="2" r="2" fill="#C63638"/>
-                </svg>
-              </button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenu<%="-#{index}"%>">
-                <li>
-                  <button class="dropdown-item publishBtn" id="<%="#{index}"%>" type="button">
-                    <% if article.is_published == false%>
-                    <%# , data: { params: { article: { is_published: true} }.to_param}, :method=> 'PATCH', remote: true %>
-                      <%= link_to 'Publish', change_status_users_article_path(article, article:{is_published: true}), action:'change_status', method: 'patch', :class=>'link-text-in-dropdown'%>
-                    <% elsif article.is_published == true%>
-                      <%= link_to 'Unpublish', change_status_users_article_path(article, article:{is_published: false}), action:'change_status', method: 'patch', :class=>:'link-text-in-dropdown'%>
-                    <%end%>
-                  </button>
-                </li>
-                <li><%=link_to 'Edit', edit_users_article_path(article.id), :class=>'dropdown-item link-text-in-dropdown' %></li>
-                <li><%=link_to 'Delete', users_article_path(article.id), method:'delete', action:'destroy', :class=>'dropdown-item link-text-in-dropdown'%></li>
-                <li><button class="dropdown-item link-text-in-dropdown" type="button">Move</button></li>
-              </ul>
-            </div>
+      <div class="single-article">  
+        <div>
+          <%= image_tag article.image, :class=>"small-article-img"%>
         </div>
-    <%end%>
-    </div>
+        <div class="describtion-container">
+          <div class="headline"><%= article.headline%></div>
+          <div class="pre-content">
+            <%= simple_format(get_first_paragraph(article.content))%>
+          </div>
+          <div class = "bottom-container-single-article">
+            <%conference_name = Conference.select(:name).joins(:article_conference).where(article_conference: {article_id: article.id}).pluck(:name).join%>
+            <div class = "conference-and-city">
+              <%= "#{conference_name}/#{City.find(article.city_id).city_name}"%>      
+            </div>
+            <%if article.is_published%>
+              <span class = "status">
+                Published
+              </span>
+            <%end%>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="three-dots" type="button" id="dropdownMenu<%="-#{index}"%>" data-bs-toggle="dropdown" aria-expanded="false">
+            <svg width="20" height="4" viewBox="0 0 20 4" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="2" cy="2" r="2" fill="#C63638"/>
+              <circle cx="10" cy="2" r="2" fill="#C63638"/>
+              <circle cx="18" cy="2" r="2" fill="#C63638"/>
+            </svg>
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenu<%="-#{index}"%>">
+            <li>
+              <button class="dropdown-item publishBtn" id="<%="#{index}"%>" type="button">
+                <% if article.is_published == false%>
+                  <%= link_to 'Publish', change_status_users_article_path(article, article:{is_published: true}), action:'change_status', method: 'patch', :class=>'link-text-in-dropdown'%>
+                <% elsif article.is_published == true%>
+                  <%= link_to 'Unpublish', change_status_users_article_path(article, article:{is_published: false}), action:'change_status', method: 'patch', :class=>:'link-text-in-dropdown'%>
+                <%end%>
+              </button>
+            </li>
+            <li><%=link_to 'Edit', edit_users_article_path(article.id), :class=>'dropdown-item link-text-in-dropdown' %></li>
+            <li><%=link_to 'Delete', users_article_path(article.id), method:'delete', action:'destroy', :class=>'dropdown-item link-text-in-dropdown'%></li>
+            <li><button class="dropdown-item link-text-in-dropdown" type="button">Move</button></li>
+          </ul>
+        </div>
       </div>
-    </div>
+    <%end%>
+  </div>
+</div>
 
   
-  </body>
+  
