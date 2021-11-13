@@ -2,7 +2,23 @@
 <html>
   <head>
   <%# TEXT EDITOR %>
-   
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+      tinymce.init({
+        selector: '.tinymce',
+        height: 500,
+        menubar: false,
+        plugins: [
+          'advlist autolink lists link image charmap print preview anchor',
+          'searchreplace visualblocks code fullscreen',
+          'insertdatetime media table paste code help wordcount'
+        ],
+          toolbar: 'undo redo | formatselect | ' +
+          ' bold italic backcolor | alignleft aligncenter ' +
+          ' alignright alignjustify | bullist numlist outdent indent | ' +
+          ' removeformat | help'
+      });
+    </script>
 
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -75,7 +91,7 @@
         <button class="btn-new-post iconed new-partners"></button>
         <button class="btn-new-post iconed advertising"></button>
       </div>
-      <div class="container-main-content"></div>
+      <div class=""></div>
        <%= yield %>
     </div>
 

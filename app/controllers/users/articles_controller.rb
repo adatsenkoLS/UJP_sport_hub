@@ -1,6 +1,6 @@
 module Users
   class ArticlesController < ApplicationController
-    # layout 'admin_layout'
+    layout 'admin_layout'
     # before_action :authenticate_user!, only: %w[index]
     # before_action :authenticate_admin!, only: %w[index new show create]
     include ArticlesHelper
