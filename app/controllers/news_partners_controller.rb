@@ -1,6 +1,6 @@
 class NewsPartnersController < ApplicationController
     before_action :authenticate_admin!
-    add_flash_types :info, :error, :warning,:success
+    add_flash_types :already_exist, :delete, :update, :add
 
     def show
     end
@@ -11,12 +11,14 @@ class NewsPartnersController < ApplicationController
 
     def create
         if NewsPartner.find_by title: news_partner_params[:title]
-            redirect_to "/news_partners"
+            redirect_to news_partners_new_path
+            flash[:already_exist] = 'Exist'
         else
             @news_partner = NewsPartner.new
             @news_partner.title = news_partner_params[:title]
             @news_partner.save
             redirect_to news_partners_path
+            flash[:add] = "Added"
         end
     end
 
@@ -27,6 +29,7 @@ class NewsPartnersController < ApplicationController
         @news_partner = NewsPartner.find(params[:id])
         @news_partner.delete
         redirect_to news_partners_path
+        flash[:delete] = "Deleted"
     end
 
     def update
@@ -34,6 +37,7 @@ class NewsPartnersController < ApplicationController
         @news_partner.update(api_key: params[:api_key], default_sources: params[:default_sources])
         @news_partner.save
         redirect_to news_partners_path
+        flash[:update] = "Updated"
     end
 
     def change_status

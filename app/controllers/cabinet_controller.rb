@@ -6,10 +6,9 @@ class CabinetController < ApplicationController
 
     def update
         @user = current_user
-        @user.avatar = params[:avatar]
-        @user.first_name = params[:first_name]
-        @user.last_name = params[:last_name]
-        @user.email = params[:email]
+        @user.update(avatar: params[:avatar]) if params[:avatar] 
+        @user.update(first_name: params[:first_name], 
+            last_name: params[:last_name], email: params[:email])
         @user.save
         redirect_back(fallback_location: root_path)
     end

@@ -60,6 +60,54 @@
     </div>
 <% end %>
 
+    <% if flash[:already_exist] %>
+    <div class="flash">
+        <div class="flash_icon_div">
+            <%= image_tag("news_partners/warning-red.png", class: "flash_icon") %>
+        </div>
+        <div class="flash_text">
+            <p class="flash_header">Something went wrong!</p>
+            <p>News Partner with this name already exist!</p>
+        </div>
+    </div>
+    <% end %>
+
+    <% if flash[:delete] %>
+    <div class="flash">
+        <div class="flash_icon_div">
+            <%= image_tag("news_partners/success.png", class: "flash_icon") %>
+        </div>
+        <div class="flash_text">
+            <p class="flash_header">Deleted!</p>
+            <p>News Partner was successfully deleted!</p>
+        </div>
+    </div>
+    <% end %>
+
+    <% if flash[:update] %>
+    <div class="flash">
+        <div class="flash_icon_div">
+            <%= image_tag("news_partners/success.png", class: "flash_icon") %>
+        </div>
+        <div class="flash_text">
+            <p class="flash_header">Updated!</p>
+            <p>News Partner was successfully updated!</p>
+        </div>
+    </div>
+    <% end %>
+
+    <% if flash[:add] %>
+    <div class="flash">
+        <div class="flash_icon_div">
+            <%= image_tag("news_partners/success.png", class: "flash_icon") %>
+        </div>
+        <div class="flash_text">
+            <p class="flash_header">Added!</p>
+            <p>News Partner was successfully added!</p>
+        </div>
+    </div>
+    <% end %>
+
 <script>
     function show_hide_row(row) {
         $("#"+row).toggle();
