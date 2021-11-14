@@ -40,10 +40,11 @@ Rails.application.routes.draw do
   get 'news_partners/new', to: "news_partners#new"
   get 'news_partners/edit/:id', to: "news_partners#edit"
   get 'news_partners/delete/:id', to: "news_partners#delete"
-  post 'news_partners/delete', to: "news_partners#destroy"
+  post 'news_partners/delete/:id', to: "news_partners#destroy"
   post 'news_partners', to: "news_partners#create"
-  patch 'news_partners', to: "news_partners#change_status"
-  put 'news_partners/edit/:id', to: "news_partners#update"
+  get 'news_partners/:id', to: "news_partners#change_status"
+  patch 'news_partners/:id', to: "news_partners#change_status"
+  put 'news_partners/', to: "news_partners#update"
 
   root 'home_page#home'
 

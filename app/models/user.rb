@@ -5,6 +5,8 @@ class User < ApplicationRecord
   has_many :user_team
   has_many :team, through: :user_team
 
+  has_one_attached :avatar
+
   # Roles
   
   enum role: %i[user admin]
@@ -27,6 +29,7 @@ class User < ApplicationRecord
   def set_default_role
     self.role ||= :user
   end
+
 
   validates :first_name, presence: { message: 'Must be given' }, format: { with: /\A[a-zA-Z]+\z/, message: 'Only numbers and letters are allowed' },
                          length: { in: 2..40 }

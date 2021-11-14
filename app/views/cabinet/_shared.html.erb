@@ -15,21 +15,3 @@
     
   </li>
 </ul>
-
-
-<script>
-let tabs = document.getElementsByClassName("list-group-item");
-for (let i = 0; i < tabs.length; i++) {
-  tabs[i].addEventListener("click", function() {
-  console.log(tabs[i]);
-  let current = document.getElementsByClassName("active_link");
-  console.log(current);
-  if (current.length > 0) { 
-    current[0].className = current[0].className.replace(" active_link", "");
-  }
-  this.classList.toggle("active_link")
-  console.log(tabs[i]);
-  console.log(current);
-  });
-}
-</script>

@@ -1,24 +1,30 @@
 <div class="news_partners_edit_form">
 
 <%= form_with model: @news_partner, method: :put do |form| %>
+        
+    <%= form.text_field :id, value: news_partner.id, type:"hidden"%>
     
-        <div class="form-group text_input">
-            <%= form.label :news_partners_edit_form_api_key, "API KEY"%>
-            <%= form.text_field :news_partners_edit_form_api_key, class: "news_partners_edit_form_font", value: news_partner.api_key %>
+    <div class="row">
+        <div class="form-group text_input col">
+            <%= form.label :api_key, "API KEY"%>
+            <%= form.text_field :api_key, class: "input-login", value: news_partner.api_key %>
         </div>
 
-        <div class="form-group text_input">
-            <%= form.label :news_partners_edit_form_default_sources, "DEFAULT SOURCES" %>
-            <%= form.text_field :news_partners_edit_form_default_sources, class: "news_partners_edit_form_font", value: news_partner.default_sources %>
+        <div class="form-group text_input col">
+            <%= form.label :default_sources, "DEFAULT SOURCES" %>
+            <%= form.text_field :default_sources, class: "input-login", value: news_partner.default_sources %>
         </div>
-
+        
         <br>
 
         <div class="form-group categories_table">
             <table>
                 <thead>
                     <tr>
-                        <th>CATEGORY</th>
+                        <th>
+                        <input type="checkbox" class="disabled_checkbox" disabled>
+                        CATEGORY
+                        </th>
                         <th>SOURCES</th>
                     </tr>
                 </thead>
@@ -39,7 +45,7 @@
 
         <div class="form-group buttons">
             <%= link_to (button_tag "Cancel", type: "button", class: "login-buton cancel"), "/news_partners" %>
-            <%= button_tag "Save", type: "button", class: "login-buton", onClick: "edit_row(#{news_partner.id})" %>
+            <%= form.submit "Save", class: "login-buton" %>
         </div>
 
 
@@ -62,4 +68,5 @@
         document.body.appendChild(form);
         form.submit(); 
     }
+});
 </script>

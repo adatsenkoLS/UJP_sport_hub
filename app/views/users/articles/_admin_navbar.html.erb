@@ -8,14 +8,15 @@
     <div class="nav-item-4-admin">
       <ul class="nav-item-list">
         
+         <%= image_tag(current_user.avatar, class: "profile_image avatar_navbar") if current_user.avatar.attached? %>
         <li class = "nav-user-avatar">
-        <img />
         <div class = "dropdown">
          
           <button class = "drop-btn"><%= "#{current_user.first_name} #{current_user.last_name}"%>
          
               <i><%= show_svg("/share-icons/dropdown-icon.svg")%></i>
           </button>
+          
               <div class="dropdown-content">
                 <div class = "dropdown-field survey" style = "height: fit-content">
       

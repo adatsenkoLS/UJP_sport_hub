@@ -6,6 +6,7 @@ class CabinetController < ApplicationController
 
     def update
         @user = current_user
+        @user.avatar = params[:avatar]
         @user.first_name = params[:first_name]
         @user.last_name = params[:last_name]
         @user.email = params[:email]
@@ -27,7 +28,11 @@ class CabinetController < ApplicationController
     end
 
     def followed_team
-        
+    end
 
+    private
+
+    def cabinet_params
+        params.require(:put).permit(:first_name, :last_name, :email, :avatar)
     end
 end
