@@ -33,14 +33,15 @@
       </div>
 
        <div class= "add-logo-team form-group">
+         
+          
+         <%= form.file_field :image,:id=>"file-upload" %>
+         
+        <label for="file-upload" class="custom-file-upload">
+      <img  id="img_preview" src = "/assets/teams/photoAddTeam.svg">
+        <p id= "text-upload-file"><span style="color: #D72130;">Add logo</span>  right here</p> 
+        </label>  
       
-        <img class = "btn-input-image" id="img_preview" src = "/assets/teams/photoAddTeam.svg">
-      
-      <label for="file-upload" class="custom-file-upload">
-     
-       <p id= "text-upload-file"><span style="color: #D72130;">Add logo</span>  right here</p> 
-      </label>  
-      <%= form.file_field :image,:id=>"file-upload" %>
     </div>
 
      <div class="teams-all-buttons">
@@ -61,11 +62,16 @@
            let src = URL.createObjectURL(event.target.files[0]);
            let preview = document.getElementById('img_preview');
            preview.src = src;
-           $("#img_preview").css('margin-bottom','0px');
+           $("#img_preview").css('margin-bottom','0px'); 
            document.getElementById('img_preview').classList.add("preview");
-           $("#text-upload-file").css('display','none');
+           //add-logo-team
+          //
+            let txtInInput=document.getElementById('text-upload-file');
+            txtInInput.style.display = "none"
+            $("#img_preview").css('width',"auto");
+           
        }
-   } 
+   }
    const input = document.getElementById("file-upload");
    input.addEventListener("change", showPreview);
 

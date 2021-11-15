@@ -55,8 +55,14 @@ gem 'i18n', '~> 1.8', '>= 1.8.10'
 
 
 gem 'rails-assets-jquery', source: 'https://rails-assets.org'
+gem 'jquery-ui-rails', '~> 6.0', '>= 6.0.1'
 gem 'rails-assets-datatables', source: 'https://rails-assets.org'
 gem 'kaminari'
+gem 'composite_primary_keys'
+
+# for  advanced search forms for your Ruby on Rails application
+gem 'ransack'
+
 
 group :development, :test do
   gem 'byebug'

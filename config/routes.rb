@@ -45,12 +45,23 @@ Rails.application.routes.draw do
   patch 'news_partners', to: "news_partners#change_status"
   put 'news_partners/edit/:id', to: "news_partners#update"
 
-  root 'home_page#home'
+  
 
-  get 'cabinet/personal', to: 'cabinet#personal'
-  get 'cabinet/password', to: 'cabinet#password'
-  get 'cabinet/surveys', to:  'cabinet#surveys'
-  put 'cabinet/personal', to: 'cabinet#update'
-  put 'cabinet/password', to: 'cabinet#change'
-  get 'cabinet/followed_team', to: 'cabinet#followed_team'
+  root 'home_page#home'
+  namespace :users do
+    get 'cabinet/personal', to: 'cabinet#personal'
+    get 'cabinet/password', to: 'cabinet#password'
+    get 'cabinet/surveys', to:  'cabinet#surveys'
+    put 'cabinet/personal', to: 'cabinet#update'
+    put 'cabinet/password', to: 'cabinet#change'
+    get 'cabinet/followed_team', to: 'cabinet#followed_team' ,as: "followed_team"
+    get 'cabinet/all_teams', to: 'cabinet#all_teams'
+    get 'cabinet/search_team',to: "cabinet#search_team", as: "search_team"
+    
+    post 'cabinet/follow_team',to: "cabinet#follow_team", as: "follow_team"
+    delete 'cabinet/unfollow_team/:id',to: "cabinet#unfollow_team", as: "unfollow_team"
+  end
+  
+
+
 end

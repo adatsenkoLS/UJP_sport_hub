@@ -96,3 +96,105 @@
   margin-top: 5%;
   width: 400px;
 }
+
+
+
+
+/*TeamHub*/
+
+.followed-teams{
+  overflow: hidden;
+}
+
+.followed-teams{
+  width: 280px;
+  background: #F8F8F8;
+}
+
+.followed-teams h2{
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 19px;
+  color: #434C5D;
+  padding-left: 20px;
+}
+.manage-team-list{
+  margin-top: 32px;
+  padding-left: 20px;
+}
+.manage-team-list a{
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 17px;
+  color: #D72130;
+  text-decoration: none;
+}
+.content-teams span{
+  display: block;
+}
+.content-teams p span:nth-child(1){
+  font-family: 'Open Sans';   
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 19px;
+}
+.content-teams p span:nth-child(2){
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 19px;
+  color: #7F7B7B;
+ 
+}
+
+
+.content-teams {
+padding-top: 30px;
+padding-left: 19px;
+border-bottom: 1px solid #F2F2F2;
+position:relative;
+}
+
+
+#cansel_follow{
+  width: 12px;
+  position: absolute;
+  right: 10px;
+  top:50%;
+  cursor: pointer;
+  visibility: hidden;
+}
+
+
+.content-teams:hover{
+  background: rgba(215, 33, 48, 0.11);
+  transition: all 0.3s ease;
+}
+.content-teams:hover #cansel_follow{
+  visibility:visible;
+}
+
+.content-teams img{
+  float: left;
+  margin-right: 17px;
+  width: 60px;
+  border-radius: 50%;
+}
+
+
+.groups-content{
+  
+  height:297px;
+  width:294px;
+  overflow-y:scroll;
+}
+
+
+
+/**/

@@ -133,9 +133,9 @@ ActiveRecord::Schema.define(version: 2021_11_06_203713) do
     t.index ["subcategory_id"], name: "index_teams_on_subcategory_id"
   end
 
-  create_table "user_teams", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "team_id"
+  create_table "user_teams", primary_key: ["user_id", "team_id"], force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "team_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["team_id"], name: "index_user_teams_on_team_id"

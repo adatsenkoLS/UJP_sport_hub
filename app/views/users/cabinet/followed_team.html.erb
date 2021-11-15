@@ -1,0 +1,29 @@
+<%= render "shared" %>
+
+<div class="cabinet-form form_change_password" >
+  <div class="followed-teams">
+        <div>
+            <h2>YOUR FOLLOWED TEAMS</h2>
+        </div>
+         
+            <div class="groups-content" style="">
+                <% @teams.each do |team| %>
+                    <div class="content-teams">
+                        <% if team.image.attached? %>
+                            <%= image_tag(team.image)%>
+                        <% end %>
+                        <p>
+                            <span><%= team.team_name %></span>
+                                <%= image_tag("teams/cansel_follow.png",id: "cansel_follow",onClick:"UnFollowTeam(#{team.id})") %>   
+                            <span>Some text</span>
+                           
+                        </p>
+                    </div>
+                <% end %>
+            </div>
+        <div class="manage-team-list">
+            <%= link_to("Manage Teams List","/users/cabinet/all_teams")%>
+            
+        </div>
+    </div>
+</div>

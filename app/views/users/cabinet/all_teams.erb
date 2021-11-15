@@ -1,0 +1,116 @@
+<%= render "shared" %>
+<div class="cabinet-form form_change_password" >
+
+  <div class="followed-teams">
+        <div>
+            <h2>Follow your favorite teams</h2>
+        </div>
+      
+           <%= form_with url: users_follow_team_path, local: true,method: :post, html: {class: "input-search-team"} do |form| %>
+                 <%= form.text_field "id-team-search",style:"display:none"%>
+                <%= form.text_field :q,placeholder: "Search",data: {behavior: "autocomplete"}%>
+                <%= form.submit "Follow",class: "search-button-footer"%>
+           <% end %>
+            <div class="groups-content" style="">
+                <% @teams.each do |team| %>
+                    
+                    <div class="content-teams">
+                        <% if team.image.attached? %>
+                            <%= image_tag(team.image)%>
+                        <% end %>
+                        <p> 
+                            <span><%= team.team_name %></span>
+                              <%= image_tag("teams/cansel_follow.png",id: "cansel_follow",onClick:"UnFollowTeam(#{team.id})") %>
+                            <span><%= team.subcategory.name %></span>
+                        </p>
+                    </div>
+                <% end %>
+            </div>
+        <div class="manage-team-list">
+            <%= link_to("Manage Teams List")%>
+            
+        </div>
+    </div>
+</div>
+
+
+<script >
+document.addEventListener("turbolinks:load",function () {
+        $input = $("[data-behavior = 'autocomplete']")
+
+    var options =
+    {
+        getValue: "name",
+        url: function (phrase) {
+            return "/users/cabinet/search_team.json?q="+ phrase;
+        },
+        categories: [
+            {  
+                listLocation: "team_to_search",
+                
+            }
+        ],
+     
+        list: {
+        onChooseEvent: function(){
+            var name = $input.getSelectedItemData().name
+            console.log(name)
+
+
+            const html = ` <div class="content-teams">
+                        
+                        <img id = 'team-image-search'> </img>
+                        <p> 
+                            <span id ="team-name-search"></span>
+                            <span id = "team-text-search"></span>
+                        </p>
+                    </div>` 
+
+
+
+
+            const template = document.createElement('template')
+            template.innerHTML = html;
+            const confirmEl  = template.content.querySelector('.groups-content');
+            const team_image  = template.content.querySelector('#team-image-search');
+            const team_name  = template.content.querySelector('#team-name-search');
+            const team_text  = template.content.querySelector('#team-text-search');
+            
+            
+            s = $.ajax({
+                url: `/users/cabinet/search_team.json?q=${name}`, 
+                type: "GET",
+                dataType: "json",
+                success: function(result) {
+                    let array = result.team_to_search[0]
+                    team_name.innerHTML =  array.name
+                    team_text.innerHTML =  array.url
+                    console.log(array.id_team)
+                    $("#id-team-search").val(array.id_team);
+                    
+                    if(array.image != 0)
+                    team_image.src = array.image
+                    
+
+                }
+            })
+
+            $(".groups-content").empty().append(template.content)
+
+        }
+    }
+    }
+
+    $input.easyAutocomplete(options);
+    
+})
+
+
+
+
+
+
+
+
+
+</script>

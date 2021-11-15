@@ -34,9 +34,25 @@
         </div>
       </div>
 
-       <div class= "add-logo-team form-group">
-      <% if @team.image.attached?  %>
-        <%= image_tag(@team.image)%>
+        <div class= "add-logo-team form-group">
+        <% if @team.image.attached?  %>
+      
+        <%= form.file_field :image,:id=>"file-upload" %>
+          <label for="file-upload" class="custom-file-upload">
+        <%= image_tag(@team.image,style:"width:auto;",id: "img_preview")%>
+       
+        </label> 
+        <% else %>
+        
+         
+          
+         <%= form.file_field :image,:id=>"file-upload" %>
+         
+        <label for="file-upload" class="custom-file-upload">
+      <img  id="img_preview" src = "/assets/teams/photoAddTeam.svg">
+        <p id= "text-upload-file"><span style="color: #D72130;">Add logo</span>  right here</p> 
+        </label> 
+       
       <% end %>
      
     </div>
@@ -72,6 +88,22 @@
 <script>
 teamsCheck()
 tableTeam()
-
+function showPreview(event) {
+       if(event.target.files.length>0){
+           let src = URL.createObjectURL(event.target.files[0]);
+           let preview = document.getElementById('img_preview');
+           preview.src = src;
+           $("#img_preview").css('margin-bottom','0px'); 
+           document.getElementById('img_preview').classList.add("preview");
+           //add-logo-team
+          //
+            let txtInInput=document.getElementById('text-upload-file');
+            txtInInput.style.display = "none"
+            $("#img_preview").css('width',"auto");
+           
+       }
+   }
+   const input = document.getElementById("file-upload");
+   input.addEventListener("change", showPreview);
 
 </script>   

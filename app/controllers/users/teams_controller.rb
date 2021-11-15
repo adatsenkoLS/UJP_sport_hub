@@ -2,10 +2,10 @@ module Users
   class TeamsController < ApplicationController
     layout 'admin_layout'
     add_flash_types :info, :error, :warning,:success
+    
     def index
-      respond_to do |format|
+      respond_to do |format|  
         format.html
-        
         format.json { render json: TeamsDatatable.new(view_context) }
       end
     end
@@ -15,7 +15,7 @@ module Users
     end
 
     def show
-      @team = Team.find(params[:id])
+      
     end
 
     def create
@@ -43,20 +43,34 @@ module Users
     def update
       @team = Team.find(params[:id])
       
-      @team.update(team_name: params[:team][:team_name], city_id: params[:team][:city_id],subcategory_id: params[:team][:subcategory_id])
+       
+  
+      if params[:team][:image] != nil
+        @team.update(team_name: params[:team][:team_name], city_id: params[:team][:city_id],subcategory_id: params[:team][:subcategory_id],image:  params[:team][:image])
+      elsif @team.image.attached?
+        @team.update(team_name: params[:team][:team_name], city_id: params[:team][:city_id],subcategory_id: params[:team][:subcategory_id])
+      end
+     
+      
+    
+      
       redirect_to users_teams_path 
     end
 
+
+    #Search team autocomplete
+
+  
     def destroy
       @team = Team.find(params[:id])
       @team.destroy()
       redirect_to users_teams_path, warning: "deleted"
     end
 
-    private
 
+    private 
     def team_params
-      params.require(:team).permit(:id, :team_name,:city_id, :subcategory_id,:image,:category_id)
+      params.require(:team).permit(:id, :team_name,:city_id, :subcategory_id,:image,:category_id,:q)
     end
   end
 end

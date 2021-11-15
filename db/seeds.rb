@@ -8,6 +8,8 @@
 
 admin = User.create!({ first_name: 'Admin', last_name: 'Administrator', email: 'admin@admin.com',
                        password: 'adminpassword', role: 1 })
+user = User.create!({ first_name: 'Admin', last_name: 'Administrator', email: 'user@gmail.com',
+                        password: 'userpassword', role: 0 })                       
 
 category_names = %w[NBA NFL NHL CBB CFB NASCAR GOLF SOCCER]
 category_names.each do |name|

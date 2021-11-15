@@ -13,8 +13,8 @@ import "../javascript/channels"
 import "../javascript/teams" 
 import "../javascript/delete" 
 
-
-
+import "easy-autocomplete/dist/jquery.easy-autocomplete"
+import 'easy-autocomplete/dist/easy-autocomplete.themes'
 
 Rails.start()
 Turbolinks.start()
